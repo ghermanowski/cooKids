@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
-            Text("Hello, worljgfkuknbhbkjhyfd!")
+            Text("Hello, worljgfkuknbhbhbhhbkjhyfd!")
                 .padding()
             
             Text("Test 1")
