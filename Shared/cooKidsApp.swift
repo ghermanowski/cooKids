@@ -2,16 +2,17 @@
 //  cooKidsApp.swift
 //  Shared
 //
-//  Created by Gregor Hermanowski on 16.November.
+//  Created on 16/11/2021.
 //
 
 import SwiftUI
 
 @main
 struct cooKidsApp: App {
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-        }
-    }
+	var body: some Scene {
+		WindowGroup {
+			ContentView()
+				.environmentObject(UserStore())
+		}
+	}
 }
