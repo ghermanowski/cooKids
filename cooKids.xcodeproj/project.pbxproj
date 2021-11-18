@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		950C21CB274655DC00021FCD /* RecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950C21CA274655DC00021FCD /* RecipeView.swift */; };
+		950C21CC274655DC00021FCD /* RecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950C21CA274655DC00021FCD /* RecipeView.swift */; };
+		950C21CE274656EF00021FCD /* BigButtonBottom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950C21CD274656EF00021FCD /* BigButtonBottom.swift */; };
+		950C21CF274656EF00021FCD /* BigButtonBottom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950C21CD274656EF00021FCD /* BigButtonBottom.swift */; };
+		950C21D12746572300021FCD /* StepsImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950C21D02746572300021FCD /* StepsImage.swift */; };
+		950C21D22746572300021FCD /* StepsImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950C21D02746572300021FCD /* StepsImage.swift */; };
+		950C21D52746577000021FCD /* IngredientsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950C21D42746577000021FCD /* IngredientsListView.swift */; };
+		950C21D62746577000021FCD /* IngredientsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950C21D42746577000021FCD /* IngredientsListView.swift */; };
+		950C21D8274657BE00021FCD /* TrophyCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950C21D7274657BE00021FCD /* TrophyCircleView.swift */; };
+		950C21D9274657BE00021FCD /* TrophyCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950C21D7274657BE00021FCD /* TrophyCircleView.swift */; };
 		F5B615222743BEE100AD47C6 /* cooKidsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B615122743BEDF00AD47C6 /* cooKidsApp.swift */; };
 		F5B615232743BEE100AD47C6 /* cooKidsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B615122743BEDF00AD47C6 /* cooKidsApp.swift */; };
 		F5B615242743BEE100AD47C6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B615132743BEDF00AD47C6 /* ContentView.swift */; };
@@ -22,6 +32,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		950C21CA274655DC00021FCD /* RecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecipeView.swift; path = Shared/ViewsComponents/RecipeView.swift; sourceTree = SOURCE_ROOT; };
+		950C21CD274656EF00021FCD /* BigButtonBottom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigButtonBottom.swift; sourceTree = "<group>"; };
+		950C21D02746572300021FCD /* StepsImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsImage.swift; sourceTree = "<group>"; };
+		950C21D42746577000021FCD /* IngredientsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsListView.swift; sourceTree = "<group>"; };
+		950C21D7274657BE00021FCD /* TrophyCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyCircleView.swift; sourceTree = "<group>"; };
 		F5B615122743BEDF00AD47C6 /* cooKidsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cooKidsApp.swift; sourceTree = "<group>"; };
 		F5B615132743BEDF00AD47C6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F5B615142743BEE100AD47C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -51,6 +66,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		950C21D32746573B00021FCD /* ViewsComponents */ = {
+			isa = PBXGroup;
+			children = (
+				950C21CA274655DC00021FCD /* RecipeView.swift */,
+				950C21D02746572300021FCD /* StepsImage.swift */,
+				950C21D42746577000021FCD /* IngredientsListView.swift */,
+				950C21D7274657BE00021FCD /* TrophyCircleView.swift */,
+				950C21CD274656EF00021FCD /* BigButtonBottom.swift */,
+			);
+			path = ViewsComponents;
+			sourceTree = "<group>";
+		};
 		F5B6150C2743BEDF00AD47C6 = {
 			isa = PBXGroup;
 			children = (
@@ -65,6 +92,7 @@
 			children = (
 				F5B615122743BEDF00AD47C6 /* cooKidsApp.swift */,
 				F5B615132743BEDF00AD47C6 /* ContentView.swift */,
+				950C21D32746573B00021FCD /* ViewsComponents */,
 				F5B6154A2745112D00AD47C6 /* Model */,
 				F5B615142743BEE100AD47C6 /* Assets.xcassets */,
 			);
@@ -196,10 +224,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				950C21D52746577000021FCD /* IngredientsListView.swift in Sources */,
+				950C21CB274655DC00021FCD /* RecipeView.swift in Sources */,
 				F5B6155B2745666200AD47C6 /* UserStore.swift in Sources */,
 				F5B6154E274511CF00AD47C6 /* Trophy.swift in Sources */,
+				950C21D8274657BE00021FCD /* TrophyCircleView.swift in Sources */,
 				F5B615242743BEE100AD47C6 /* ContentView.swift in Sources */,
 				F5B615222743BEE100AD47C6 /* cooKidsApp.swift in Sources */,
+				950C21D12746572300021FCD /* StepsImage.swift in Sources */,
+				950C21CE274656EF00021FCD /* BigButtonBottom.swift in Sources */,
 				F5B6155E2745807D00AD47C6 /* Recipe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -208,10 +241,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				950C21D62746577000021FCD /* IngredientsListView.swift in Sources */,
+				950C21CC274655DC00021FCD /* RecipeView.swift in Sources */,
 				F5B615252743BEE100AD47C6 /* ContentView.swift in Sources */,
 				F5B6155C2745666200AD47C6 /* UserStore.swift in Sources */,
+				950C21D9274657BE00021FCD /* TrophyCircleView.swift in Sources */,
 				F5B61559274565EF00AD47C6 /* Trophy.swift in Sources */,
 				F5B615232743BEE100AD47C6 /* cooKidsApp.swift in Sources */,
+				950C21D22746572300021FCD /* StepsImage.swift in Sources */,
+				950C21CF274656EF00021FCD /* BigButtonBottom.swift in Sources */,
 				F5B6155F2745807D00AD47C6 /* Recipe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
