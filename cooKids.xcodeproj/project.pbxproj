@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		912AB283274667F7001B8CF7 /* Recipes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912AB282274667F7001B8CF7 /* Recipes.swift */; };
+		912AB284274667F7001B8CF7 /* Recipes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912AB282274667F7001B8CF7 /* Recipes.swift */; };
 		950C21CB274655DC00021FCD /* RecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950C21CA274655DC00021FCD /* RecipeView.swift */; };
 		950C21CC274655DC00021FCD /* RecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950C21CA274655DC00021FCD /* RecipeView.swift */; };
 		950C21CE274656EF00021FCD /* BigButtonBottom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950C21CD274656EF00021FCD /* BigButtonBottom.swift */; };
@@ -34,6 +36,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		912AB282274667F7001B8CF7 /* Recipes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipes.swift; sourceTree = "<group>"; };
 		950C21CA274655DC00021FCD /* RecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecipeView.swift; path = Shared/ViewsComponents/RecipeView.swift; sourceTree = SOURCE_ROOT; };
 		950C21CD274656EF00021FCD /* BigButtonBottom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigButtonBottom.swift; sourceTree = "<group>"; };
 		950C21D02746572300021FCD /* StepsImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsImage.swift; sourceTree = "<group>"; };
@@ -95,6 +98,7 @@
 			children = (
 				F5B615122743BEDF00AD47C6 /* cooKidsApp.swift */,
 				F5B615132743BEDF00AD47C6 /* ContentView.swift */,
+				912AB282274667F7001B8CF7 /* Recipes.swift */,
 				950C21DA27465E3000021FCD /* RecipeIntroView.swift */,
 				950C21D32746573B00021FCD /* ViewsComponents */,
 				F5B6154A2745112D00AD47C6 /* Model */,
@@ -229,6 +233,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				950C21D52746577000021FCD /* IngredientsListView.swift in Sources */,
+				912AB283274667F7001B8CF7 /* Recipes.swift in Sources */,
 				950C21CB274655DC00021FCD /* RecipeView.swift in Sources */,
 				950C21DB27465E3000021FCD /* RecipeIntroView.swift in Sources */,
 				F5B6155B2745666200AD47C6 /* UserStore.swift in Sources */,
@@ -247,6 +252,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				950C21D62746577000021FCD /* IngredientsListView.swift in Sources */,
+				912AB284274667F7001B8CF7 /* Recipes.swift in Sources */,
 				950C21CC274655DC00021FCD /* RecipeView.swift in Sources */,
 				950C21DC27465E3000021FCD /* RecipeIntroView.swift in Sources */,
 				F5B615252743BEE100AD47C6 /* ContentView.swift in Sources */,
