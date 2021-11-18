@@ -14,8 +14,8 @@ struct Trophies: View {
 		NavigationView {
 			ScrollView {
 				LazyVGrid(columns: Array(repeating: GridItem(), count: 3)) {
-					let trophies = userStore.trophies.sorted { trophy, details in
-						trophy.value.progress > details.value.progress
+					let trophies = userStore.trophies.sorted {
+						$0.value.progress > $1.value.progress
 					}
 					
 					ForEach(trophies, id: \.key) { trophy, _ in
