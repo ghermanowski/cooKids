@@ -16,7 +16,6 @@ struct TrophyCircleView: View {
     let progressFrom0to1 : Double
     
     
-    
     var body: some View {
         VStack {
             ZStack {
