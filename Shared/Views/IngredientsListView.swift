@@ -24,6 +24,6 @@ struct IngredientsListView: View {
 
 struct IngredientsListView_Previews: PreviewProvider {
     static var previews: some View {
-        IngredientsListView(ingredients: UserStore().recipies[0].ingredients).environmentObject(UserStore())
+		IngredientsListView(ingredients: UserStore().recipes[0].ingredients).environmentObject(UserStore())
     }
 }

@@ -19,13 +19,13 @@ struct RecipeIntroView: View {
                         StepsImage(image: "berryQuarkImage", introOrNot: true)
                         
                         ScrollView (.horizontal) {
-                            ForEach(userStore.recipies[0].trophies) { trophy in                                TrophyCircleView(trophy: trophy, hasDetailsNumber: false)
+                            ForEach(userStore.recipes[0].trophies) { trophy in                                TrophyCircleView(trophy: trophy, showProgressText: false)
                             }
                         }.padding(.horizontal, 20)
                         
                         Text("Ingredients")
                             .font(.system(size: 30, weight: .semibold, design: .rounded))
-                        IngredientsListView(ingredients: userStore.recipies[0].ingredients)
+                        IngredientsListView(ingredients: userStore.recipes[0].ingredients)
                             .padding(.horizontal, 20)
                     }
                 }
