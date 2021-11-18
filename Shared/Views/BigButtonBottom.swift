@@ -13,9 +13,6 @@ struct BigButtonBottom: View {
 	var action: () -> Void
 	
 	var body: some View {
-		VStack {
-			Spacer()
-			
 			Button(action: action) {
 				Label(buttonText, systemImage: systemIcon)
 					.imageScale(.small)
@@ -29,7 +26,6 @@ struct BigButtonBottom: View {
 			.background(.ultraThinMaterial)
 			.shadow(color: .clear, radius: .zero)
 			.shadow(radius: 4, y: -2)
-		}
 	}
 }
 

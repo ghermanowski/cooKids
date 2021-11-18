@@ -8,12 +8,11 @@
 import SwiftUI
 
 struct CreationsView: View {
-	let dumbCrationsPhotos: [CreationRecipe] = [
-		 CreationRecipe(title: "Caprese", imageName: "Caprese"),
-		 CreationRecipe(title: "Caprese", imageName: "Caprese"),
-		 CreationRecipe(title: "Caprese", imageName: "Caprese"),
-		 CreationRecipe(title: "Berry Quark", imageName: "berrieQuarkImage"),
-		 CreationRecipe(title: "Berry Quark", imageName: "berryQuarkImage")
+	var dumbCrationsPhotos: [CreationRecipe] = [
+		CreationRecipe(imageName: "Caprese", date: Date.now, recipeTitle: "Caprese"),
+		CreationRecipe(imageName: "Caprese", date: Date.now, recipeTitle: "Caprese"),
+		CreationRecipe(imageName: "Caprese", date: Date.now, recipeTitle: "Caprese"),
+		CreationRecipe(imageName: "Berrie Quark", date: Date.now, recipeTitle: "berryQuarkImage")
 	]
 	var body: some View {
 		NavigationView {
@@ -33,12 +32,19 @@ struct CreationsView: View {
 
 struct CreationRecipe: Identifiable, RapresentableInRectProtocol {
 	var id: String { title }
-	let title: String
+	var title: String = ""
 	let imageName: String
-	let trophies : [Trophy] = []
+	let trophies: [Trophy] = []
+	let date: Date
+	let recipeTitle: String
 }
-
-
+struct CreationPhoto: Identifiable, RapresentableInRectProtocol {
+	var id: String { title }
+	var title: String = ""
+	let imageName: String
+	let trophies: [Trophy] = []
+	
+}
 
 
 struct CreationsView_Previews: PreviewProvider {
