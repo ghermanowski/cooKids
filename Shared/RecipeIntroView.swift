@@ -16,7 +16,7 @@ struct RecipeIntroView: View {
                 ScrollView (.vertical) {
                     
                     VStack (spacing: 30) {
-                        StepsImage(image: "berryQuarkImage", introOrNot: true)
+						StepsImage(image: userStore.recipes[0].imageName, introOrNot: true)
                         
                         ScrollView (.horizontal) {
                             ForEach(userStore.recipes[0].trophies) { trophy in                                TrophyCircleView(trophy: trophy, showProgressText: false)
@@ -29,7 +29,7 @@ struct RecipeIntroView: View {
                             .padding(.horizontal, 20)
                     }
                 }
-                BigButtonBottom(buttonText: "COOK", systemIcon: "photo") {
+                BigButtonBottom(buttonText: "COOK", systemIcon: "fork.knife") {
                     //
                 }
             }

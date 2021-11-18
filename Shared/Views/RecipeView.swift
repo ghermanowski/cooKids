@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RecipeView: View {
-	let recipe: Recipe
+	let recipe: RapresentableInRectProtocol
 	
 	var trophyCount: some View {
 		HStack {
