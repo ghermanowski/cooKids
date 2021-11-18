@@ -33,6 +33,8 @@
 		F5B6155C2745666200AD47C6 /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B6155A2745666200AD47C6 /* UserStore.swift */; };
 		F5B6155E2745807D00AD47C6 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B6155D2745807D00AD47C6 /* Recipe.swift */; };
 		F5B6155F2745807D00AD47C6 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B6155D2745807D00AD47C6 /* Recipe.swift */; };
+		F5B615612746678500AD47C6 /* Trophies.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B615602746678500AD47C6 /* Trophies.swift */; };
+		F5B615622746678500AD47C6 /* Trophies.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B615602746678500AD47C6 /* Trophies.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +54,7 @@
 		F5B6154D274511CF00AD47C6 /* Trophy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trophy.swift; sourceTree = "<group>"; };
 		F5B6155A2745666200AD47C6 /* UserStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
 		F5B6155D2745807D00AD47C6 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		F5B615602746678500AD47C6 /* Trophies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trophies.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +103,7 @@
 				F5B615132743BEDF00AD47C6 /* ContentView.swift */,
 				912AB282274667F7001B8CF7 /* Recipes.swift */,
 				950C21DA27465E3000021FCD /* RecipeIntroView.swift */,
+				F5B615602746678500AD47C6 /* Trophies.swift */,
 				950C21D32746573B00021FCD /* ViewsComponents */,
 				F5B6154A2745112D00AD47C6 /* Model */,
 				F5B615142743BEE100AD47C6 /* Assets.xcassets */,
@@ -244,6 +248,7 @@
 				950C21D12746572300021FCD /* StepsImage.swift in Sources */,
 				950C21CE274656EF00021FCD /* BigButtonBottom.swift in Sources */,
 				F5B6155E2745807D00AD47C6 /* Recipe.swift in Sources */,
+				F5B615612746678500AD47C6 /* Trophies.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,6 +268,7 @@
 				950C21D22746572300021FCD /* StepsImage.swift in Sources */,
 				950C21CF274656EF00021FCD /* BigButtonBottom.swift in Sources */,
 				F5B6155F2745807D00AD47C6 /* Recipe.swift in Sources */,
+				F5B615622746678500AD47C6 /* Trophies.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

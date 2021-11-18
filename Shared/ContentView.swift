@@ -13,7 +13,7 @@ struct ContentView: View {
 	var body: some View {
 		ScrollView {
 			VStack(spacing: 24) {
-				ForEach(userStore.recipies) { recipe in
+				ForEach(userStore.recipes) { recipe in
 					HStack {
 						Spacer()
 						
@@ -65,8 +65,8 @@ struct ContentView: View {
 				}
 				.padding()
 				
-				let trophies = userStore.trophies.sorted { trophy, details in
-					trophy.value.progress > details.value.progress
+				let trophies = userStore.trophies.sorted {
+					$0.value.progress > $1.value.progress
 				}
 				
 				ForEach(trophies, id: \.key) { trophy, trophyDetails in
@@ -87,6 +87,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
 	static var previews: some View {
 		ContentView()
-            .environmentObject(UserStore())
+			.environmentObject(UserStore())
 	}
 }

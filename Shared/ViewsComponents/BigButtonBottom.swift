@@ -18,6 +18,7 @@ struct BigButtonBottom: View {
 			
 			Button(action: action) {
 				Label(buttonText, systemImage: systemIcon)
+					.imageScale(.small)
 					.font(.system(size: 24, weight: .bold, design: .rounded))
 					.frame(maxWidth: .infinity)
 			}
@@ -34,6 +35,6 @@ struct BigButtonBottom: View {
 
 struct BigButtonBottom_Previews: PreviewProvider {
 	static var previews: some View {
-		BigButtonBottom(buttonText: "Text", systemIcon: "fork.knife", action: {})
+		BigButtonBottom(buttonText: "Cook", systemIcon: "fork.knife", action: {})
 	}
 }
