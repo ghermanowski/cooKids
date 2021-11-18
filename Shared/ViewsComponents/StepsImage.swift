@@ -32,6 +32,6 @@ struct StepsImage: View {
 
 struct StepsImage_Previews: PreviewProvider {
     static var previews: some View {
-        StepsImage(image: "vicky-ng-yIh0i6TYGrs-unsplash", introOrNot: false)
+        StepsImage(image: "berryQuarkImage", introOrNot: false)
     }
 }
