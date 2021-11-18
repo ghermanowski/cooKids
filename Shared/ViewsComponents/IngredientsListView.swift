@@ -8,22 +8,22 @@
 import SwiftUI
 
 struct IngredientsListView: View {
-    var ingredients: [Recipe.Ingredient]
-    
+    let ingredients: [Recipe.Ingredient]
     var body: some View {
-        List {
+        VStack (alignment: .leading, spacing: 5){
             ForEach (ingredients, id: \.self.name) { ingredient in
                 HStack (spacing: 26){
                     Text(ingredient.icon)
                     Text(ingredient.name)
+                    Spacer()
                 }.font(.system(size: 20, weight: .regular, design: .rounded))
-            }.listRowInsets(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
-        }.listStyle(.plain)
+            }.padding(.vertical, 8)
+        }
     }
 }
 
 struct IngredientsListView_Previews: PreviewProvider {
     static var previews: some View {
-        IngredientsListView(ingredients: [])
+        IngredientsListView(ingredients: UserStore().recipies[0].ingredients).environmentObject(UserStore())
     }
 }
