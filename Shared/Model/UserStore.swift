@@ -15,18 +15,18 @@ class UserStore: ObservableObject {
 	
 	@Published var trophies: [Trophy: Trophy.Details]
 	
-	let recipies = [Recipe(title: "Berry Quark",
-						   ingredients: [.init(name: "250 gramms Quark", icon: "🥛"),
-										 .init(name: "200 gramms Greek Yoghurt", icon: "🥛"),
-										 .init(name: "250 gramms Berries", icon: "🍓"),
-										 .init(name: "2 tablespoons Honey", icon: "🍯")],
-						   steps: [.init(title: "Preparation",
-										 body: "Wash your hands.\n\nPrepare a mixing bowl, a spoon and a tablespoon for measures."),
-								   .init(title: "Take Berries",
-										 body: "If you have frozen berries let them stand at room temperature for 15 minutes."),
-								   .init(title: "Mix Yogurt and Quark",
-										 body: "Put the Greek yogurt and the quark in your mixing bowl and start to mix with a spoon.")],
-						   imageName: "berryQuarkImage",
-						   category: .sweets,
-						   trophies: [.cleaning])]
+	let recipes = [Recipe(title: "Berry Quark",
+						  ingredients: [.init(name: "250 gramms Quark", icon: "🥛"),
+										.init(name: "200 gramms Greek Yoghurt", icon: "🥛"),
+										.init(name: "250 gramms Berries", icon: "🍓"),
+										.init(name: "2 tablespoons Honey", icon: "🍯")],
+						  steps: [.init(title: "Preparation",
+										body: "Wash your hands.\n\nPrepare a mixing bowl, a spoon and a tablespoon for measures."),
+								  .init(title: "Take Berries",
+										body: "If you have frozen berries let them stand at room temperature for 15 minutes."),
+								  .init(title: "Mix Yogurt and Quark",
+										body: "Put the Greek yogurt and the quark in your mixing bowl and start to mix with a spoon.")],
+						  imageName: "berryQuarkImage",
+						  category: .sweets,
+						  trophies: [.cleaning])]
 }
