@@ -12,7 +12,7 @@ struct TrophyCircleView: View {
 	@EnvironmentObject private var userStore: UserStore
 	
 	let trophy: Trophy
-    let hasDetailsNumber: Bool
+    let showProgressText: Bool
     
 	func progressCircle(progress: Double) -> some View {
 		Circle()
@@ -41,7 +41,7 @@ struct TrophyCircleView: View {
                 Text(trophyDetails.title)
                     .font(.system(.title3, design: .rounded).weight(.semibold))
                 
-                if hasDetailsNumber {
+                if showProgressText {
                     Text("\(trophyDetails.count) / \(trophyDetails.maximum)")
                         .font(.system(.body, design: .rounded).weight(.medium))
                         .foregroundStyle(.secondary)
@@ -53,7 +53,7 @@ struct TrophyCircleView: View {
 
 struct TrophyCircleView_Previews: PreviewProvider {
 	static var previews: some View {
-		TrophyCircleView(trophy: .baking, hasDetailsNumber: true)
+		TrophyCircleView(trophy: .baking, showProgressText: true)
 			.environmentObject(UserStore())
 	}
 }

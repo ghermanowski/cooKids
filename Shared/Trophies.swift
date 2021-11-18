@@ -19,7 +19,7 @@ struct Trophies: View {
 					}
 					
 					ForEach(trophies, id: \.key) { trophy, _ in
-						TrophyCircleView(trophy: trophy)
+						TrophyCircleView(trophy: trophy, showProgressText: true)
 					}
 				}
 				.padding()

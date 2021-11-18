@@ -13,7 +13,7 @@ struct ContentView: View {
 	var body: some View {
 		ScrollView {
 			VStack(spacing: 24) {
-				ForEach(userStore.recipies) { recipe in
+				ForEach(userStore.recipes) { recipe in
 					HStack {
 						Spacer()
 						
