@@ -75,7 +75,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		950C21D32746573B00021FCD /* ViewsComponents */ = {
+		950C21D32746573B00021FCD /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				950C21CA274655DC00021FCD /* RecipeView.swift */,
@@ -84,7 +84,7 @@
 				950C21D7274657BE00021FCD /* TrophyCircleView.swift */,
 				950C21CD274656EF00021FCD /* BigButtonBottom.swift */,
 			);
-			path = ViewsComponents;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		F5B6150C2743BEDF00AD47C6 = {
@@ -95,6 +95,7 @@
 				F5B6151A2743BEE100AD47C6 /* Products */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 1;
 		};
 		F5B615112743BEDF00AD47C6 /* Shared */ = {
 			isa = PBXGroup;
@@ -104,7 +105,7 @@
 				912AB282274667F7001B8CF7 /* Recipes.swift */,
 				950C21DA27465E3000021FCD /* RecipeIntroView.swift */,
 				F5B615602746678500AD47C6 /* Trophies.swift */,
-				950C21D32746573B00021FCD /* ViewsComponents */,
+				950C21D32746573B00021FCD /* Views */,
 				F5B6154A2745112D00AD47C6 /* Model */,
 				F5B615142743BEE100AD47C6 /* Assets.xcassets */,
 			);
