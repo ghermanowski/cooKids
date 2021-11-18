@@ -17,7 +17,7 @@ struct TrophyCircleView: View {
 		Circle()
 			.trim(from: 0, to: progress)
 			.stroke(Color.orange, style: .init(lineWidth: 8, lineCap: .round))
-			.rotationEffect(Angle(degrees: -90.0))
+			.rotationEffect(.degrees(-90))
 	}
 	
 	var body: some View {
@@ -43,7 +43,6 @@ struct TrophyCircleView: View {
 		}
 	}
 }
-
 
 struct TrophyCircleView_Previews: PreviewProvider {
 	static var previews: some View {
