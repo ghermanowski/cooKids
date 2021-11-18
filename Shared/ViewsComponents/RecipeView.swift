@@ -74,7 +74,7 @@ struct RecipeView_Previews: PreviewProvider {
 		RecipeView(recipe: Recipe(title: "Berry Quark",
 								  ingredients: [],
 								  steps: [],
-								  imageName: "",
+								  imageName: "berryQuarkImage",
 								  category: .sweets,
 								  trophies: [.cleaning]))
     }
