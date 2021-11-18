@@ -26,7 +26,7 @@ class UserStore: ObservableObject {
 										 body: "If you have frozen berries let them stand at room temperature for 15 minutes."),
 								   .init(title: "Mix Yogurt and Quark",
 										 body: "Put the Greek yogurt and the quark in your mixing bowl and start to mix with a spoon.")],
-						   imageName: "",
+						   imageName: "berryQuarkImage",
 						   category: .sweets,
 						   trophies: [.cleaning])]
 }
