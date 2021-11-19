@@ -27,6 +27,6 @@ struct Navigation: View {
 
 struct Navigation_Previews: PreviewProvider {
     static var previews: some View {
-        Navigation()
+		Navigation().environmentObject(UserStore())
     }
 }
