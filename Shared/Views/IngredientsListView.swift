@@ -8,14 +8,21 @@
 import SwiftUI
 
 struct IngredientsListView: View {
-	let ingredients: [Recipe.Ingredient]
+	@EnvironmentObject private var userStore: UserStore
+	var ingredients: [Recipe.Ingredient]
 	var body: some View {
 		VStack (alignment: .leading, spacing: 5){
-			ForEach (ingredients, id: \.self.name) { ingredient in
+			ForEach (ingredients, id: \.self.name) { ingred in
 				HStack (spacing: 26){
-					Text(ingredient.icon)
-					Text(ingredient.name)
+					Text(ingred.icon)
+					Text(ingred.name)
 					Spacer()
+					Button {
+//						ingred.isChecked.toggle()
+					} label: {
+						Image(systemName: ingred.isChecked ? "checkmark.circle" : "checkmark.circle")
+					}
+
 				}.font(.system(size: 20, weight: .regular, design: .rounded))
 			}.padding(.vertical, 8)
 		}
