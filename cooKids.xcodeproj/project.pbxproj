@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A9C2C4C2747B58500B460AE /* LockedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9C2C4B2747B58500B460AE /* LockedView.swift */; };
+		5A9C2C4D2747B58500B460AE /* LockedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9C2C4B2747B58500B460AE /* LockedView.swift */; };
 		912AB283274667F7001B8CF7 /* Recipes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912AB282274667F7001B8CF7 /* Recipes.swift */; };
 		912AB284274667F7001B8CF7 /* Recipes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912AB282274667F7001B8CF7 /* Recipes.swift */; };
 		950C21CE274656EF00021FCD /* BigButtonBottom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950C21CD274656EF00021FCD /* BigButtonBottom.swift */; };
@@ -45,6 +47,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5A9C2C4B2747B58500B460AE /* LockedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockedView.swift; sourceTree = "<group>"; };
 		912AB282274667F7001B8CF7 /* Recipes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipes.swift; sourceTree = "<group>"; };
 		950C21CD274656EF00021FCD /* BigButtonBottom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigButtonBottom.swift; sourceTree = "<group>"; };
 		950C21D02746572300021FCD /* StepsImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsImage.swift; sourceTree = "<group>"; };
@@ -94,6 +97,7 @@
 				F5B6156327469D4800AD47C6 /* RecipeView.swift */,
 				950C21D02746572300021FCD /* StepsImage.swift */,
 				950C21D7274657BE00021FCD /* TrophyCircleView.swift */,
+				5A9C2C4B2747B58500B460AE /* LockedView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -258,6 +262,7 @@
 				950C21DB27465E3000021FCD /* RecipeIntroView.swift in Sources */,
 				F5B6155B2745666200AD47C6 /* UserStore.swift in Sources */,
 				F5B6154E274511CF00AD47C6 /* Trophy.swift in Sources */,
+				5A9C2C4C2747B58500B460AE /* LockedView.swift in Sources */,
 				950C21D8274657BE00021FCD /* TrophyCircleView.swift in Sources */,
 				F5B6156427469D4800AD47C6 /* RecipeView.swift in Sources */,
 				F5CDD65B2747A7350082A764 /* Navigation.swift in Sources */,
@@ -285,6 +290,7 @@
 				F5B6156527469D4800AD47C6 /* RecipeView.swift in Sources */,
 				950C21EE2746FE4900021FCD /* FinalProgressView.swift in Sources */,
 				F5B61559274565EF00AD47C6 /* Trophy.swift in Sources */,
+				5A9C2C4D2747B58500B460AE /* LockedView.swift in Sources */,
 				F5B615232743BEE100AD47C6 /* cooKidsApp.swift in Sources */,
 				950C21D22746572300021FCD /* StepsImage.swift in Sources */,
 				F5CDD65C2747A7350082A764 /* Navigation.swift in Sources */,
