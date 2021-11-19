@@ -17,7 +17,7 @@ struct TrophyCircleView: View {
 	func progressCircle(progress: Double) -> some View {
 		Circle()
 			.trim(from: 0, to: progress)
-			.stroke(Color.orange, style: .init(lineWidth: 10, lineCap: .round))
+			.stroke(Color.orange, style: .init(lineWidth: 11, lineCap: .round))
 			.rotationEffect(.degrees(-90))
 	}
 	
@@ -29,9 +29,11 @@ struct TrophyCircleView: View {
 						.fill(.linearGradient(colors: [.orange.opacity(0.1), .orange.opacity(0.6)],
 											  startPoint: .top,
 											  endPoint: .bottom))
+						.background {
+							Color.white
+								.cornerRadius(.infinity)
+						}
 						.overlay(progressCircle(progress: trophyDetails.progress))
-						.padding(.top, 5)
-						.padding(.horizontal, 5)
 						.frame(width: 100, height: 100)
 					
 					Text(trophy.icon)
