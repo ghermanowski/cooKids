@@ -40,6 +40,8 @@ struct Recipes: View {
 			}
 			.navigationTitle("Recipes")
 		}
+		.tabItem { Label("Recipes", systemImage: "fork.knife") }
+		.tag(Navigation.Tab.recipes)
 	}
 }
 
