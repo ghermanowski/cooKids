@@ -23,10 +23,13 @@ struct Trophies: View {
 					}
 				}
 				.padding()
+			
 			}
 			.navigationTitle("Trophies")
-		}
-	}
+		}.tabItem{
+			Image(systemName: "crown")
+			   Text("Trophies")}
+    }
 }
 
 struct Trophies_Previews: PreviewProvider {
