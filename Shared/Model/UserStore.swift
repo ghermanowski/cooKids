@@ -13,9 +13,24 @@ class UserStore: ObservableObject {
 					.baking: .init(title: "Baking", count: .random(in: 0...8), maximum: 8),
 					.sweets: .init(title: "Sweets", count: .random(in: 0...9), maximum: 9),
 					.heat: .init(title: "Heat", count: .random(in: 0...9), maximum: 9)]
+		
+		for any in self.creations {
+			var new = any
+			self.creationsRecipe.append(new.changeTitle(titleFor: .recipeTitle))
+			self.creationsPhotos.append(new.changeTitle(titleFor: .dateTitle))
+		}
 	}
 	
 	@Published var trophies: [Trophy: Trophy.Details]
+	
+	@Published var creationsRecipe: [Creation] = []
+	@Published var creationsPhotos: [Creation] = []
+	
+	var creations: [Creation] = [ Creation(recipeTitle: .nutellaCrepes, date: Date.now, imageName: "crepes1"),
+							  Creation(recipeTitle: .nutellaCrepes, date: Date.now, imageName: "crepes2"),
+							  Creation(recipeTitle: .nutellaCrepes, date: Date.now, imageName: "crepes3"),
+							  Creation(recipeTitle: .berryQuark, date: Date.now, imageName: "berryQuarkImage"),
+							  Creation(recipeTitle: .muffins, date: Date.now, imageName: "muffins")]
 	
 	var recipes = [Recipe(title: "Berry Quark",
 						  ingredients: [.init(name: "250 gramms Quark", icon: "🥛"),

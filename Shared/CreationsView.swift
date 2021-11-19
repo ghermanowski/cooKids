@@ -5,22 +5,25 @@
 //  Created by Anna Izzo on 18/11/21.
 //
 
+import Foundation
 import SwiftUI
 
 struct CreationsView: View {
-	var dumbCrationsPhotos: [CreationRecipe] = [
-		CreationRecipe(imageName: "Caprese", date: Date.now, recipeTitle: "Caprese"),
-		CreationRecipe(imageName: "Caprese", date: Date.now, recipeTitle: "Caprese"),
-		CreationRecipe(imageName: "Caprese", date: Date.now, recipeTitle: "Caprese"),
-		CreationRecipe(imageName: "Berrie Quark", date: Date.now, recipeTitle: "berryQuarkImage")
-	]
+	@EnvironmentObject private var userStore: UserStore
 	
 	var body: some View {
 		NavigationView {
 			ScrollView(.vertical) {
-				VStack(spacing: 20) {
-					ForEach(dumbCrationsPhotos) { photo in
-						RecipeView(recipe: photo)
+				VStack(spacing: 30) {
+					ForEach(Creation.RecipeTitle.allCases) { recipeTitle in
+						
+						if let creations = userStore.creationsRecipe.filter{ $0.recipeTitle == recipeTitle} {
+							if !creations.isEmpty {
+								NavigationLink (destination: CreationsSecondView(recipeTitle: recipeTitle)) {
+									RecipeView( recipe: creations.first!)
+								}
+							}
+						}
 					}
 				}
 				.padding(.vertical, 30)
@@ -33,25 +36,10 @@ struct CreationsView: View {
 	}
 }
 
-struct CreationRecipe: Identifiable, RapresentableInRectProtocol {
-	var id: String { title }
-	var title: String = ""
-	let imageName: String
-	let trophies: [Trophy] = []
-	let date: Date
-	let recipeTitle: String
-}
-struct CreationPhoto: Identifiable, RapresentableInRectProtocol {
-	var id: String { title }
-	var title: String = ""
-	let imageName: String
-	let trophies: [Trophy] = []
-	
-}
-
 
 struct CreationsView_Previews: PreviewProvider {
 	static var previews: some View {
 		CreationsView()
+			.environmentObject(UserStore())
 	}
 }

@@ -21,6 +21,7 @@ struct RecipeIntroView: View {
 							
 							ScrollView (.horizontal) {
 								ForEach(userStore.recipes[0].trophies) { trophy in                                TrophyCircleView(trophy: trophy, showProgressText: false)
+										.padding(5)
 								}
 							}.padding(.horizontal, 20)
 							
