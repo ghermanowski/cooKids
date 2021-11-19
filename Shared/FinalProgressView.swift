@@ -46,7 +46,7 @@ struct FinalProgressView: View {
 }
 
 struct FinalProgressView_Previews: PreviewProvider {
-    static var previews: some View {
-        FinalProgressView()
-    }
+	static var previews: some View {
+		FinalProgressView()
+	}
 }

@@ -41,7 +41,7 @@ struct RecipeIntroView: View {
 }
 
 struct RecipeIntroView_Previews: PreviewProvider {
-    static var previews: some View {
-        RecipeIntroView().environmentObject(UserStore())
-    }
+	static var previews: some View {
+		RecipeIntroView().environmentObject(UserStore())
+	}
 }

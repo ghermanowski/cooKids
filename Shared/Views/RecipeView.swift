@@ -70,12 +70,12 @@ struct RecipeView: View {
 }
 
 struct RecipeView_Previews: PreviewProvider {
-    static var previews: some View {
+	static var previews: some View {
 		RecipeView(recipe: Recipe(title: "Berry Quark",
 								  ingredients: [],
 								  steps: [],
 								  imageName: "berryQuarkImage",
 								  category: .sweets,
 								  trophies: [.cleaning]))
-    }
+	}
 }
