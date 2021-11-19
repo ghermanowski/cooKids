@@ -25,7 +25,6 @@ struct LockedView: View {
 		}
 		.foregroundColor(.white)
 		.multilineTextAlignment(.trailing)
-		.padding(.top, 20)
 	}
 	
 	var body: some View {
@@ -40,15 +39,15 @@ struct LockedView: View {
 					.opacity(0.87)})
 			.shadow(radius: 3)
 			.overlay {
+				
 				VStack{
 					Image(systemName: "lock.fill")
 						.foregroundColor(Color.white)
 						.font(.system(size: 80))
-				HStack {
+					HStack() {
 					if !recipe.trophies.isEmpty {
 						
 							trophyCount
-							.padding(.bottom, 15)
 					}
 				
 						Text(recipe.title)
@@ -56,7 +55,7 @@ struct LockedView: View {
 							.font(.system(size: 40, weight: .heavy, design: .rounded))
 							.shadow(color: .orange, radius: 2)
 							.shadow(radius: 8)
-					
+						
 				}
 			}
 				.padding(.top, 35)
