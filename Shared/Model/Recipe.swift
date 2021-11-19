@@ -40,5 +40,6 @@ struct Recipe: Identifiable, RapresentableInRectProtocol {
 		
 		case sweets = "Sweets"
 		case mainCourse = "Main Course"
+		case secondCourse = "Second Course"
 	}
 }
