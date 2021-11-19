@@ -18,10 +18,10 @@ class UserStore: ObservableObject {
 	@Published var trophies: [Trophy: Trophy.Details]
 	
 	var recipes = [Recipe(title: "Berry Quark",
-						  ingredients: [.init(name: "250 gramms Quark", icon: "🥛", isChecked: false),
-										.init(name: "200 gramms Greek Yoghurt", icon: "🥛", isChecked: false),
-										.init(name: "250 gramms Berries", icon: "🍓", isChecked: false),
-										.init(name: "2 tablespoons Honey", icon: "🍯", isChecked: false)],
+						  ingredients: [.init(name: "250 gramms Quark", icon: "🥛"),
+										.init(name: "200 gramms Greek Yoghurt", icon: "🥛"),
+										.init(name: "250 gramms Berries", icon: "🍓"),
+										.init(name: "2 tablespoons Honey", icon: "🍯")],
 						  steps: [.init(title: "Preparation",
 										body: "Wash your hands.\n\nPrepare a mixing bowl, a spoon and a tablespoon for measures."),
 								  .init(title: "Take Berries",
@@ -63,7 +63,7 @@ class UserStore: ObservableObject {
 										 category: .sweets,
 										 trophies: [.cleaning]),
 	
-				   Recipe(title: "Spaghetti with tomato sauce",
+				   Recipe(title: "Tomato Spaghetti",
 						  ingredients: [.init(name: "320 g spaghetti", icon: "🍝"),
 										.init(name: "800 g peeled tomatoes", icon: "🍅"),
 										.init(name: "30 g Extra virgin olive oil", icon: ""),

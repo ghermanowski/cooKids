@@ -22,6 +22,7 @@ struct RecipeView: View {
 				.padding(8)
 				.background(Circle().fill(.orange).shadow(radius: 8))
 		}
+		
 		.foregroundColor(.white)
 		.multilineTextAlignment(.trailing)
 		.padding([.top, .trailing], 20)
@@ -31,7 +32,7 @@ struct RecipeView: View {
 		Image(recipe.imageName)
 			.resizable()
 			.scaledToFill()
-			.frame(width: 312, height: 210)
+			.frame(width: 314, height: 210)
 			.mask({
 				RoundedRectangle(cornerRadius: 40)
 					.foregroundColor(.orange)
@@ -42,7 +43,6 @@ struct RecipeView: View {
 					if !recipe.trophies.isEmpty {
 						HStack {
 							Spacer()
-							
 							trophyCount
 						}
 						.frame(alignment: .topTrailing)

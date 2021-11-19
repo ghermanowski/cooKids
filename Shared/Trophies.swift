@@ -22,7 +22,8 @@ struct Trophies: View {
 						TrophyCircleView(trophy: trophy, showProgressText: true)
 					}
 				}
-				.padding()
+				.padding(.horizontal)
+				.padding(.top, 20)
 			
 			}
 			.navigationTitle("Trophies")

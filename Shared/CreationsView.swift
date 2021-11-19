@@ -23,7 +23,7 @@ struct CreationsView: View {
 						RecipeView(recipe: photo)
 					}
 				}
-				.padding(.top, 30)
+				.padding(.top, 20)
 			}
 			.navigationTitle("Creations")
 		}
