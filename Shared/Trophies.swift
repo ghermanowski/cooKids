@@ -10,7 +10,7 @@ import SwiftUI
 struct Trophies: View {
 	@EnvironmentObject private var userStore: UserStore
 	
-    var body: some View {
+	var body: some View {
 		NavigationView {
 			ScrollView {
 				LazyVGrid(columns: Array(repeating: GridItem(), count: 3)) {
@@ -23,15 +23,18 @@ struct Trophies: View {
 					}
 				}
 				.padding()
+			
 			}
 			.navigationTitle("Trophies")
 		}
+		.tabItem{ Label("Trophies", systemImage: "crown") }
+		.tag(Navigation.Tab.trophies)
     }
 }
 
 struct Trophies_Previews: PreviewProvider {
-    static var previews: some View {
-        Trophies()
+	static var previews: some View {
+		Trophies()
 			.environmentObject(UserStore())
-    }
+	}
 }
