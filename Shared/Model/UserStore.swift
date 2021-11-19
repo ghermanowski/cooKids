@@ -59,7 +59,7 @@ class UserStore: ObservableObject {
 											body: "In another bowl, whisk together applesauce, sugar, oil, egg and vanilla. Pour over flour mixture and stir until just combined. Stir in cranberries."),
 										.init(title: "Let's put them to cook!",
 											body: "Divide batter among 12 greased or paper lined muffin tins. Bake in 400° F (200° C) oven for about 12 minutes or until golden and firm when touched.")],
-										 imageName: "Caprese",
+										 imageName: "muffins",
 										 category: .sweets,
 										 trophies: [.cleaning]),
 	
