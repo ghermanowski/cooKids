@@ -11,7 +11,7 @@ import SwiftUI
 struct cooKidsApp: App {
 	var body: some Scene {
 		WindowGroup {
-			ContentView()
+			Navigation()
 				.environmentObject(UserStore())
 		}
 	}

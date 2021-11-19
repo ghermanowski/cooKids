@@ -11,8 +11,8 @@ struct Recipes: View {
 	@EnvironmentObject private var userStore: UserStore
 	
 	var body: some View{
+		TabView{
 		NavigationView {
-			TabView{
 				ScrollView(.vertical) {
 					VStack(alignment: .leading, spacing: .zero) {
 						ForEach(Recipe.Category.allCases) { category in
@@ -30,16 +30,18 @@ struct Recipes: View {
 							}
 						}
 					}
-				}.tabItem{
-					Image(systemName: "fork.knife")
-					 Text("Recipes")
-			 }
-
+				}.navigationTitle("Recipes")
+			 }.tabItem{
+				 Image(systemName: "fork.knife")
+			   Text("Recipes")
+			
+			}
+		
 			Trophies()
 			CreationsView()
-			}
-			.navigationTitle("Recipes")
 		}
+		.tabItem { Label("Recipes", systemImage: "fork.knife") }
+		.tag(Navigation.Tab.recipes)
 	}
 }
 

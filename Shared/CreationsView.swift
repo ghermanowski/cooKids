@@ -14,6 +14,7 @@ struct CreationsView: View {
 		CreationRecipe(imageName: "Caprese", date: Date.now, recipeTitle: "Caprese"),
 		CreationRecipe(imageName: "Berrie Quark", date: Date.now, recipeTitle: "berryQuarkImage")
 	]
+	
 	var body: some View {
 		NavigationView {
 			ScrollView (.vertical) {
@@ -21,12 +22,13 @@ struct CreationsView: View {
 					ForEach(dumbCrationsPhotos) { photo in
 						RecipeView(recipe: photo)
 					}
-				}.padding(.top, 30)
-			}.navigationTitle("Creations")
-		}.tabItem {
-			Image(systemName: "photo.on.rectangle.angled")
-			Text("Creations")
+				}
+				.padding(.top, 30)
+			}
+			.navigationTitle("Creations")
 		}
+		.tabItem { Label("Creations", systemImage: "photo.on.rectangle.angled") }
+		.tag(Navigation.Tab.creations)
 	}
 }
 
