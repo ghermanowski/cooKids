@@ -10,7 +10,7 @@ import Foundation
 struct Recipe: Identifiable, RapresentableInRectProtocol {
 	var id: String { title }
 	let title: String
-	let ingredients: [Ingredient]
+	var ingredients: [Ingredient]
 	let steps: [Step]
 	let imageName: String
 	let category: Category
@@ -20,6 +20,7 @@ struct Recipe: Identifiable, RapresentableInRectProtocol {
 	struct Ingredient {
 		let name: String
 		let icon: String
+		var isChecked: Bool
 	}
 	
 	struct Step: Identifiable {

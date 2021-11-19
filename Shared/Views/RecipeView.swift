@@ -28,44 +28,40 @@ struct RecipeView: View {
 	}
 	
 	var body: some View {
-		ZStack {
-			Image(recipe.imageName)
-				.resizable()
-				.scaledToFill()
-				.mask({
-					RoundedRectangle(cornerRadius: 40)
-						.foregroundColor(.orange)
-						.opacity(0.87)
-				})
-				.shadow(radius: 4)
-				.frame(maxWidth: 350, maxHeight: 240)
-				.padding(.vertical, 16)
-			
-			VStack {
-				if !recipe.trophies.isEmpty {
-					HStack {
-						Spacer()
-						
-						trophyCount
+		Image(recipe.imageName)
+			.resizable()
+			.scaledToFill()
+			.frame(width: 312, height: 210)
+			.mask({
+				RoundedRectangle(cornerRadius: 40)
+					.foregroundColor(.orange)
+					.opacity(0.87)})
+			.shadow(radius: 3)
+			.overlay {
+				VStack {
+					if !recipe.trophies.isEmpty {
+						HStack {
+							Spacer()
+							
+							trophyCount
+						}
+						.frame(alignment: .topTrailing)
 					}
-					.frame(alignment: .topTrailing)
-				}
-				
-				Spacer()
-				
-				HStack {
-					Text(recipe.title)
-						.multilineTextAlignment(.leading)
-						.padding([.leading, .bottom], 20)
-						.foregroundColor(.white)
-						.font(.system(.largeTitle, design: .rounded).bold())
-						.shadow(color: .black, radius: 10, x: 0, y: 0)
 					
 					Spacer()
+					
+					HStack {
+						Text(recipe.title)
+							.multilineTextAlignment(.leading)
+							.padding([.leading, .bottom], 20)
+							.foregroundColor(.white)
+							.font(.system(.largeTitle, design: .rounded).bold())
+							.shadow(color: .black, radius: 10, x: 0, y: 0)
+						
+						Spacer()
+					}
 				}
 			}
-		}
-		.frame(maxWidth: 350, maxHeight: 240)
 	}
 }
 
