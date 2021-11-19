@@ -17,13 +17,14 @@ struct CreationsView: View {
 	
 	var body: some View {
 		NavigationView {
-			ScrollView (.vertical) {
-				VStack (spacing: 60){
+			ScrollView(.vertical) {
+				VStack(spacing: 20) {
 					ForEach(dumbCrationsPhotos) { photo in
 						RecipeView(recipe: photo)
 					}
 				}
-				.padding(.top, 30)
+				.padding(.vertical, 30)
+				.frame(width: UIScreen.screens.first?.bounds.width)
 			}
 			.navigationTitle("Creations")
 		}

@@ -13,18 +13,18 @@ struct RecipeView: View {
 	var trophyCount: some View {
 		HStack {
 			Text(recipe.trophies.count.formatted())
-				.font(.system(size: 40, weight: .heavy, design: .rounded))
+				.font(.system(.largeTitle, design: .rounded).weight(.heavy))
 				.shadow(color: .orange, radius: 2)
 				.shadow(radius: 8)
 			
 			Image(systemName: "crown.fill")
-				.font(.system(size: 17, weight: .bold, design: .rounded))
+				.font(.system(.headline, design: .rounded))
 				.padding(8)
 				.background(Circle().fill(.orange).shadow(radius: 8))
 		}
 		.foregroundColor(.white)
 		.multilineTextAlignment(.trailing)
-		.padding([.top, .trailing], 20)
+		.padding([.top, .trailing], 12)
 	}
 	
 	var body: some View {
@@ -32,11 +32,8 @@ struct RecipeView: View {
 			.resizable()
 			.scaledToFill()
 			.frame(width: 312, height: 210)
-			.mask({
-				RoundedRectangle(cornerRadius: 40)
-					.foregroundColor(.orange)
-					.opacity(0.87)})
-			.shadow(radius: 3)
+			.cornerRadius(32)
+			.shadow(radius: 5, y: 2)
 			.overlay {
 				VStack {
 					if !recipe.trophies.isEmpty {
@@ -53,10 +50,11 @@ struct RecipeView: View {
 					HStack {
 						Text(recipe.title)
 							.multilineTextAlignment(.leading)
-							.padding([.leading, .bottom], 20)
 							.foregroundColor(.white)
-							.font(.system(.largeTitle, design: .rounded).bold())
+							.font(.system(.title, design: .rounded).bold())
 							.shadow(color: .black, radius: 10, x: 0, y: 0)
+							.padding([.leading, .bottom], 12)
+							.padding(.leading, 4)
 						
 						Spacer()
 					}
