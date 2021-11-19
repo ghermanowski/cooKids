@@ -10,7 +10,9 @@ import Foundation
 class UserStore: ObservableObject {
 	init() {
 		trophies = [.cleaning: .init(title: "Cleaning", count: .random(in: 0...9), maximum: 9),
-					.baking: .init(title: "Baking", count: .random(in: 0...8), maximum: 8)]
+					.baking: .init(title: "Baking", count: .random(in: 0...8), maximum: 8),
+					.sweets: .init(title: "Sweets", count: .random(in: 0...9), maximum: 9),
+					.heat: .init(title: "Heat", count: .random(in: 0...9), maximum: 9)]
 	}
 	
 	@Published var trophies: [Trophy: Trophy.Details]
