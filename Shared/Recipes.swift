@@ -16,19 +16,22 @@ struct Recipes: View {
 				VStack(alignment: .leading, spacing: .zero) {
 					ForEach(Recipe.Category.allCases) { category in
 						Text(category.rawValue)
-							.font(.largeTitle)
-							.padding([.top, .horizontal])
+							.font(.title)
+							.fontWeight(.semibold)
+							.padding(.horizontal, 8)
 						
 						ScrollView(.horizontal, showsIndicators: false) {
-							HStack(spacing: 20) {
+							HStack(spacing: 30) {
 								ForEach(userStore.recipes.filter { $0.category == category }) { recipe in
 									RecipeView(recipe: recipe)
 								}
 							}
-							.padding(.horizontal)
+							.padding(.vertical, 30)
 						}
 					}
 				}
+				.padding(.leading, 28)
+				.padding(.top, 20)
 			}
 			.navigationTitle("Recipes")
 		}
