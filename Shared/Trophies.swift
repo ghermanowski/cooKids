@@ -26,9 +26,9 @@ struct Trophies: View {
 			
 			}
 			.navigationTitle("Trophies")
-		}.tabItem{
-			Image(systemName: "crown")
-			   Text("Trophies")}
+		}
+		.tabItem{ Label("Trophies", systemImage: "crown") }
+		.tag(Navigation.Tab.trophies)
     }
 }
 
