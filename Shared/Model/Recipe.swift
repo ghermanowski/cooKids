@@ -20,7 +20,6 @@ struct Recipe: Identifiable, RapresentableInRectProtocol {
 	struct Ingredient {
 		let name: String
 		let icon: String
-		var isChecked: Bool
 	}
 	
 	struct Step: Identifiable {
