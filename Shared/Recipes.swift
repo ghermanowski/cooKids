@@ -12,23 +12,31 @@ struct Recipes: View {
 	
 	var body: some View{
 		NavigationView {
-			ScrollView(.vertical) {
-				VStack(alignment: .leading, spacing: .zero) {
-					ForEach(Recipe.Category.allCases) { category in
-						Text(category.rawValue)
-							.font(.largeTitle)
-							.padding([.top, .horizontal])
-						
-						ScrollView(.horizontal, showsIndicators: false) {
-							HStack(spacing: 20) {
-								ForEach(userStore.recipes.filter { $0.category == category }) { recipe in
-									RecipeView(recipe: recipe)
+			TabView{
+				ScrollView(.vertical) {
+					VStack(alignment: .leading, spacing: .zero) {
+						ForEach(Recipe.Category.allCases) { category in
+							Text(category.rawValue)
+								.font(.largeTitle)
+								.padding([.top, .horizontal])
+							
+							ScrollView(.horizontal, showsIndicators: false) {
+								HStack(spacing: 20) {
+									ForEach(userStore.recipes.filter { $0.category == category }) { recipe in
+										RecipeView(recipe: recipe)
+									}
 								}
+								.padding(.horizontal)
 							}
-							.padding(.horizontal)
 						}
 					}
-				}
+				}.tabItem{
+					Image(systemName: "fork.knife")
+					 Text("Recipes")
+			 }
+
+			Trophies()
+			CreationsView()
 			}
 			.navigationTitle("Recipes")
 		}
