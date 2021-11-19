@@ -13,24 +13,24 @@ struct Recipes: View {
 	var body: some View{
 		NavigationView {
 			ScrollView(.vertical) {
-				VStack(alignment: .leading, spacing: .zero) {
+				LazyVStack(alignment: .leading, spacing: 40) {
 					ForEach(Recipe.Category.allCases) { category in
-						Text(category.rawValue)
-							.font(.title)
-							.fontWeight(.semibold)
-							.padding(.horizontal, 8)
-						
-						ScrollView(.horizontal, showsIndicators: false) {
-							HStack(spacing: 30) {
-								ForEach(userStore.recipes.filter { $0.category == category }) { recipe in
-									RecipeView(recipe: recipe)
+						VStack(alignment: .leading, spacing: 20) {
+							Text(category.rawValue)
+								.font(.system(.title, design: .rounded).weight(.semibold))
+								.padding(.leading, 20)
+							
+							ScrollView(.horizontal, showsIndicators: false) {
+								HStack(spacing: 30) {
+									ForEach(userStore.recipes.filter { $0.category == category }) { recipe in
+										RecipeView(recipe: recipe)
+									}
 								}
+								.padding(.leading, 30)
 							}
-							.padding(.vertical, 30)
 						}
 					}
 				}
-				.padding(.leading, 28)
 				.padding(.top, 20)
 			}
 			.navigationTitle("Recipes")

@@ -20,7 +20,6 @@ struct Recipe: Identifiable, RapresentableInRectProtocol {
 	struct Ingredient {
 		let name: String
 		let icon: String
-		var isChecked: Bool
 	}
 	
 	struct Step: Identifiable {
@@ -41,5 +40,6 @@ struct Recipe: Identifiable, RapresentableInRectProtocol {
 		
 		case sweets = "Sweets"
 		case mainCourse = "Main Course"
+		case secondCourse = "Second Course"
 	}
 }

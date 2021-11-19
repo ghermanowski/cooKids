@@ -9,34 +9,48 @@ import SwiftUI
 
 struct IngredientsListView: View {
 	internal init(ingredients: [Recipe.Ingredient], withChecking: Bool) {
-		_ingredients = .init(initialValue: ingredients)
+		self.ingredients = ingredients
 		self.withChecking = withChecking
+		
+		_ingredientsStates = .init(initialValue: Array(repeating: false, count: ingredients.count))
 	}
 	
 	@EnvironmentObject private var userStore: UserStore
 	
-	@State var ingredients: [Recipe.Ingredient]
+	var ingredients: [Recipe.Ingredient]
+	
+	@State var ingredientsStates: [Bool]
+	
 	let withChecking : Bool
+	
 	var body: some View {
-		VStack (alignment: .leading, spacing: 5){
-			ForEach($ingredients, id: \.self.name) { $ingredient in
-				HStack (spacing: 26){
-					Text(ingredient.icon)
-					Text(ingredient.name)
+		VStack(alignment: .leading, spacing: 5) {
+			ForEach(0..<ingredients.count, id: \.self) { index in
+				HStack(spacing: 26) {
+					Label {
+						Text(ingredients[index].name)
+					} icon: {
+						Text(ingredients[index].icon)
+					}
+					
+					
 					Spacer()
+					
 					if withChecking {
 						Button {
-							ingredient.isChecked.toggle()
+							ingredientsStates[index].toggle()
 						} label: {
-							Image(systemName: ingredient.isChecked ? "checkmark.circle.fill" : "checkmark.circle")
+							Image(systemName: ingredientsStates[index] ? "checkmark.circle.fill" : "checkmark.circle")
+								.font(.headline)
 						}
-						.tint(ingredient.isChecked ? .accentColor : .secondary)
+						.tint(ingredientsStates[index] ? .accentColor : .accentColor.opacity(0.33))
 					}
 				}
-				.font(.system(size: 20, weight: .regular, design: .rounded))
+				.font(.system(.body, design: .rounded))
+				.padding(.vertical, 8)
 			}
-			.padding(.vertical, 8)
 		}
+		.padding(.horizontal)
 	}
 }
 
