@@ -13,19 +13,19 @@ struct BigButtonBottom: View {
 	var action: () -> Void
 	
 	var body: some View {
-			Button(action: action) {
-				Label(buttonText, systemImage: systemIcon)
-					.imageScale(.small)
-					.font(.system(size: 24, weight: .bold, design: .rounded))
-					.frame(maxWidth: .infinity)
-			}
-			.buttonStyle(.borderedProminent)
-			.tint(.orange)
-			.controlSize(.large)
-			.padding(20)
-			.background(.ultraThinMaterial)
-			.shadow(color: .clear, radius: .zero)
-			.shadow(radius: 4, y: -2)
+		Button(action: action) {
+			Label(buttonText, systemImage: systemIcon)
+				.imageScale(.small)
+				.font(.system(size: 24, weight: .bold, design: .rounded))
+				.frame(maxWidth: .infinity)
+		}
+		.buttonStyle(.borderedProminent)
+		.tint(.orange)
+		.controlSize(.large)
+		.padding(20)
+		.background(.ultraThinMaterial)
+		.shadow(color: .clear, radius: .zero)
+		.shadow(radius: 4, y: -2)
 	}
 }
 
