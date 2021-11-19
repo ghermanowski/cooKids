@@ -26,7 +26,7 @@ struct RecipeIntroView: View {
 							
 							Text("Ingredients")
 								.font(.system(size: 30, weight: .semibold, design: .rounded))
-							IngredientsListView(ingredients: userStore.recipes[0].ingredients)
+							IngredientsListView(ingredients: userStore.recipes[0].ingredients, withChecking: false)
 								.padding(.horizontal, 20)
 						}
 					}

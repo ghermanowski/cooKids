@@ -15,7 +15,7 @@ class UserStore: ObservableObject {
 	
 	@Published var trophies: [Trophy: Trophy.Details]
 	
-	let recipes = [Recipe(title: "Berry Quark",
+	var recipes = [Recipe(title: "Berry Quark",
 						  ingredients: [.init(name: "250 gramms Quark", icon: "🥛", isChecked: false),
 										.init(name: "200 gramms Greek Yoghurt", icon: "🥛", isChecked: false),
 										.init(name: "250 gramms Berries", icon: "🍓", isChecked: false),
