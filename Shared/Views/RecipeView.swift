@@ -34,8 +34,9 @@ struct RecipeView: View {
 				let recipe = recipe as! Creation
 				if recipe.photo != nil {
 					choosedImage(photo: recipe.photo, imageName: nil)
+				} else {
+					choosedImage(photo: nil, imageName: recipe.imageName)
 				}
-				choosedImage(photo: nil, imageName: recipe.imageName)
 			}
 			else {
 				choosedImage(photo: nil, imageName: recipe.imageName)
