@@ -12,15 +12,15 @@ struct CreationsSecondView: View {
 	@State var recipeTitle: Creation.RecipeTitle
 	
 	var body: some View {
-			ScrollView (.vertical) {
-				VStack {
-					ForEach(userStore.creationsPhotos.filter{$0.recipeTitle == recipeTitle}) { photos in
-						RecipeView(recipe: photos)
-					}
-					.padding(.vertical, 30)
+		ScrollView (.vertical) {
+			VStack (spacing: 30){
+				ForEach(userStore.creationsPhotos.filter{$0.recipeTitle == recipeTitle}) { photos in
+					RecipeView(recipe: photos)
 				}
 			}
-			.navigationTitle(recipeTitle.rawValue)
+			.padding(.top, 30)
+		}
+		.navigationTitle(recipeTitle.rawValue)
 	}
 }
 

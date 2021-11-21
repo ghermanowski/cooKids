@@ -6,14 +6,16 @@
 //
 
 import Foundation
+import UIKit
 
 struct Creation: Identifiable, RapresentableInRectProtocol {
 	var id: String { imageName }
 	var title: String = ""
 	let recipeTitle: RecipeTitle
 	var date: Date
-	let imageName: String
+	var imageName: String
 	let trophies: [Trophy] = []
+	var photo: UIImage?
 	
 	enum DateorRecipe {
 		case dateTitle
@@ -24,8 +26,23 @@ struct Creation: Identifiable, RapresentableInRectProtocol {
 		
 		case berryQuark = "Berry Quark"
 		case caprese = "Caprese"
-		case muffins = "Muffins"
+		case muffins = "Apple cranberry muffins"
 		case nutellaCrepes = "Nutella Crêpes"
+		case polenta = "Polenta medallons"
+		case parmigiana = "Eggplant parmigiana"
+		case carbonara = "Spaghetti Carbonara"
+		case spaghetti = "Tomato Spaghetti"
+		case mozzarella = "Fried Mozzarella"
+		case bruschetta = "Tomato Bruschetta"
+	}
+	
+	init(recipeTitle: Creation.RecipeTitle, date: Date, imageName: String?, photo: UIImage? = nil) {
+		if let image = photo {
+			self.photo = image
+		}
+		self.imageName = imageName ?? "\(recipeTitle.rawValue)-\(date.formatted(date: .numeric, time: .standard))"
+		self.recipeTitle = recipeTitle
+		self.date = date
 	}
 	
 	mutating func changeTitle (titleFor: DateorRecipe) -> Creation {

@@ -16,17 +16,10 @@ struct StepsImage: View {
 		Image(image)
 			.resizable()
 			.scaledToFill()
-			.frame(maxWidth: 500, maxHeight: introOrNot ? 210 : 250)
-			.mask({
-				RoundedRectangle(cornerRadius: 40)
-					.frame(maxWidth: 500, maxHeight: introOrNot ? 210 : 250)
-			})
-			.overlay(RoundedRectangle(cornerRadius: 40).stroke(lineWidth: 3).foregroundColor(.gray))
-		/* or the shadow
-		 .shadow(color: .gray, radius: 2, x: 0, y: 0) */
-			.padding(.horizontal, 20)
-			.padding(.top, 30)
-	}
+			.frame(width: ((UIScreen.screens.first?.bounds.width)! - 40), height: introOrNot ? 210 : 230)
+			.cornerRadius(32)
+			.overlay(RoundedRectangle(cornerRadius: 32).stroke(lineWidth: 3).foregroundColor(.gray))
+		}
 }
 
 

@@ -29,10 +29,10 @@ struct IngredientsListView: View {
 				HStack(spacing: 26) {
 					Label {
 						Text(ingredients[index].name)
+							.padding(.leading, 16)
 					} icon: {
 						Text(ingredients[index].icon)
 					}
-					
 					
 					Spacer()
 					
@@ -46,7 +46,7 @@ struct IngredientsListView: View {
 						.tint(ingredientsStates[index] ? .accentColor : .accentColor.opacity(0.33))
 					}
 				}
-				.font(.system(.body, design: .rounded))
+				.font(.system(.title3, design: .rounded))
 				.padding(.vertical, 8)
 			}
 		}
