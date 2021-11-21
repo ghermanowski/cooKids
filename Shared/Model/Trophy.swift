@@ -15,6 +15,7 @@ enum Trophy: String, Identifiable {
 	case baking = "🍰"
 	case sweets = "🍩"
 	case heat = "🔥"
+	case cutting = "🔪"
 	
 	struct Details {
 		internal init(title: String, count: Int, maximum: Int) {
