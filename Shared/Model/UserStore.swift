@@ -138,7 +138,7 @@ class UserStore: ObservableObject {
 		
 		// MARK: Main courses
 		
-		Recipe(title: "Eggplant parmigiana",
+		Recipe(title: "Eggplant Parmigiana",
 			   ingredients: [.init(name: "1.5 Kg Black eggplants", icon: "🍆"),
 							 .init(name: "500 g Fior di latte mozzarella cheese", icon: ""),
 							 .init(name: "1.4 L Tomato puree", icon: "🥫"),
@@ -170,7 +170,7 @@ class UserStore: ObservableObject {
 			   category: .mainCourse,
 			   trophies: [.cleaning, .heat]),
 		
-		Recipe(title: "Polenta medallons",
+		Recipe(title: "Polenta Medallons",
 			   ingredients: [.init(name: "185 g Instant flour for polenta", icon: ""),
 							 .init(name: "750 mL Water", icon: "💧"),
 							 .init(name: "Fine salt", icon: ""),
@@ -198,7 +198,7 @@ class UserStore: ObservableObject {
 		
 		// MARK: Sweets
 		
-		Recipe(title: "Apple cranberry muffins",
+		Recipe(title: "Apple Cranberry Muffins",
 			   ingredients: [.init(name: "375 gramms wholemeal flour", icon: "🌾"),
 							 .init(name: "25 gramms ground flax", icon: "🌱"),
 							 .init(name: "5 gramms baking powder", icon: ""),
