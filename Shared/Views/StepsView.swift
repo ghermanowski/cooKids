@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct StepsView: View {
-	@State var thisRecipe: Recipe
-	
+	var thisRecipe: Recipe
 	
 	var body: some View {
 		VStack(spacing: 30){
@@ -34,6 +33,6 @@ struct StepsView: View {
 
 struct StepsView_Previews: PreviewProvider {
     static var previews: some View {
-        StepsView(thisRecipe: UserStore().recipes[7])
+		StepsView(thisRecipe: (UserStore().recipes[7]))
     }
 }

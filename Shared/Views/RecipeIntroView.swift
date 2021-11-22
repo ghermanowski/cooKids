@@ -9,8 +9,7 @@ import SwiftUI
 
 struct RecipeIntroView: View {
 	@EnvironmentObject private var userStore: UserStore
-	@State var thisRecipe: Recipe
-	@State var showNext = false
+	var thisRecipe: Recipe
 	
 	var body: some View {
 		VStack {
@@ -34,18 +33,28 @@ struct RecipeIntroView: View {
 				}
 			}
 			Spacer()
-			NavigationLink(destination: IngredientStepView(thisRecipe: thisRecipe), isActive: $showNext) {
-				EmptyView()
+			NavigationLink(destination: IngredientStepView(thisRecipe: thisRecipe)) {
+				RoundedRectangle(cornerRadius: 10)
+						.fill(.orange)
+						.frame(maxWidth: .infinity, maxHeight: 60)
+						.padding(20)
+						.background(.ultraThinMaterial)
+						.shadow(color: .clear, radius: .zero)
+						.shadow(radius: 4, y: -2)
+						.overlay {
+							Text("Next")
+								.foregroundColor(.white)
+								.font(.system(size: 24, weight: .bold, design: .rounded))
+						}
 			}
-			BigButtonBottom(buttonText: "Cook", systemIcon: "fork.knife") {
-			}
-		}.navigationBarTitleDisplayMode(.inline)
+		}
+		.navigationBarTitleDisplayMode(.inline)
 	}
 }
 
 struct RecipeIntroView_Previews: PreviewProvider {
 	static var previews: some View {
-		RecipeIntroView(thisRecipe: UserStore().recipes[7])
+		RecipeIntroView(thisRecipe: (UserStore().recipes[7]))
 			.environmentObject(UserStore())
 	}
 }

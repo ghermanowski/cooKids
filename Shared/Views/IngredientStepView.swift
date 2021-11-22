@@ -8,25 +8,26 @@
 import SwiftUI
 
 struct IngredientStepView: View {
-	@State var thisRecipe: Recipe
-	@State var showNext = false
-	
+	var thisRecipe: Recipe
 	var body: some View {
-		VStack(spacing: 30){
-			
-			StepsImage(image: "step2bq", introOrNot: false)
-				.padding(.top, 30)
-			
-			Text("Take and measure ingredients")
-				.font(.system(.title, design: .rounded))
-				.padding(.horizontal, 20)
-			
-			IngredientsListView(ingredients: thisRecipe.ingredients, withChecking: true)
-				.padding(.horizontal, 20)
+		VStack {
+			ScrollView(.vertical) {
+				VStack(spacing: 30){
+					
+					StepsImage(image: "step2bq", introOrNot: false)
+						.padding(.top, 30)
+					
+					Text("Take and measure ingredients")
+						.font(.system(.title2, design: .rounded))
+						.padding(.horizontal, 20)
+					
+					IngredientsListView(ingredients: thisRecipe.ingredients, withChecking: true)
+						.padding(.horizontal, 20)
+				}
+			}
 			Spacer()
 			
-			NavigationLink(destination: StepsView(thisRecipe: thisRecipe), isActive: $showNext) {
-				
+			NavigationLink(destination: StepsView(thisRecipe: thisRecipe)) {
 				RoundedRectangle(cornerRadius: 10)
 						.fill(.orange)
 						.frame(maxWidth: .infinity, maxHeight: 60)
@@ -41,12 +42,13 @@ struct IngredientStepView: View {
 						}
 			}
 		}
+		.navigationBarTitleDisplayMode(.inline)
 	}
 }
 
 
 struct IngredientStepView_Previews: PreviewProvider {
     static var previews: some View {
-		IngredientStepView(thisRecipe: UserStore().recipes[9])
+		IngredientStepView(thisRecipe: (UserStore().recipes[9]))
     }
 }
