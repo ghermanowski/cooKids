@@ -2,7 +2,7 @@
 //  TakeAPictureView.swift
 //  cooKids
 //
-//  Created by Anna Izzo on 20/11/21.
+//  Created on 20/11/21.
 //
 
 import SwiftUI
@@ -10,7 +10,7 @@ import UIKit
 
 struct TakeAPictureView: View {
 	@EnvironmentObject private var userStore: UserStore
-	@State var thisRecipe: Recipe
+	let thisRecipe: Recipe
 	@State private var selectedImage: UIImage?
 	@State private var isImagePickerDisplay = false
 	@State private var showAlert = false
@@ -55,6 +55,10 @@ struct TakeAPictureView: View {
 				ImagePickerView(selectedImage: $selectedImage)
 			}
 			.navigationBarTitleDisplayMode(.inline)
+			.navigationTitle("Last Step")
+			.navigationBarItems(trailing: Button("Skip") {
+				//
+			})
 	}
 	
 	func openCamera() {
