@@ -13,7 +13,11 @@ struct Trophies: View {
 	var body: some View {
 		NavigationView {
 			ScrollView {
-				LazyVGrid(columns: Array(repeating: GridItem(), count: 3), spacing: 30) {
+				LazyVGrid(columns: Array(repeating: .init(.flexible(minimum: .zero, maximum: .infinity),
+														  spacing: 20,
+														  alignment: .top),
+										 count: 3),
+						  spacing: 30) {
 					let trophies = userStore.trophies.sorted {
 						$0.value.progress > $1.value.progress
 					}
@@ -23,8 +27,7 @@ struct Trophies: View {
 					}
 				}
 				.padding(.horizontal)
-				.padding(.top, 20)
-			
+				.padding(.vertical, 30)
 			}
 			.navigationTitle("Trophies")
 		}
