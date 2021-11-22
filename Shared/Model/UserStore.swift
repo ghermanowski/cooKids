@@ -35,7 +35,57 @@ class UserStore: ObservableObject {
 	
 	let recipes = [
 		
-		// MARK: Appetizers
+		//		Sweets
+		
+		Recipe(title: "Berry Quark",
+			  ingredients: [.init(name: "250 gramms Quark", icon: "🥛"),
+							.init(name: "200 gramms Greek Yoghurt", icon: "🥛"),
+							.init(name: "250 gramms Berries", icon: "🍓"),
+							.init(name: "2 tablespoons Honey", icon: "🍯")],
+			  steps: [.init(title: "Preparation",
+							body: "Wash your hands.\n\nPrepare a mixing bowl, a spoon and a tablespoon for measures."),
+					  .init(title: "Take Berries",
+							body: "If you have frozen berries let them stand at room temperature for 15 minutes."),
+					  .init(title: "Mix Yogurt and Quark",
+							body: "Put the Greek yogurt and the quark in your mixing bowl and start to mix with a spoon."),
+					  .init(title: "Add berries and honey",
+							body: "Add the berries and 2 tablespoon of hony."),
+					  .init(title: "Serve and decorate",
+							body: "Put your portion in a small bowl and put the rest in the fridge. Decorate with more honey and some cereals on the surface."),
+					  .init(title: "Clean up",
+							body: "Clean up your cooking station and wash your hands."),
+					  .init(title: "Good job!",
+							body: "Take a picture of your creation!")],
+			  imageName: "berryQuarkImage",
+			  category: .sweets,
+			   trophies: [.cleaning, .sweets]),
+				
+				Recipe(title: "Apple cranberry muffins",
+								   ingredients: [.init(name: "375 gramms wholemeal flour", icon: "🌾"),
+												 .init(name: "25 gramms ground flax", icon: "🌱"),
+												 .init(name: "5 gramms baking powder", icon: ""),
+												 .init(name: "2 gramms cinnamon", icon: ""),
+												 .init(name: "250 mL unsweetened applesauce", icon: "🍏"),
+												 .init(name: "75 gramms brown sugar", icon: ""),
+												 .init(name: "25 mL canola oil", icon: ""),
+												 .init(name: "1 egg", icon: "🥚"),
+												 .init(name: "1 tsp (5 mL) vanilla", icon: ""),
+												 .init(name: "125 gramms dried cranberries", icon: "🫐")],
+										 steps: [.init(title: "Preparation",
+													 body: "Wash your hands.\n\nPrepare a mixing bowl, a spoon and a tablespoon for measures."),
+												 .init(title: "Whisk",
+													 body: "In a large bowl, whisk together flour, flax, baking powder, cinnamon and set aside."),
+												 .init(title: "Mix",
+													 body: "In another bowl, whisk together applesauce, sugar, oil, egg and vanilla. Pour over flour mixture and stir until just combined. Stir in cranberries."),
+												 .init(title: "Let's put them to cook!",
+													 body: "Divide batter among 12 greased or paper lined muffin tins. Bake in 400° F (200° C) oven for about 12 minutes or until golden and firm when touched.")],
+												  imageName: "muffins",
+												  category: .sweets,
+								   trophies: [.cleaning, .sweets]),
+	
+				
+		
+//		Appetizers
 		
 		Recipe(title: "Tomato Bruschetta",
 			   ingredients: [.init(name: "8 slices Homemade bread", icon: "🥖"),

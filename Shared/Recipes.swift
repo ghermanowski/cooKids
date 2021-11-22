@@ -21,9 +21,9 @@ struct Recipes: View {
 								.padding(.leading, 20)
 							
 							ScrollView(.horizontal, showsIndicators: false) {
-								HStack(spacing: 25) {
+								HStack(spacing: 30) {
 									ForEach(userStore.recipes.filter { $0.category == category }) { recipe in
-										RecipeView(recipe: recipe)
+										RecipeImage(recipe: recipe)
 									}
 								}
 								.padding(.horizontal, 30)

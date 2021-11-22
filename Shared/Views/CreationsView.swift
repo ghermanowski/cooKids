@@ -16,13 +16,14 @@ struct CreationsView: View {
 			ScrollView(.vertical) {
 				VStack(spacing: 30) {
 					ForEach(Creation.RecipeTitle.allCases) { recipeTitle in
-						
-						if let creations = userStore.creationsRecipe.filter{ $0.recipeTitle == recipeTitle} {
-							if !creations.isEmpty {
-								NavigationLink (destination: CreationsHistory(recipeTitle: recipeTitle)) {
-									RecipeView(recipe: creations.first!)
-								}
+						if let creations = userStore.creationsRecipe.filter { $0.recipeTitle == recipeTitle },
+						!creations.isEmpty {
+							NavigationLink {
+								CreationsHistory(recipeTitle: recipeTitle)
+							} label: {
+								LabelledImage(imageName: creations.first!.imageName, title: creations.first!.title)
 							}
+							
 						}
 					}
 				}

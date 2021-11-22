@@ -15,8 +15,8 @@ struct CreationsHistory: View {
 	var body: some View {
 		ScrollView(.vertical) {
 			VStack(spacing: 30) {
-				ForEach(userStore.creationsPhotos.filter { $0.recipeTitle == recipeTitle }) { photo in
-					RecipeView(recipe: photo)
+				ForEach(userStore.creationsPhotos.filter { $0.recipeTitle == recipeTitle }) { creationsPhoto in
+					LabelledImage(imageName: creationsPhoto.imageName, title: creationsPhoto.title)
 				}
 			}
 			.frame(width: UIScreen.screens.first?.bounds.width)
