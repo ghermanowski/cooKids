@@ -46,11 +46,10 @@ struct IngredientsListView: View {
 						.tint(ingredientsStates[index] ? .accentColor : .accentColor.opacity(0.33))
 					}
 				}
-				.font(.system(.title3, design: .rounded))
+				.font(.system(.body, design: .rounded))
 				.padding(.vertical, 8)
 			}
 		}
-		.padding(.horizontal)
 	}
 }
 
