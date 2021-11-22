@@ -22,9 +22,9 @@ struct CreationsView: View {
 								CreationsHistory(recipeTitle: recipeTitle)
 							} label: {
 								if let photo = creations.first!.photo {
-									LabelledImage(uiImage: photo, title: creations.first!.title)
+									Card(uiImage: photo, title: creations.first!.title)
 								} else {
-									LabelledImage(imageName: creations.first!.imageName, title: creations.first!.title)
+									Card(imageName: creations.first!.imageName, title: creations.first!.title)
 								}
 								
 //								LabelledImage(imageName: creations.first!.imageName, title: creations.first!.title)

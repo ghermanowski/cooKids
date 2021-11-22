@@ -1,5 +1,5 @@
 //
-//  RecipeImage.swift
+//  RecipeCard.swift
 //  cooKids
 //
 //  Created by Anna Izzo on 18/11/21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct RecipeImage: View {
+struct RecipeCard: View {
 	@EnvironmentObject private var userStore: UserStore
 	
 	let recipe: Recipe
@@ -34,7 +34,7 @@ struct RecipeImage: View {
 	}
 	
 	var body: some View {
-		LabelledImage(imageName: recipe.imageName, title: recipe.title)
+		Card(imageName: recipe.imageName, title: recipe.title)
 			.overlay(alignment: .topTrailing) {
 				if !recipe.trophies.isEmpty {
 					trophyCount(count: recipe.trophies.count, showUnlockText: false)
@@ -60,8 +60,8 @@ struct RecipeImage: View {
 	}
 }
 
-struct RecipeImage_Previews: PreviewProvider {
+struct RecipeCard_Previews: PreviewProvider {
 	static var previews: some View {
-		RecipeImage(recipe: UserStore().recipes[0])
+		RecipeCard(recipe: UserStore().recipes[0])
 	}
 }
