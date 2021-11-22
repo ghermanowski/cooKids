@@ -27,11 +27,11 @@ class UserStore: ObservableObject {
 	@Published var creationsRecipe: [Creation] = []
 	@Published var creationsPhotos: [Creation] = []
 	
-	var creations: [Creation] = [ Creation(recipeTitle: .nutellaCrepes, date: Date.now, imageName: "crepes1"),
-							  Creation(recipeTitle: .nutellaCrepes, date: Date.now, imageName: "crepes2"),
-							  Creation(recipeTitle: .nutellaCrepes, date: Date.now, imageName: "crepes3"),
-							  Creation(recipeTitle: .berryQuark, date: Date.now, imageName: "berryQuarkImage"),
-							  Creation(recipeTitle: .muffins, date: Date.now, imageName: "muffins")]
+	var creations = [Creation(recipeTitle: .nutellaCrepes, date: Date.now.advanced(by: -86400), imageName: "crepes1"),
+					 Creation(recipeTitle: .nutellaCrepes, date: Date.now.advanced(by: -604800), imageName: "crepes2"),
+					 Creation(recipeTitle: .nutellaCrepes, date: Date.now.advanced(by: -1987200), imageName: "crepes3"),
+					 Creation(recipeTitle: .berryQuark, date: Date.now.advanced(by: -691200), imageName: "berryQuarkImage"),
+					 Creation(recipeTitle: .muffins, date: Date.now.advanced(by: -259200), imageName: "muffins")]
 	
 	var recipes = [
 		
