@@ -102,11 +102,17 @@
 			isa = PBXGroup;
 			children = (
 				950C21CD274656EF00021FCD /* BigButtonBottom.swift */,
+				95604C9627481F1400B7F235 /* CreationsSecondView.swift */,
+				950C21E02746B95C00021FCD /* CreationsView.swift */,
+				950C21EC2746FE4800021FCD /* FinalProgressView.swift */,
+				95E8A2DC274ACEAA000B71B8 /* ImagePickerView.swift */,
 				950C21D42746577000021FCD /* IngredientsListView.swift */,
+				5A9C2C4B2747B58500B460AE /* LockedView.swift */,
+				950C21DA27465E3000021FCD /* RecipeIntroView.swift */,
 				F5B6156327469D4800AD47C6 /* RecipeView.swift */,
 				950C21D02746572300021FCD /* StepsImage.swift */,
+				954AF51A2749723000D1E8C4 /* TakeAPictureView.swift */,
 				950C21D7274657BE00021FCD /* TrophyCircleView.swift */,
-				5A9C2C4B2747B58500B460AE /* LockedView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -128,13 +134,7 @@
 				F5B615122743BEDF00AD47C6 /* cooKidsApp.swift */,
 				F5CDD65A2747A7340082A764 /* Navigation.swift */,
 				912AB282274667F7001B8CF7 /* Recipes.swift */,
-				950C21DA27465E3000021FCD /* RecipeIntroView.swift */,
 				F5B615602746678500AD47C6 /* Trophies.swift */,
-				950C21E02746B95C00021FCD /* CreationsView.swift */,
-				95604C9627481F1400B7F235 /* CreationsSecondView.swift */,
-				954AF51A2749723000D1E8C4 /* TakeAPictureView.swift */,
-				950C21EC2746FE4800021FCD /* FinalProgressView.swift */,
-				95E8A2DC274ACEAA000B71B8 /* ImagePickerView.swift */,
 				950C21D32746573B00021FCD /* Views */,
 				F5B6154A2745112D00AD47C6 /* Model */,
 				F5B615142743BEE100AD47C6 /* Assets.xcassets */,
