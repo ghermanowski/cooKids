@@ -10,11 +10,11 @@ import SwiftUI
 struct RecipeIntroView: View {
 	@EnvironmentObject private var userStore: UserStore
 	@State var thisRecipe: Recipe
+	@State var showNext = false
 	
 	var body: some View {
 		VStack {
 			ScrollView (.vertical) {
-				
 				VStack (spacing: 30) {
 					StepsImage(image: thisRecipe.imageName, introOrNot: true)
 						.padding(.top, 30)
@@ -34,11 +34,12 @@ struct RecipeIntroView: View {
 				}
 			}
 			Spacer()
-			BigButtonBottom(buttonText: "COOK", systemIcon: "fork.knife") {
-				//
+			NavigationLink(destination: IngredientStepView(thisRecipe: thisRecipe), isActive: $showNext) {
+				EmptyView()
 			}
-		}
-		
+			BigButtonBottom(buttonText: "Cook", systemIcon: "fork.knife") {
+			}
+		}.navigationBarTitleDisplayMode(.inline)
 	}
 }
 
