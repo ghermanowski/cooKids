@@ -9,12 +9,6 @@ import Foundation
 
 class UserStore: ObservableObject {
 	init() {
-		trophies = [.cleaning: .init(title: "Cleaning", count: .random(in: 0...9), maximum: 9),
-					.baking: .init(title: "Baking", count: .random(in: 0...8), maximum: 8),
-					.sweets: .init(title: "Sweets", count: .random(in: 0...9), maximum: 9),
-					.heat: .init(title: "Heat", count: .random(in: 0...9), maximum: 9),
-					.cutting: .init(title: "Cutting", count: .random(in: 0...8), maximum: 8)]
-		
 		for any in self.creations {
 			var new = any
 			self.creationsRecipe.append(new.changeTitle(titleFor: .recipeTitle))
@@ -22,7 +16,13 @@ class UserStore: ObservableObject {
 		}
 	}
 	
-	@Published var trophies: [Trophy: Trophy.Details]
+	@Published var trophies: [Trophy: Trophy.Details] = [
+		.cleaning: .init(icon: "🧼", count: .random(in: 0...9), maximum: 9),
+		.baking: .init(icon: "🍰", count: .random(in: 0...8), maximum: 8),
+		.sweets: .init(icon: "🍩", count: .random(in: 0...9), maximum: 9),
+		.heat: .init(icon: "🔥", count: .random(in: 0...9), maximum: 9),
+		.cutting: .init(icon: "🔪", count: .random(in: 0...8), maximum: 8)
+	]
 	
 	@Published var creationsRecipe = [Creation]()
 	@Published var creationsPhotos = [Creation]()
@@ -33,7 +33,7 @@ class UserStore: ObservableObject {
 					 Creation(recipeTitle: .berryQuark, date: Date.now.advanced(by: -691200), imageName: "berryQuarkImage"),
 					 Creation(recipeTitle: .muffins, date: Date.now.advanced(by: -259200), imageName: "muffins")]
 	
-	var recipes = [
+	let recipes = [
 		
 		// MARK: Appetizers
 		
