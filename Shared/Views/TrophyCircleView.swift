@@ -38,10 +38,13 @@ struct TrophyCircleView: View {
 					
 					Text(trophyDetails.icon)
 						.font(.system(size: 50))
+						.padding(.bottom, 2)
 				}
+				.padding(.bottom, 8)
 				
 				Text(trophy.title)
 					.font(.system(.title3, design: .rounded).weight(.semibold))
+					.multilineTextAlignment(.center)
 				
 				if showProgressText {
 					Text("\(trophyDetails.count) / \(trophyDetails.maximum)")
