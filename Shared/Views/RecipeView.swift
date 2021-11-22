@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RecipeView: View {
-	let recipe: RapresentableInRectProtocol
+	let recipe: Recipe
 	
 	var trophyCount: some View {
 		HStack {
@@ -22,68 +22,19 @@ struct RecipeView: View {
 				.padding(8)
 				.background(Circle().fill(.orange).shadow(radius: 8))
 		}
-		
 		.foregroundColor(.white)
 		.multilineTextAlignment(.trailing)
 		.padding([.top, .trailing], 12)
 	}
 	
 	var body: some View {
-		Group {
-			if recipe is Creation {
-				let recipe = recipe as! Creation
-				if recipe.photo != nil {
-					choosedImage(photo: recipe.photo, imageName: nil)
-				} else {
-					choosedImage(photo: nil, imageName: recipe.imageName)
-				}
-			}
-			else {
-				choosedImage(photo: nil, imageName: recipe.imageName)
-			}
-		}
-		.overlay {
-			VStack {
+		LabelledImage(imageName: recipe.imageName, title: recipe.title)
+			.overlay(alignment: .topTrailing) {
 				if !recipe.trophies.isEmpty {
-					HStack {
-						Spacer()
-						trophyCount
-					}
-					.frame(alignment: .topTrailing)
-				}
-				
-				Spacer()
-				
-				HStack {
-					Text(recipe.title)
-						.multilineTextAlignment(.leading)
-						.foregroundColor(.white)
-						.font(.system(.title, design: .rounded).bold())
-						.shadow(color: .black, radius: 10, x: 0, y: 0)
-						.padding([.leading, .bottom], 12)
-						.padding(.leading, 4)
-					
-					Spacer()
+					trophyCount
 				}
 			}
-		}
 	}
-	
-	func choosedImage(photo: UIImage?, imageName: String?) -> some View {
-		var image: Image
-		if photo != nil {
-			image = Image(uiImage: photo!)
-		} else {
-			image = Image(imageName ?? "")
-		}
-		return (image
-					.resizable()
-					.scaledToFill()
-					.frame(width: 312, height: 210)
-					.cornerRadius(32)
-					.shadow(radius: 5, y: 2))
-	}
-	
 }
 
 struct RecipeView_Previews: PreviewProvider {
