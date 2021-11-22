@@ -2,13 +2,14 @@
 //  IngredientStepView.swift
 //  cooKids (iOS)
 //
-//  Created by Anna Izzo on 22/11/21.
+//  Created on 22/11/21.
 //
 
 import SwiftUI
 
 struct IngredientStepView: View {
-	var thisRecipe: Recipe
+	let thisRecipe: Recipe
+	@State private var showAlert = false
 	var body: some View {
 		VStack {
 			ScrollView(.vertical) {
@@ -43,12 +44,26 @@ struct IngredientStepView: View {
 			}
 		}
 		.navigationBarTitleDisplayMode(.inline)
+		.navigationTitle("Step 0")
+		.navigationBarItems(trailing: Button(action: {
+			showAlert.toggle()
+		}, label: {
+			Image(systemName: "xmark.circle.fill")
+				.foregroundColor(.gray)
+		}))
+		.alert("Are you sure you want to stop?", isPresented: $showAlert) {
+			Button("Stop", role: .destructive) {
+				//back to recipes
+			}
+		} message: {
+			Text("You will lose your progress")
+		}
 	}
 }
 
 
 struct IngredientStepView_Previews: PreviewProvider {
     static var previews: some View {
-		IngredientStepView(thisRecipe: (UserStore().recipes[9]))
+		IngredientStepView(thisRecipe: (UserStore().recipes[0]))
     }
 }
