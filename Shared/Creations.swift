@@ -1,5 +1,5 @@
 //
-//  CreationsView.swift
+//  Creations.swift
 //  cooKids
 //
 //  Created by Anna Izzo on 18/11/21.
@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct CreationsView: View {
+struct Creations: View {
 	@EnvironmentObject private var userStore: UserStore
 	
 	var body: some View {
@@ -51,7 +51,7 @@ struct CreationsView: View {
 
 struct CreationsView_Previews: PreviewProvider {
 	static var previews: some View {
-		CreationsView()
+		Creations()
 			.environmentObject(UserStore())
 	}
 }

@@ -8,13 +8,12 @@
 import Foundation
 import UIKit
 
-struct Creation: Identifiable, RapresentableInRectProtocol {
+struct Creation: Identifiable {
 	var id: String { imageName }
 	var title: String = ""
 	let recipeTitle: RecipeTitle
 	var date: Date
 	var imageName: String
-	let trophies: [Trophy] = []
 	var photo: UIImage?
 	
 	enum DateorRecipe {

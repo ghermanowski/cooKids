@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5A9C2C4C2747B58500B460AE /* LockedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9C2C4B2747B58500B460AE /* LockedView.swift */; };
-		5A9C2C4D2747B58500B460AE /* LockedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9C2C4B2747B58500B460AE /* LockedView.swift */; };
 		912AB283274667F7001B8CF7 /* Recipes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912AB282274667F7001B8CF7 /* Recipes.swift */; };
 		912AB284274667F7001B8CF7 /* Recipes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912AB282274667F7001B8CF7 /* Recipes.swift */; };
 		950C21CE274656EF00021FCD /* BigButtonBottom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950C21CD274656EF00021FCD /* BigButtonBottom.swift */; };
@@ -21,9 +19,8 @@
 		950C21D9274657BE00021FCD /* TrophyCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950C21D7274657BE00021FCD /* TrophyCircleView.swift */; };
 		950C21DB27465E3000021FCD /* RecipeIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950C21DA27465E3000021FCD /* RecipeIntroView.swift */; };
 		950C21DC27465E3000021FCD /* RecipeIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950C21DA27465E3000021FCD /* RecipeIntroView.swift */; };
-		950C21E12746B95C00021FCD /* CreationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950C21E02746B95C00021FCD /* CreationsView.swift */; };
-		950C21E22746B95C00021FCD /* CreationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950C21E02746B95C00021FCD /* CreationsView.swift */; };
-		950C21EB2746ED2A00021FCD /* RapresentableInRectProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950C21EA2746ED2A00021FCD /* RapresentableInRectProtocol.swift */; };
+		950C21E12746B95C00021FCD /* Creations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950C21E02746B95C00021FCD /* Creations.swift */; };
+		950C21E22746B95C00021FCD /* Creations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950C21E02746B95C00021FCD /* Creations.swift */; };
 		950C21ED2746FE4900021FCD /* FinalProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950C21EC2746FE4800021FCD /* FinalProgressView.swift */; };
 		950C21EE2746FE4900021FCD /* FinalProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950C21EC2746FE4800021FCD /* FinalProgressView.swift */; };
 		951A98AC274B99DA0081925F /* IngredientStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951A98AB274B99DA0081925F /* IngredientStepView.swift */; };
@@ -31,8 +28,8 @@
 		951A98AF274BA4C50081925F /* StepsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951A98AD274BA4C40081925F /* StepsView.swift */; };
 		954AF51B2749723000D1E8C4 /* TakeAPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954AF51A2749723000D1E8C4 /* TakeAPictureView.swift */; };
 		954AF51C2749723000D1E8C4 /* TakeAPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954AF51A2749723000D1E8C4 /* TakeAPictureView.swift */; };
-		95604C9427481E3F00B7F235 /* Creations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95604C9327481E3F00B7F235 /* Creations.swift */; };
-		95604C9527481E3F00B7F235 /* Creations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95604C9327481E3F00B7F235 /* Creations.swift */; };
+		95604C9427481E3F00B7F235 /* Creation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95604C9327481E3F00B7F235 /* Creation.swift */; };
+		95604C9527481E3F00B7F235 /* Creation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95604C9327481E3F00B7F235 /* Creation.swift */; };
 		95604C9727481F1400B7F235 /* CreationsHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95604C9627481F1400B7F235 /* CreationsHistory.swift */; };
 		95604C9827481F1400B7F235 /* CreationsHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95604C9627481F1400B7F235 /* CreationsHistory.swift */; };
 		95E8A2DD274ACEAA000B71B8 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E8A2DC274ACEAA000B71B8 /* ImagePickerView.swift */; };
@@ -58,20 +55,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5A9C2C4B2747B58500B460AE /* LockedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockedView.swift; sourceTree = "<group>"; };
 		912AB282274667F7001B8CF7 /* Recipes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipes.swift; sourceTree = "<group>"; };
 		950C21CD274656EF00021FCD /* BigButtonBottom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigButtonBottom.swift; sourceTree = "<group>"; };
 		950C21D02746572300021FCD /* StepsImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsImage.swift; sourceTree = "<group>"; };
 		950C21D42746577000021FCD /* IngredientsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsListView.swift; sourceTree = "<group>"; };
 		950C21D7274657BE00021FCD /* TrophyCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyCircleView.swift; sourceTree = "<group>"; };
 		950C21DA27465E3000021FCD /* RecipeIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeIntroView.swift; sourceTree = "<group>"; };
-		950C21E02746B95C00021FCD /* CreationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationsView.swift; sourceTree = "<group>"; };
-		950C21EA2746ED2A00021FCD /* RapresentableInRectProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RapresentableInRectProtocol.swift; sourceTree = "<group>"; };
+		950C21E02746B95C00021FCD /* Creations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Creations.swift; sourceTree = "<group>"; };
 		950C21EC2746FE4800021FCD /* FinalProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalProgressView.swift; sourceTree = "<group>"; };
 		951A98AB274B99DA0081925F /* IngredientStepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientStepView.swift; sourceTree = "<group>"; };
 		951A98AD274BA4C40081925F /* StepsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsView.swift; sourceTree = "<group>"; };
 		954AF51A2749723000D1E8C4 /* TakeAPictureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakeAPictureView.swift; sourceTree = "<group>"; };
-		95604C9327481E3F00B7F235 /* Creations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Creations.swift; sourceTree = "<group>"; };
+		95604C9327481E3F00B7F235 /* Creation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Creation.swift; sourceTree = "<group>"; };
 		95604C9627481F1400B7F235 /* CreationsHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationsHistory.swift; sourceTree = "<group>"; };
 		95E8A2DC274ACEAA000B71B8 /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
 		F5B615122743BEDF00AD47C6 /* cooKidsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cooKidsApp.swift; sourceTree = "<group>"; };
@@ -112,12 +107,10 @@
 				950C21CD274656EF00021FCD /* BigButtonBottom.swift */,
 				F5CDD65E274BA5C40082A764 /* Card.swift */,
 				95604C9627481F1400B7F235 /* CreationsHistory.swift */,
-				950C21E02746B95C00021FCD /* CreationsView.swift */,
 				950C21EC2746FE4800021FCD /* FinalProgressView.swift */,
 				95E8A2DC274ACEAA000B71B8 /* ImagePickerView.swift */,
 				950C21D42746577000021FCD /* IngredientsListView.swift */,
 				951A98AB274B99DA0081925F /* IngredientStepView.swift */,
-				5A9C2C4B2747B58500B460AE /* LockedView.swift */,
 				F5B6156327469D4800AD47C6 /* RecipeCard.swift */,
 				950C21DA27465E3000021FCD /* RecipeIntroView.swift */,
 				950C21D02746572300021FCD /* StepsImage.swift */,
@@ -131,7 +124,6 @@
 		F5B6150C2743BEDF00AD47C6 = {
 			isa = PBXGroup;
 			children = (
-				950C21EA2746ED2A00021FCD /* RapresentableInRectProtocol.swift */,
 				F5B615112743BEDF00AD47C6 /* Shared */,
 				F5B615202743BEE100AD47C6 /* macOS */,
 				F5B6151A2743BEE100AD47C6 /* Products */,
@@ -146,6 +138,7 @@
 				F5CDD65A2747A7340082A764 /* Navigation.swift */,
 				912AB282274667F7001B8CF7 /* Recipes.swift */,
 				F5B615602746678500AD47C6 /* Trophies.swift */,
+				950C21E02746B95C00021FCD /* Creations.swift */,
 				950C21D32746573B00021FCD /* Views */,
 				F5B6154A2745112D00AD47C6 /* Model */,
 				F5B615142743BEE100AD47C6 /* Assets.xcassets */,
@@ -173,7 +166,7 @@
 		F5B6154A2745112D00AD47C6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				95604C9327481E3F00B7F235 /* Creations.swift */,
+				95604C9327481E3F00B7F235 /* Creation.swift */,
 				F5B6155D2745807D00AD47C6 /* Recipe.swift */,
 				F5B6154D274511CF00AD47C6 /* Trophy.swift */,
 				F5B6155A2745666200AD47C6 /* UserStore.swift */,
@@ -280,14 +273,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				950C21D52746577000021FCD /* IngredientsListView.swift in Sources */,
-				950C21EB2746ED2A00021FCD /* RapresentableInRectProtocol.swift in Sources */,
 				912AB283274667F7001B8CF7 /* Recipes.swift in Sources */,
 				95604C9727481F1400B7F235 /* CreationsHistory.swift in Sources */,
 				950C21DB27465E3000021FCD /* RecipeIntroView.swift in Sources */,
 				F5B6155B2745666200AD47C6 /* UserStore.swift in Sources */,
 				F5B6154E274511CF00AD47C6 /* Trophy.swift in Sources */,
-				95604C9427481E3F00B7F235 /* Creations.swift in Sources */,
-				5A9C2C4C2747B58500B460AE /* LockedView.swift in Sources */,
+				95604C9427481E3F00B7F235 /* Creation.swift in Sources */,
 				950C21D8274657BE00021FCD /* TrophyCircleView.swift in Sources */,
 				F5B6156427469D4800AD47C6 /* RecipeCard.swift in Sources */,
 				951A98AE274BA4C40081925F /* StepsView.swift in Sources */,
@@ -302,7 +293,7 @@
 				951A98AC274B99DA0081925F /* IngredientStepView.swift in Sources */,
 				F5B615612746678500AD47C6 /* Trophies.swift in Sources */,
 				F5CDD65F274BA5C40082A764 /* Card.swift in Sources */,
-				950C21E12746B95C00021FCD /* CreationsView.swift in Sources */,
+				950C21E12746B95C00021FCD /* Creations.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,8 +311,7 @@
 				F5B6156527469D4800AD47C6 /* RecipeCard.swift in Sources */,
 				950C21EE2746FE4900021FCD /* FinalProgressView.swift in Sources */,
 				F5B61559274565EF00AD47C6 /* Trophy.swift in Sources */,
-				5A9C2C4D2747B58500B460AE /* LockedView.swift in Sources */,
-				95604C9527481E3F00B7F235 /* Creations.swift in Sources */,
+				95604C9527481E3F00B7F235 /* Creation.swift in Sources */,
 				F5CDD660274BA5C40082A764 /* Card.swift in Sources */,
 				F5B615232743BEE100AD47C6 /* cooKidsApp.swift in Sources */,
 				950C21D22746572300021FCD /* StepsImage.swift in Sources */,
@@ -331,7 +321,7 @@
 				951A98AF274BA4C50081925F /* StepsView.swift in Sources */,
 				F5B6155F2745807D00AD47C6 /* Recipe.swift in Sources */,
 				F5B615622746678500AD47C6 /* Trophies.swift in Sources */,
-				950C21E22746B95C00021FCD /* CreationsView.swift in Sources */,
+				950C21E22746B95C00021FCD /* Creations.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
