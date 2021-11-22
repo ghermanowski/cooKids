@@ -16,7 +16,7 @@ struct Recipes: View {
 				LazyVStack(alignment: .leading, spacing: 30) {
 					ForEach(Recipe.Category.allCases) { category in
 						VStack(alignment: .leading, spacing: 10) {
-							Text(category.rawValue)
+							Text(category.title)
 								.font(.system(.title, design: .rounded).weight(.semibold))
 								.padding(.leading, 20)
 							
