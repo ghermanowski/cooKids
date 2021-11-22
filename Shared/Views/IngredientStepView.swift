@@ -47,6 +47,6 @@ struct IngredientStepView: View {
 
 struct IngredientStepView_Previews: PreviewProvider {
     static var previews: some View {
-		IngredientStepView(thisRecipe: UserStore().recipes[7])
+		IngredientStepView(thisRecipe: UserStore().recipes[9])
     }
 }

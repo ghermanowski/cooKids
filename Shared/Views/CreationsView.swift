@@ -21,7 +21,13 @@ struct CreationsView: View {
 							NavigationLink {
 								CreationsHistory(recipeTitle: recipeTitle)
 							} label: {
-								LabelledImage(imageName: creations.first!.imageName, title: creations.first!.title)
+								if let photo = creations.first!.photo {
+									LabelledImage(uiImage: photo, title: creations.first!.title)
+								} else {
+									LabelledImage(imageName: creations.first!.imageName, title: creations.first!.title)
+								}
+								
+//								LabelledImage(imageName: creations.first!.imageName, title: creations.first!.title)
 							}
 							
 						}
