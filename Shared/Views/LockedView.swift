@@ -65,11 +65,12 @@ struct LockedView: View {
 
 struct LockedView_Previews: PreviewProvider {
     static var previews: some View {
-        LockedView(recipe: Recipe(title: "to unlock",
+		LockedView(recipe: Recipe(title: "to unlock",
 								  ingredients: [],
 								  steps: [],
 								  imageName: "carbonara",
 								  category: .sweets,
-								  trophies: [.cleaning, .heat, .baking, .sweets, .cleaning]))
-    }
+								  trophies: [.cleaning, .heat, .baking, .sweets, .cleaning],
+								  requiredTrophyProgress: 10))
+	}
 }

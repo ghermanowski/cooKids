@@ -8,30 +8,53 @@
 import SwiftUI
 
 struct RecipeImage: View {
+	@EnvironmentObject private var userStore: UserStore
+	
 	let recipe: Recipe
 	
-	var trophyCount: some View {
-		HStack {
-			Text(recipe.trophies.count.formatted())
-				.font(.system(.largeTitle, design: .rounded).weight(.heavy))
-				.shadow(color: .gray, radius: 2)
-				.shadow(radius: 3)
+	func trophyCount(count: Int, showUnlockText: Bool) -> some View {
+		HStack(alignment: .firstTextBaseline) {
+			Text(count.formatted())
+				.shadow(color: .orange, radius: 2)
 			
 			Image(systemName: "crown.fill")
-				.font(.system(.headline, design: .rounded))
+				.imageScale(.small)
 				.padding(8)
-				.background(Circle().fill(.orange).shadow(radius: 8))
+				.background(Circle().fill(.orange).shadow(radius: 4))
+			
+			if showUnlockText {
+				Text("to unlock")
+					.shadow(color: .orange, radius: 2)
+			}
 		}
+		.font(.system(.title, design: .rounded).weight(.heavy))
 		.foregroundColor(.white)
 		.multilineTextAlignment(.trailing)
-		.padding([.top, .trailing], 12)
+		.padding(12)
 	}
 	
 	var body: some View {
 		LabelledImage(imageName: recipe.imageName, title: recipe.title)
 			.overlay(alignment: .topTrailing) {
 				if !recipe.trophies.isEmpty {
-					trophyCount
+					trophyCount(count: recipe.trophies.count, showUnlockText: false)
+				}
+			}
+			.overlay {
+				if userStore.totalTrophyProgress < recipe.requiredTrophyProgress {
+					VStack(spacing: .zero) {
+						Image(systemName: "lock.fill")
+							.foregroundColor(Color.white)
+							.font(.system(size: 72).weight(.bold))
+							.shadow(color: .orange.opacity(0.75), radius: 6)
+							.padding(.bottom, 12)
+						
+						trophyCount(count: recipe.requiredTrophyProgress - userStore.totalTrophyProgress, showUnlockText: true)
+					}
+					.padding(.top, 12)
+					.frame(width: 312, height: 210)
+					.background(.ultraThinMaterial)
+					.cornerRadius(32)
 				}
 			}
 	}
