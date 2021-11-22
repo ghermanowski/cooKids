@@ -50,6 +50,8 @@
 		F5B6156527469D4800AD47C6 /* RecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B6156327469D4800AD47C6 /* RecipeView.swift */; };
 		F5CDD65B2747A7350082A764 /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5CDD65A2747A7340082A764 /* Navigation.swift */; };
 		F5CDD65C2747A7350082A764 /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5CDD65A2747A7340082A764 /* Navigation.swift */; };
+		F5CDD65F274BA5C40082A764 /* LabelledImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5CDD65E274BA5C40082A764 /* LabelledImage.swift */; };
+		F5CDD660274BA5C40082A764 /* LabelledImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5CDD65E274BA5C40082A764 /* LabelledImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +80,7 @@
 		F5B615602746678500AD47C6 /* Trophies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trophies.swift; sourceTree = "<group>"; };
 		F5B6156327469D4800AD47C6 /* RecipeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeView.swift; sourceTree = "<group>"; };
 		F5CDD65A2747A7340082A764 /* Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
+		F5CDD65E274BA5C40082A764 /* LabelledImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelledImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +113,7 @@
 				5A9C2C4B2747B58500B460AE /* LockedView.swift */,
 				950C21DA27465E3000021FCD /* RecipeIntroView.swift */,
 				F5B6156327469D4800AD47C6 /* RecipeView.swift */,
+				F5CDD65E274BA5C40082A764 /* LabelledImage.swift */,
 				950C21D02746572300021FCD /* StepsImage.swift */,
 				954AF51A2749723000D1E8C4 /* TakeAPictureView.swift */,
 				950C21D7274657BE00021FCD /* TrophyCircleView.swift */,
@@ -288,6 +292,7 @@
 				F5B6155E2745807D00AD47C6 /* Recipe.swift in Sources */,
 				954AF51B2749723000D1E8C4 /* TakeAPictureView.swift in Sources */,
 				F5B615612746678500AD47C6 /* Trophies.swift in Sources */,
+				F5CDD65F274BA5C40082A764 /* LabelledImage.swift in Sources */,
 				950C21E12746B95C00021FCD /* CreationsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -308,6 +313,7 @@
 				F5B61559274565EF00AD47C6 /* Trophy.swift in Sources */,
 				5A9C2C4D2747B58500B460AE /* LockedView.swift in Sources */,
 				95604C9527481E3F00B7F235 /* Creations.swift in Sources */,
+				F5CDD660274BA5C40082A764 /* LabelledImage.swift in Sources */,
 				F5B615232743BEE100AD47C6 /* cooKidsApp.swift in Sources */,
 				950C21D22746572300021FCD /* StepsImage.swift in Sources */,
 				F5CDD65C2747A7350082A764 /* Navigation.swift in Sources */,
