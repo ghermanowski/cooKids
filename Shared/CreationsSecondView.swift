@@ -1,5 +1,5 @@
 //
-//  CreationsSecondView.swift
+//  CreationsHistory.swift
 //  cooKids
 //
 //  Created by Anna Izzo on 19/11/21.
@@ -7,25 +7,29 @@
 
 import SwiftUI
 
-struct CreationsSecondView: View {
+struct CreationsHistory: View {
 	@EnvironmentObject private var userStore: UserStore
-	@State var recipeTitle: Creation.RecipeTitle
+	
+	let recipeTitle: Creation.RecipeTitle
 	
 	var body: some View {
-		ScrollView (.vertical) {
-			VStack (spacing: 30){
-				ForEach(userStore.creationsPhotos.filter{$0.recipeTitle == recipeTitle}) { photos in
-					RecipeView(recipe: photos)
+		ScrollView(.vertical) {
+			VStack(spacing: 30) {
+				ForEach(userStore.creationsPhotos.filter { $0.recipeTitle == recipeTitle }) { photo in
+					RecipeView(recipe: photo)
 				}
 			}
-			.padding(.top, 30)
+			.frame(width: UIScreen.screens.first?.bounds.width)
+			.padding(.vertical, 20)
+			.padding(.bottom, 10)
 		}
 		.navigationTitle(recipeTitle.rawValue)
 	}
 }
 
-struct CreationsSecondView_Previews: PreviewProvider {
+struct CreationsHistory_Previews: PreviewProvider {
 	static var previews: some View {
-		CreationsSecondView(recipeTitle: .nutellaCrepes).environmentObject(UserStore())
+		CreationsHistory(recipeTitle: .nutellaCrepes)
+			.environmentObject(UserStore())
 	}
 }
