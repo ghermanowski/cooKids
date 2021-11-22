@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Recipe: Identifiable, RapresentableInRectProtocol {
+struct Recipe: Identifiable {
 	var id: String { title }
 	let title: String
 	var ingredients: [Ingredient]
