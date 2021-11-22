@@ -17,11 +17,17 @@ class UserStore: ObservableObject {
 	}
 	
 	@Published var trophies: [Trophy: Trophy.Details] = [
-		.cleaning: .init(icon: "🧼", count: 5, maximum: 7),
+		.cleaning: .init(icon: "🧼", count: 8, maximum: 13),
 		.baking: .init(icon: "🍰", count: 3, maximum: 7),
-		.sweets: .init(icon: "🍩", count: 6, maximum: 7),
+		.sweets: .init(icon: "🍩", count: 5, maximum: 7),
 		.heat: .init(icon: "🔥", count: 3, maximum: 9),
-		.cutting: .init(icon: "🔪", count: 1, maximum: 11)
+		.cutting: .init(icon: "🔪", count: 1, maximum: 7),
+		.seasoning: .init(icon: "🧂", count: 0, maximum: 5),
+		.decorating: .init(icon: "🥨", count: 4, maximum: 5),
+		.serving: .init(icon: "🍱", count: 7, maximum: 11),
+		.washing: .init(icon: "🥕", count: 6, maximum: 13),
+		.hotDrinks: .init(icon: "☕️", count: 0, maximum: 9),
+		.tableSetting: .init(icon: "🍽", count: 2, maximum: 9),
 	]
 	
 	var totalTrophyProgress: Int {
@@ -148,7 +154,7 @@ class UserStore: ObservableObject {
 			   imageName: "mozzarellaincarrozza",
 			   category: .appetizers,
 			   trophies: [.cleaning, .heat, .baking],
-			   requiredTrophyProgress: 25),
+			   requiredTrophyProgress: 40),
 		
 		// MARK: First Courses
 		
@@ -255,5 +261,5 @@ class UserStore: ObservableObject {
 			   imageName: "polenta",
 			   category: .mainCourse,
 			   trophies: [.cleaning, .heat],
-			   requiredTrophyProgress: 20)]
+			   requiredTrophyProgress: 45)]
 }
