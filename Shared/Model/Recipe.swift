@@ -38,9 +38,9 @@ struct Recipe: Identifiable, RapresentableInRectProtocol {
 	enum Category: String, CaseIterable, Identifiable {
 		var id: String { rawValue }
 		
+		case sweets = "Sweets"
 		case appetizers = "Appetizers"
 		case firstCourse = "First Course"
 		case mainCourse = "Main Course"
-		case sweets = "Sweets"
 	}
 }

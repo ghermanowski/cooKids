@@ -36,6 +36,29 @@ class UserStore: ObservableObject {
 	var recipes = [
 		
 		//		Sweets
+		
+		Recipe(title: "Berry Quark",
+			  ingredients: [.init(name: "250 gramms Quark", icon: "🥛"),
+							.init(name: "200 gramms Greek Yoghurt", icon: "🥛"),
+							.init(name: "250 gramms Berries", icon: "🍓"),
+							.init(name: "2 tablespoons Honey", icon: "🍯")],
+			  steps: [.init(title: "Preparation",
+							body: "Wash your hands.\n\nPrepare a mixing bowl, a spoon and a tablespoon for measures."),
+					  .init(title: "Take Berries",
+							body: "If you have frozen berries let them stand at room temperature for 15 minutes."),
+					  .init(title: "Mix Yogurt and Quark",
+							body: "Put the Greek yogurt and the quark in your mixing bowl and start to mix with a spoon."),
+					  .init(title: "Add berries and honey",
+							body: "Add the berries and 2 tablespoon of hony."),
+					  .init(title: "Serve and decorate",
+							body: "Put your portion in a small bowl and put the rest in the fridge. Decorate with more honey and some cereals on the surface."),
+					  .init(title: "Clean up",
+							body: "Clean up your cooking station and wash your hands."),
+					  .init(title: "Good job!",
+							body: "Take a picture of your creation!")],
+			  imageName: "berryQuarkImage",
+			  category: .sweets,
+			   trophies: [.cleaning, .sweets]),
 				
 				Recipe(title: "Apple cranberry muffins",
 								   ingredients: [.init(name: "375 gramms wholemeal flour", icon: "🌾"),
@@ -60,28 +83,7 @@ class UserStore: ObservableObject {
 												  category: .sweets,
 								   trophies: [.cleaning, .sweets]),
 	
-				Recipe(title: "Berry Quark",
-					  ingredients: [.init(name: "250 gramms Quark", icon: "🥛"),
-									.init(name: "200 gramms Greek Yoghurt", icon: "🥛"),
-									.init(name: "250 gramms Berries", icon: "🍓"),
-									.init(name: "2 tablespoons Honey", icon: "🍯")],
-					  steps: [.init(title: "Preparation",
-									body: "Wash your hands.\n\nPrepare a mixing bowl, a spoon and a tablespoon for measures."),
-							  .init(title: "Take Berries",
-									body: "If you have frozen berries let them stand at room temperature for 15 minutes."),
-							  .init(title: "Mix Yogurt and Quark",
-									body: "Put the Greek yogurt and the quark in your mixing bowl and start to mix with a spoon."),
-							  .init(title: "Add berries and honey",
-									body: "Add the berries and 2 tablespoon of hony."),
-							  .init(title: "Serve and decorate",
-									body: "Put your portion in a small bowl and put the rest in the fridge. Decorate with more honey and some cereals on the surface."),
-							  .init(title: "Clean up",
-									body: "Clean up your cooking station and wash your hands."),
-							  .init(title: "Good job!",
-									body: "Take a picture of your creation!")],
-					  imageName: "berryQuarkImage",
-					  category: .sweets,
-					   trophies: [.cleaning, .sweets]),
+				
 		
 //		Appetizers
 		
