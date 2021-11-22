@@ -33,6 +33,7 @@ struct Recipes: View {
 					}
 				}
 				.padding(.top, 10)
+				.padding(.bottom, 20)
 			}
 			.navigationTitle("Recipes")
 		}

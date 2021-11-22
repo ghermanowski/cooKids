@@ -19,15 +19,16 @@ struct CreationsView: View {
 						
 						if let creations = userStore.creationsRecipe.filter{ $0.recipeTitle == recipeTitle} {
 							if !creations.isEmpty {
-								NavigationLink (destination: CreationsSecondView(recipeTitle: recipeTitle)) {
+								NavigationLink (destination: CreationsHistory(recipeTitle: recipeTitle)) {
 									RecipeView(recipe: creations.first!)
 								}
 							}
 						}
 					}
 				}
-				.padding(.vertical, 30)
 				.frame(width: UIScreen.screens.first?.bounds.width)
+				.padding(.vertical, 20)
+				.padding(.bottom, 10)
 				
 				NavigationLink(destination: TakeAPictureView(thisRecipe: userStore.recipes[2])) {
 					Text ("Go to take a picture")

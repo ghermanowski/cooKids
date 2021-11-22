@@ -13,7 +13,7 @@ struct Trophies: View {
 	var body: some View {
 		NavigationView {
 			ScrollView {
-				LazyVGrid(columns: Array(repeating: GridItem(), count: 3)) {
+				LazyVGrid(columns: Array(repeating: GridItem(), count: 3), spacing: 30) {
 					let trophies = userStore.trophies.sorted {
 						$0.value.progress > $1.value.progress
 					}
