@@ -1,5 +1,5 @@
 //
-//  RecipeView.swift
+//  RecipeImage.swift
 //  cooKids
 //
 //  Created by Anna Izzo on 18/11/21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct RecipeView: View {
+struct RecipeImage: View {
 	let recipe: Recipe
 	
 	var trophyCount: some View {
@@ -37,8 +37,8 @@ struct RecipeView: View {
 	}
 }
 
-struct RecipeView_Previews: PreviewProvider {
+struct RecipeImage_Previews: PreviewProvider {
 	static var previews: some View {
-		RecipeView(recipe: UserStore().recipes[0])
+		RecipeImage(recipe: UserStore().recipes[0])
 	}
 }

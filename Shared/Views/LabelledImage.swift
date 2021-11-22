@@ -1,5 +1,5 @@
 //
-//  RecipeView.swift
+//  LabelledImage.swift
 //  cooKids
 //
 //  Created on 22/11/21.
