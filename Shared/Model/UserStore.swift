@@ -9,12 +9,6 @@ import Foundation
 
 class UserStore: ObservableObject {
 	init() {
-		trophies = [.cleaning: .init(title: "Cleaning", count: .random(in: 0...9), maximum: 9),
-					.baking: .init(title: "Baking", count: .random(in: 0...8), maximum: 8),
-					.sweets: .init(title: "Sweets", count: .random(in: 0...9), maximum: 9),
-					.heat: .init(title: "Heat", count: .random(in: 0...9), maximum: 9),
-					.cutting: .init(title: "Cutting", count: .random(in: 0...8), maximum: 8)]
-		
 		for any in self.creations {
 			var new = any
 			self.creationsRecipe.append(new.changeTitle(titleFor: .recipeTitle))
@@ -22,7 +16,13 @@ class UserStore: ObservableObject {
 		}
 	}
 	
-	@Published var trophies: [Trophy: Trophy.Details]
+	@Published var trophies: [Trophy: Trophy.Details] = [
+		.cleaning: .init(icon: "🧼", count: .random(in: 0...9), maximum: 9),
+		.baking: .init(icon: "🍰", count: .random(in: 0...8), maximum: 8),
+		.sweets: .init(icon: "🍩", count: .random(in: 0...9), maximum: 9),
+		.heat: .init(icon: "🔥", count: .random(in: 0...9), maximum: 9),
+		.cutting: .init(icon: "🔪", count: .random(in: 0...8), maximum: 8)
+	]
 	
 	@Published var creationsRecipe = [Creation]()
 	@Published var creationsPhotos = [Creation]()
@@ -33,7 +33,7 @@ class UserStore: ObservableObject {
 					 Creation(recipeTitle: .berryQuark, date: Date.now.advanced(by: -691200), imageName: "berryQuarkImage"),
 					 Creation(recipeTitle: .muffins, date: Date.now.advanced(by: -259200), imageName: "muffins")]
 	
-	var recipes = [
+	let recipes = [
 		
 		//		Sweets
 		
@@ -188,7 +188,7 @@ class UserStore: ObservableObject {
 		
 		// MARK: Main courses
 		
-		Recipe(title: "Eggplant parmigiana",
+		Recipe(title: "Eggplant Parmigiana",
 			   ingredients: [.init(name: "1.5 Kg Black eggplants", icon: "🍆"),
 							 .init(name: "500 g Fior di latte mozzarella cheese", icon: ""),
 							 .init(name: "1.4 L Tomato puree", icon: "🥫"),
@@ -220,29 +220,77 @@ class UserStore: ObservableObject {
 			   category: .mainCourse,
 			   trophies: [.cleaning, .heat]),
 		
-		Recipe(title: "Polenta medallons",
-						   ingredients: [.init(name: "185 g Instant flour for polenta", icon: ""),
-										 .init(name: "750 mL Water", icon: "💧"),
-										 .init(name: "Fine salt", icon: ""),
-										 .init(name: "60 g Smoked pancetta", icon: "🥓"),
-										 .init(name: "100 g Smoked scamorza cheese", icon: "🧀")],
-								 steps: [.init(title: "Preparation",
-											 body: "Wash your hands.\n\nPrepare a mixing bowl, a spoon and a tablespoon for measures."),
-										 .init(title: "Start",
-											 body: "Fill a deep saucepan with 3 cups (750 mL) of water and set over low heat. When the water boils, add salt and pour in approximately ¾ tbsp (10 g) of olive oil, then add the polenta flour slowly, beating all the time."),
-										 .init(title: "Polenta into an oiled baking dish",
-											 body: "Cook over low heat for 8 minutes, continuing to stir with a spoon to prevent lumps from forming. After the end of the cooking time, turn off the heat and pour the polenta into an oiled baking dish. Spread the polenta with a spatula, but do not cover the entire base of the dish."),
-										 .init(title: "Cover with plastic wrap",
-											 body: "You should create a layer approximately 1 inch (2 cm) thick and the resulting square should be 8x8 inches (20x20 cm). Cover with plastic wrap and place in the refrigerator to set for 30 minutes. After this resting time, cut the scamorza cheese into rounds, aiming to obtain 8 slices, each measuring approximately 3 inches (7 cm) in diameter."),
-										 .init(title: "Wrap discs",
-											 body: "Take the polenta out of the refrigerator (it will have set in the meantime) and cut out 4 discs using a 3-inch (7 cm) food ring mold. Place the discs on a cutting board and wrap each one in two slices of smoked pancetta so that the edges are well covered. Transfer the discs one by one to a baking sheet lined with parchment paper."),
-										 .init(title: "Cover with plastic wrap",
-											 body: "After cooking 2-3 minutes, drain on absorbent paper; do the same with all the others. At this point you should have everything you need, so move on to putting it together. Cover the bottom of an 20x30cm baking dish with a little sauce, then make the first layer by arranging the eggplant slices horizontally."),
-										 .init(title: "Enjoy your polenta medallons!",
-											 body: "Lay two slices of scamorza cheese on top of each of the resulting medallions and broil for 5 minutes or long enough for the scamorza to melt. When cooked, take the polenta medallions out of the oven, and serve hot!"),
-										 .init(title: "Let's cook!",
-											 body: "On the last layer pour the remaining tomato puree, the cubes of fiordilatte and parmesan cheese. Now it's time to bake your eggplant parmigiana in a hot oven at 400° F (200° C) for 40 minutes. Once ready, let it cool a few minutes before serving.")],
-										  imageName: "polenta",
-										  category: .mainCourse,
-			   trophies: [.cleaning, .heat])]
+		Recipe(title: "Polenta Medallons",
+			   ingredients: [.init(name: "185 g Instant flour for polenta", icon: ""),
+							 .init(name: "750 mL Water", icon: "💧"),
+							 .init(name: "Fine salt", icon: ""),
+							 .init(name: "60 g Smoked pancetta", icon: "🥓"),
+							 .init(name: "100 g Smoked scamorza cheese", icon: "🧀")],
+			   steps: [.init(title: "Preparation",
+							 body: "Wash your hands.\n\nPrepare a mixing bowl, a spoon and a tablespoon for measures."),
+					   .init(title: "Start",
+							 body: "Fill a deep saucepan with 3 cups (750 mL) of water and set over low heat. When the water boils, add salt and pour in approximately ¾ tbsp (10 g) of olive oil, then add the polenta flour slowly, beating all the time."),
+					   .init(title: "Polenta into an oiled baking dish",
+							 body: "Cook over low heat for 8 minutes, continuing to stir with a spoon to prevent lumps from forming. After the end of the cooking time, turn off the heat and pour the polenta into an oiled baking dish. Spread the polenta with a spatula, but do not cover the entire base of the dish."),
+					   .init(title: "Cover with plastic wrap",
+							 body: "You should create a layer approximately 1 inch (2 cm) thick and the resulting square should be 8x8 inches (20x20 cm). Cover with plastic wrap and place in the refrigerator to set for 30 minutes. After this resting time, cut the scamorza cheese into rounds, aiming to obtain 8 slices, each measuring approximately 3 inches (7 cm) in diameter."),
+					   .init(title: "Wrap discs",
+							 body: "Take the polenta out of the refrigerator (it will have set in the meantime) and cut out 4 discs using a 3-inch (7 cm) food ring mold. Place the discs on a cutting board and wrap each one in two slices of smoked pancetta so that the edges are well covered. Transfer the discs one by one to a baking sheet lined with parchment paper."),
+					   .init(title: "Cover with plastic wrap",
+							 body: "After cooking 2-3 minutes, drain on absorbent paper; do the same with all the others. At this point you should have everything you need, so move on to putting it together. Cover the bottom of an 20x30cm baking dish with a little sauce, then make the first layer by arranging the eggplant slices horizontally."),
+					   .init(title: "Enjoy your polenta medallons!",
+							 body: "Lay two slices of scamorza cheese on top of each of the resulting medallions and broil for 5 minutes or long enough for the scamorza to melt. When cooked, take the polenta medallions out of the oven, and serve hot!"),
+					   .init(title: "Let's cook!",
+							 body: "On the last layer pour the remaining tomato puree, the cubes of fiordilatte and parmesan cheese. Now it's time to bake your eggplant parmigiana in a hot oven at 400° F (200° C) for 40 minutes. Once ready, let it cool a few minutes before serving.")],
+			   imageName: "polenta",
+			   category: .mainCourse,
+			   trophies: [.cleaning, .heat]),
+		
+		// MARK: Sweets
+		
+		Recipe(title: "Apple Cranberry Muffins",
+			   ingredients: [.init(name: "375 gramms wholemeal flour", icon: "🌾"),
+							 .init(name: "25 gramms ground flax", icon: "🌱"),
+							 .init(name: "5 gramms baking powder", icon: ""),
+							 .init(name: "2 gramms cinnamon", icon: ""),
+							 .init(name: "250 mL unsweetened applesauce", icon: "🍏"),
+							 .init(name: "75 gramms brown sugar", icon: ""),
+							 .init(name: "25 mL canola oil", icon: ""),
+							 .init(name: "1 egg", icon: "🥚"),
+							 .init(name: "1 tsp (5 mL) vanilla", icon: ""),
+							 .init(name: "125 gramms dried cranberries", icon: "🫐")],
+			   steps: [.init(title: "Preparation",
+							 body: "Wash your hands.\n\nPrepare a mixing bowl, a spoon and a tablespoon for measures."),
+					   .init(title: "Whisk",
+							 body: "In a large bowl, whisk together flour, flax, baking powder, cinnamon and set aside."),
+					   .init(title: "Mix",
+							 body: "In another bowl, whisk together applesauce, sugar, oil, egg and vanilla. Pour over flour mixture and stir until just combined. Stir in cranberries."),
+					   .init(title: "Let's put them to cook!",
+							 body: "Divide batter among 12 greased or paper lined muffin tins. Bake in 400° F (200° C) oven for about 12 minutes or until golden and firm when touched.")],
+			   imageName: "muffins",
+			   category: .sweets,
+			   trophies: [.cleaning, .sweets]),
+		
+		Recipe(title: "Berry Quark",
+			   ingredients: [.init(name: "250 gramms Quark", icon: "🥛"),
+							 .init(name: "200 gramms Greek Yoghurt", icon: "🥛"),
+							 .init(name: "250 gramms Berries", icon: "🍓"),
+							 .init(name: "2 tablespoons Honey", icon: "🍯")],
+			   steps: [.init(title: "Preparation",
+							 body: "Wash your hands.\n\nPrepare a mixing bowl, a spoon and a tablespoon for measures."),
+					   .init(title: "Take Berries",
+							 body: "If you have frozen berries let them stand at room temperature for 15 minutes."),
+					   .init(title: "Mix Yogurt and Quark",
+							 body: "Put the Greek yogurt and the quark in your mixing bowl and start to mix with a spoon."),
+					   .init(title: "Add berries and honey",
+							 body: "Add the berries and 2 tablespoon of hony."),
+					   .init(title: "Serve and decorate",
+							 body: "Put your portion in a small bowl and put the rest in the fridge. Decorate with more honey and some cereals on the surface."),
+					   .init(title: "Clean up",
+							 body: "Clean up your cooking station and wash your hands."),
+					   .init(title: "Good job!",
+							 body: "Take a picture of your creation!")],
+			   imageName: "berryQuarkImage",
+			   category: .sweets,
+			   trophies: [.cleaning, .sweets])]
 }

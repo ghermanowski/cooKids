@@ -36,11 +36,11 @@ struct TrophyCircleView: View {
 						.overlay(progressCircle(progress: trophyDetails.progress))
 						.frame(width: 100, height: 100)
 					
-					Text(trophy.icon)
+					Text(trophyDetails.icon)
 						.font(.system(size: 50))
 				}
 				
-				Text(trophyDetails.title)
+				Text(trophy.title)
 					.font(.system(.title3, design: .rounded).weight(.semibold))
 				
 				if showProgressText {
