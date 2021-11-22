@@ -86,7 +86,7 @@ struct TakeAPictureView_Previews: PreviewProvider {
 											steps: [],
 											imageName: "bruschette",
 											category: .appetizers,
-											trophies: [.cleaning, .heat]))
+											trophies: [.cleaning, .heat], requiredTrophyProgress: 10))
 			.environmentObject(UserStore())
 	}
 }

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LabelledImage: View {
+struct Card: View {
 	internal init(imageName: String, title: String) {
 		self.image = Image(imageName)
 		self.title = title
@@ -42,6 +42,6 @@ struct LabelledImage: View {
 
 struct LabelledImage_Previews: PreviewProvider {
 	static var previews: some View {
-		LabelledImage(imageName: "berryQuarkImage", title: "Berry Quark")
+		Card(imageName: "berryQuarkImage", title: "Berry Quark")
 	}
 }

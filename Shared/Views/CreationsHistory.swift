@@ -17,9 +17,9 @@ struct CreationsHistory: View {
 			VStack(spacing: 30) {
 				ForEach(userStore.creationsPhotos.filter { $0.recipeTitle == recipeTitle }) { creationPhoto in
 					if let photo = creationPhoto.photo {
-						LabelledImage(uiImage: photo, title: creationPhoto.title)
+						Card(uiImage: photo, title: creationPhoto.title)
 					} else {
-					LabelledImage(imageName: creationPhoto.imageName, title: creationPhoto.title)
+					Card(imageName: creationPhoto.imageName, title: creationPhoto.title)
 					}
 				}
 			}

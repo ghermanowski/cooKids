@@ -15,7 +15,7 @@ struct Recipe: Identifiable, RapresentableInRectProtocol {
 	let imageName: String
 	let category: Category
 	let trophies: [Trophy]
-	var isUnlocked = false
+	let requiredTrophyProgress: Int
 	
 	struct Ingredient {
 		internal init(name: String, icon: String = "🔸") {
