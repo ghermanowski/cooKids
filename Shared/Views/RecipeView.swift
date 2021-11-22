@@ -14,8 +14,8 @@ struct RecipeImage: View {
 		HStack {
 			Text(recipe.trophies.count.formatted())
 				.font(.system(.largeTitle, design: .rounded).weight(.heavy))
-				.shadow(color: .orange, radius: 2)
-				.shadow(radius: 8)
+				.shadow(color: .gray, radius: 2)
+				.shadow(radius: 3)
 			
 			Image(systemName: "crown.fill")
 				.font(.system(.headline, design: .rounded))
