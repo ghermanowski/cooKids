@@ -18,6 +18,11 @@ struct Recipe: Identifiable, RapresentableInRectProtocol {
 	var isUnlocked = false
 	
 	struct Ingredient {
+		internal init(name: String, icon: String = "🔸") {
+			self.name = name
+			self.icon = icon
+		}
+		
 		let name: String
 		let icon: String
 	}

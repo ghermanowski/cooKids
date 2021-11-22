@@ -9,22 +9,22 @@ import Foundation
 
 enum Trophy: String, Identifiable {
 	var id: String { rawValue }
-	var icon: String { rawValue }
+	var title: String { rawValue }
 	
-	case cleaning = "🧼"
-	case baking = "🍰"
-	case sweets = "🍩"
-	case heat = "🔥"
-	case cutting = "🔪"
+	case cleaning = "Cleaning"
+	case baking = "Baking"
+	case sweets = "Sweets"
+	case heat = "Heat"
+	case cutting = "Cutting"
 	
 	struct Details {
-		internal init(title: String, count: Int, maximum: Int) {
-			self.title = title
+		internal init(icon: String, count: Int, maximum: Int) {
+			self.icon = icon
 			self.count = count
 			self.maximum = maximum
 		}
 		
-		let title: String
+		let icon: String
 		var count: Int
 		let maximum: Int
 		
