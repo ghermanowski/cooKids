@@ -12,7 +12,7 @@ struct IngredientsListView: View {
 		self.ingredients = ingredients
 		self.withChecking = withChecking
 		
-		_ingredientsStates = .init(initialValue: Array(repeating: false, count: ingredients.count))
+		_ingredientsStates = .init(initialValue: Array(repeating: false, count: withChecking ? ingredients.count : 0))
 	}
 	
 	@EnvironmentObject private var userStore: UserStore
