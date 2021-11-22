@@ -2,7 +2,7 @@
 //  Navigation.swift
 //  cooKids
 //
-//  Created by Gregor Hermanowski on 19. November.
+//  Created on 19/11/2021.
 //
 
 import SwiftUI
@@ -42,7 +42,7 @@ struct Navigation: View {
 			
 			Trophies()
 			
-			CreationsView()
+			Creations()
 		}
     }
 }
