@@ -27,12 +27,12 @@ struct Navigation: View {
 		}
 		
 		navigationBarAppearance.largeTitleTextAttributes = [.font: largeTitleFont,
-															.foregroundColor: UIColor.systemOrange]
-		
+															.foregroundColor: UIColor.white]
 		navigationBarAppearance.backgroundColor = .systemOrange.withAlphaComponent(0.85)
 		
 		UINavigationBar.appearance().standardAppearance = navigationBarAppearance
-		UINavigationBar.appearance().tintColor = .black
+		UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
+		UINavigationBar.appearance().tintColor = .white
 	}
 	
 	@SceneStorage("activeTab") private var activeTab = Tab.recipes

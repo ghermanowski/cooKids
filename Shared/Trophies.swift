@@ -36,7 +36,7 @@ struct Trophies: View {
 			}
 			.navigationTitle("Trophies")
 		}
-		.tabItem{ Label("Trophies", systemImage: "crown") }
+		.tabItem { Label("Trophies", systemImage: "crown") }
 		.tag(Navigation.Tab.trophies)
     }
 }
