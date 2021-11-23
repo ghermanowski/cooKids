@@ -18,29 +18,51 @@ struct StepsView: View {
 	let stepNumber: Int
 	
 	var body: some View {
-		VStack(alignment: .leading, spacing: 30) {
-			if let imageName = recipe.steps[stepNumber - 1].imageName {
-				StepsImage(image: imageName, introOrNot: false)
-					.frame(width: UIScreen.screens.first?.bounds.width)
-					.padding(.top, 30)
-			}
-			
-			HStack {
-				Spacer()
+		ScrollView {
+			VStack(alignment: .leading, spacing: 30) {
+				if let imageName = recipe.steps[stepNumber - 1].imageName {
+					StepsImage(image: imageName, introOrNot: false)
+						.frame(width: UIScreen.screens.first?.bounds.width)
+						.padding(.top, 30)
+				}
 				
-				Text(recipe.steps[stepNumber - 1].title)
-					.font(.system(.title, design: .rounded))
-					.padding(.horizontal, 20)
+				HStack {
+					Spacer()
+					
+					Text(recipe.steps[stepNumber - 1].title)
+						.font(.system(.title, design: .rounded))
+						.padding(.horizontal, 20)
+					
+					Spacer()
+				}
 				
-				Spacer()
+				Text(recipe.steps[stepNumber - 1].body)
+					.font(.system(.title2, design: .rounded))
+					.padding(.horizontal, 30)
 			}
-			
-			Text(recipe.steps[stepNumber - 1].body)
-				.font(.system(.title2, design: .rounded))
-				.padding(.horizontal, 30)
-			
-			Spacer()
-			
+		}
+		.interactiveDismissDisabled()
+		.navigationTitle("Step \(stepNumber)")
+		.navigationBarTitleDisplayMode(.inline)
+		.toolbar {
+			ToolbarItem(placement: .navigationBarTrailing) {
+				Button {
+					showAlert.toggle()
+				} label: {
+					Image(systemName: "xmark")
+						.font(.system(.headline, design: .rounded).weight(.heavy))
+						.foregroundColor(.red)
+				}
+				.confirmationDialog("Are you sure you want to stop? You will lose your progress.",
+									isPresented: $showAlert,
+									titleVisibility: .visible) {
+					Button("Stop", role: .destructive) {
+						isPresented = false
+					}
+				}
+			}
+		}
+		.safeAreaInset(edge: .bottom) {
 			NavigationLink {
 				if stepNumber < recipe.steps.count {
 					StepsView(isPresented: $isPresented, recipe: recipe, stepNumber: stepNumber + 1)
@@ -62,32 +84,11 @@ struct StepsView: View {
 			.shadow(color: .clear, radius: .zero)
 			.shadow(radius: 4, y: -2)
 		}
-		.navigationTitle("Step \(stepNumber)")
-		.navigationBarTitleDisplayMode(.inline)
-		.toolbar {
-			ToolbarItem(placement: .navigationBarTrailing) {
-				Button {
-					showAlert.toggle()
-				} label: {
-					Image(systemName: "xmark")
-						.font(.system(.headline, design: .rounded).weight(.heavy))
-						.foregroundColor(.red)
-				}
-				.confirmationDialog("Are you sure you want to stop? You will lose your progress.",
-									isPresented: $showAlert,
-									titleVisibility: .visible) {
-					Button("Stop", role: .destructive) {
-						isPresented = false
-					}
-				}
-			}
-		}
 		.background {
 			Image("Background")
 				.resizable()
 				.scaledToFill()
 				.opacity(0.3)
-				.edgesIgnoringSafeArea([.vertical, .horizontal])
 		}
 	}
 }
