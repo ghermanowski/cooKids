@@ -34,9 +34,6 @@ struct Creations: View {
 				.padding(.vertical, 20)
 				.padding(.bottom, 10)
 				
-				NavigationLink(destination: TakeAPictureView(thisRecipe: userStore.recipes[2])) {
-					Text ("Go to take a picture")
-				}
 			}
 			.navigationTitle("Creations")
 		}
