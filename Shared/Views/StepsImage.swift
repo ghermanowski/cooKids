@@ -18,7 +18,7 @@ struct StepsImage: View {
 			.scaledToFill()
 			.frame(width: ((UIScreen.screens.first?.bounds.width)! - 40), height: introOrNot ? 210 : 230)
 			.cornerRadius(32)
-			.overlay(RoundedRectangle(cornerRadius: 32).stroke(lineWidth: 3).foregroundColor(.gray))
+			.shadow(radius: 5)
 		}
 }
 

@@ -36,6 +36,8 @@ struct IngredientsListView: View {
 				HStack(spacing: 26) {
 					Label {
 						Text(ingredients[index].name)
+							.fontWeight(.light)
+							.foregroundColor(Color(hue: 1.0, saturation: 0.0, brightness: 0.268))
 							.padding(.leading, 16)
 					} icon: {
 						Text(ingredients[index].icon)

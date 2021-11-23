@@ -35,16 +35,17 @@ struct TrophyCircleView: View {
 								.cornerRadius(.infinity)
 						}
 						.overlay(progressCircle(showProgressBar: showProgressBar, progress: trophyDetails.progress))
-						.frame(width: 100, height: 100)
+						.frame(width: 80, height: 80)
 					
 					Text(trophyDetails.icon)
-						.font(.system(size: 50))
+						.font(.system(size: 45))
 						.padding(.bottom, 2)
 				}
 				.padding(.bottom, 8)
 				
 				Text(trophy.title)
 					.font(.system(.title3, design: .rounded).weight(.semibold))
+					.foregroundColor(Color(hue: 1.0, saturation: 0.0, brightness: 0.302))
 					.multilineTextAlignment(.center)
 				
 				if showProgressText {

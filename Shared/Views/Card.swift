@@ -25,9 +25,9 @@ struct Card: View {
 		image
 			.resizable()
 			.scaledToFill()
-			.frame(width: 312, height: 210)
+			.frame(width: 290, height: 195)
 			.cornerRadius(32)
-			.shadow(radius: 5, y: 2)
+			.shadow(radius: 5)
 			.overlay(alignment: .bottomLeading) {
 				Text(title)
 					.multilineTextAlignment(.leading)
