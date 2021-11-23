@@ -68,5 +68,6 @@ struct RecipeCard: View {
 struct RecipeCard_Previews: PreviewProvider {
 	static var previews: some View {
 		RecipeCard(recipe: UserStore().recipes[0])
+			.environmentObject(UserStore())
 	}
 }
