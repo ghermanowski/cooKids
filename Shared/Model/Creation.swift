@@ -23,16 +23,28 @@ struct Creation: Identifiable {
 	enum RecipeTitle: String, CaseIterable, Identifiable {
 		var id: String { rawValue }
 		
+		case fishEggs = "Fish Eggs"
+		case smilingPizzas = "Smiling Pizzas"
+		case sillySandwich = "Silly Sandwich"
+		case frogSandwiches = "Frog Sandwiches"
+		case puffs = "Choux Puffs"
+		case monsterCookie = "Monster Cookie"
+		case owlCookies = "Owl Cookies"
 		case berryQuark = "Berry Quark"
-		case caprese = "Caprese"
+		case unicornPancakes = "Unicorn Pancakes"
 		case muffins = "Apple cranberry muffins"
 		case nutellaCrepes = "Nutella Crêpes"
-		case polenta = "Polenta medallons"
-		case parmigiana = "Eggplant parmigiana"
+		case eggBunny = "Egg Bunny"
+		case vegPizza = "Vegetables Pizzas"
+		case spagMeatball = "Spaghetti Meatball"
+		case bunnyBread = "Bunny Bread"
+		case polenta = "Polenta Medallons"
+		case parmigiana = "Eggplant Parmigiana"
 		case carbonara = "Spaghetti Carbonara"
 		case spaghetti = "Tomato Spaghetti"
 		case mozzarella = "Fried Mozzarella"
 		case bruschetta = "Tomato Bruschetta"
+		case unknown = "Unknown"
 	}
 	
 	init(recipeTitle: Creation.RecipeTitle, date: Date, imageName: String?, photo: UIImage? = nil) {

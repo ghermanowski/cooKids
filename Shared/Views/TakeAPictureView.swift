@@ -11,8 +11,9 @@ import UIKit
 struct TakeAPictureView: View {
 	@EnvironmentObject private var userStore: UserStore
 	
+	@State private var isImagePickerDisplay = false
 	@Binding var isPresented : Bool
-	
+	@State private var shouldGoNext = false
 	@State private var selectedImage: UIImage?
 	@State private var showImagePicker = false
 	@State private var showAlert = false
@@ -61,20 +62,32 @@ struct TakeAPictureView: View {
 			}
 		}
 		.safeAreaInset(edge: .bottom) {
-			BigButtonBottom(buttonText: selectedImage == nil ? "Take a picture" : "Next", systemIcon: selectedImage == nil ? "camera.fill" : "") {
-				if let photo = selectedImage {
-					addCreationAndUpdateStore(photo: photo)
-					//go to next screen
-				} else {
-					openCamera()
-				}
+			NavigationLink (destination: FinalProgressView(isPresented: $isPresented, recipe: recipe), isActive: $shouldGoNext)
+			{
+				RoundedRectangle(cornerRadius: 10)
+					.fill(.orange)
+					.frame(maxWidth: .infinity, maxHeight: 60)
+					.overlay {
+						HStack {
+							Image(systemName: selectedImage == nil ? "camera.fill" : "")
+							Text(selectedImage == nil ? "Take a picture" : "Next")
+						}
+						.foregroundColor(.white)
+						.font(.system(size: 24, weight: .bold, design: .rounded))
+					}
+					.onTapGesture {
+						if let photo = selectedImage {
+							addCreationAndUpdateStore(photo: photo)
+							shouldGoNext.toggle()
+						} else {
+							openCamera()
+						}
+					}
 			}
-			.alert("Camera not available", isPresented: $showAlert) {
-				//
-			}
-			.sheet(isPresented: $showImagePicker) {
-				ImagePickerView(selectedImage: $selectedImage)
-			}
+			.padding(20)
+			.background(.ultraThinMaterial)
+			.shadow(color: .clear, radius: .zero)
+			.shadow(radius: 4, y: -2)
 
 		}
 		.background {
@@ -82,6 +95,12 @@ struct TakeAPictureView: View {
 				.resizable()
 				.scaledToFill()
 				.opacity(0.3)
+		}
+		.sheet(isPresented: self.$isImagePickerDisplay) {
+			ImagePickerView(selectedImage: $selectedImage)
+		}
+		.alert("Camera not available", isPresented: $showAlert) {
+			//
 		}
 	}
 	
@@ -94,7 +113,7 @@ struct TakeAPictureView: View {
 	}
 	
 	func addCreationAndUpdateStore(photo: UIImage) {
-		var newCreation = Creation(recipeTitle: Creation.RecipeTitle(rawValue: recipe.title) ?? .caprese, date: Date.now, imageName: nil, photo: photo)
+		var newCreation = Creation(recipeTitle: Creation.RecipeTitle(rawValue: recipe.title) ?? .unknown, date: Date.now, imageName: nil, photo: photo)
 		userStore.creations.append(newCreation)
 		userStore.creationsPhotos.append(newCreation.changeTitle(titleFor: .dateTitle))
 		userStore.creationsRecipe.append(newCreation.changeTitle(titleFor: .recipeTitle))
