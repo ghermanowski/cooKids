@@ -32,6 +32,7 @@ struct Navigation: View {
 		navigationBarAppearance.backgroundColor = .systemOrange.withAlphaComponent(0.85)
 		
 		UINavigationBar.appearance().standardAppearance = navigationBarAppearance
+		UINavigationBar.appearance().tintColor = .black
 	}
 	
 	@SceneStorage("activeTab") private var activeTab = Tab.recipes
