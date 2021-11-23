@@ -16,29 +16,36 @@ struct StepsView: View {
 	@State private var showAlert = false
 	
 	var body: some View {
-		VStack(spacing: 30){
+		VStack(alignment: .leading, spacing: 30) {
 			
 			StepsImage(image: thisRecipe.steps[stepCount].imageName ?? "", introOrNot: false)
+				.frame(width: UIScreen.screens.first?.bounds.width)
 				.padding(.top, 30)
 			
-			Text(thisRecipe.steps[stepCount].title)
-				.font(.system(.title, design: .rounded))
-				.padding(.horizontal, 20)
+			HStack {
+				Spacer()
+				
+				Text(thisRecipe.steps[stepCount].title)
+					.font(.system(.title, design: .rounded))
+					.padding(.horizontal, 20)
+				
+				Spacer()
+			}
+			
 			Text(thisRecipe.steps[stepCount].body)
 				.font(.system(.title2, design: .rounded))
-				.padding(.horizontal, 20)
+				.padding(.horizontal, 30)
 			
 			Spacer()
-			
 			NavigationLink(destination: TakeAPictureView(thisRecipe: thisRecipe), isActive: $showTakePicture) {
 				RoundedRectangle(cornerRadius: 10)
 					.fill(.orange)
-					   .frame(maxWidth: .infinity, maxHeight: 60)
-					   .overlay {
-						   Text("Next")
-							   .foregroundColor(.white)
-							   .font(.system(size: 24, weight: .bold, design: .rounded))
-					   }
+					.frame(maxWidth: .infinity, maxHeight: 60)
+					.overlay {
+						Text("Next")
+							.foregroundColor(.white)
+							.font(.system(size: 24, weight: .bold, design: .rounded))
+					}
 			}
 			.onTapGesture {
 				if stepCount < (thisRecipe.steps.count - 1) {
@@ -51,16 +58,24 @@ struct StepsView: View {
 			.background(.ultraThinMaterial)
 			.shadow(color: .clear, radius: .zero)
 			.shadow(radius: 4, y: -2)
-			
 		}
 		.navigationBarTitleDisplayMode(.inline)
 		.navigationTitle("Step \(stepCount + 1)")
+		.background(content: {
+			Image("Background")
+				.resizable()
+				.scaledToFill()
+				.opacity(0.3)
+				.edgesIgnoringSafeArea([.vertical, .horizontal])
+		})
+		
 		.navigationBarItems(trailing: Button(action: {
 			showAlert.toggle()
 		}, label: {
 			Image(systemName: "xmark.circle.fill")
 				.foregroundColor(.gray)
 		}))
+		
 		.alert("Are you sure you want to stop?", isPresented: $showAlert) {
 			Button("Stop", role: .destructive) {
 				//back to recipes

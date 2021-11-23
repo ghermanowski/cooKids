@@ -45,6 +45,13 @@ struct IngredientStepView: View {
 		}
 		.navigationBarTitleDisplayMode(.inline)
 		.navigationTitle("Step 0")
+		.background(content: {
+			Image("Background")
+				.resizable()
+				.scaledToFill()
+				.opacity(0.3)
+				.edgesIgnoringSafeArea([.vertical, .horizontal])
+		})
 		.navigationBarItems(trailing: Button(action: {
 			showAlert.toggle()
 		}, label: {
