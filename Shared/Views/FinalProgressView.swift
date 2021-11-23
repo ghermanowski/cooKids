@@ -23,7 +23,7 @@ struct FinalProgressView: View {
 							{
 								HStack (spacing: 30){
 									ForEach(thisRecipe.trophies) { trophy in
-										TrophyCircleView(trophy: trophy, showProgressText: false)
+										TrophyCircleView(trophy: trophy, showProgressText: false, showProgressBar: true)
 											.padding(5)
 									}
 								}

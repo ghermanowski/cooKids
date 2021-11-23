@@ -26,7 +26,7 @@ struct Trophies: View {
 						NavigationLink {
 							TrophyRecipes(trophy: trophy)
 						} label: {
-							TrophyCircleView(trophy: trophy, showProgressText: true)
+							TrophyCircleView(trophy: trophy, showProgressText: true, showProgressBar: true)
 						}
 						.tint(.primary)
 					}

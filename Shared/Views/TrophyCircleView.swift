@@ -13,11 +13,12 @@ struct TrophyCircleView: View {
 	
 	let trophy: Trophy
 	let showProgressText: Bool
+	let showProgressBar: Bool
 	
-	func progressCircle(progress: Double) -> some View {
+	func progressCircle(showProgressBar: Bool, progress: Double) -> some View {
 		Circle()
-			.trim(from: 0, to: progress)
-			.stroke(Color.orange, style: .init(lineWidth: 11, lineCap: .round))
+			.trim(from: 0, to: showProgressBar ? progress : 0)
+			.stroke(Color.orange, style: .init(lineWidth: showProgressBar ? 11 : 0, lineCap: .round))
 			.rotationEffect(.degrees(-90))
 	}
 	
@@ -33,7 +34,7 @@ struct TrophyCircleView: View {
 							Color.white
 								.cornerRadius(.infinity)
 						}
-						.overlay(progressCircle(progress: trophyDetails.progress))
+						.overlay(progressCircle(showProgressBar: showProgressBar, progress: trophyDetails.progress))
 						.frame(width: 100, height: 100)
 					
 					Text(trophyDetails.icon)
@@ -58,7 +59,7 @@ struct TrophyCircleView: View {
 
 struct TrophyCircleView_Previews: PreviewProvider {
 	static var previews: some View {
-		TrophyCircleView(trophy: .baking, showProgressText: true)
+		TrophyCircleView(trophy: .baking, showProgressText: true, showProgressBar: true)
 			.environmentObject(UserStore())
 	}
 }

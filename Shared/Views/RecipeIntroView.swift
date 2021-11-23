@@ -32,7 +32,7 @@ struct RecipeIntroView: View {
 						}
 						
 						ForEach(trophies) { trophy in
-							TrophyCircleView(trophy: trophy, showProgressText: false)
+							TrophyCircleView(trophy: trophy, showProgressText: false, showProgressBar: false)
 						}
 					}
 							  .padding(.horizontal, 20)
