@@ -8,18 +8,25 @@
 import SwiftUI
 
 struct IngredientsListView: View {
+	internal init(ingredients: [Recipe.Ingredient], ingredientsStates: Binding<[Bool]>) {
+		self.ingredients = ingredients
+		self.withChecking = true
+		
+		_ingredientsStates = ingredientsStates
+	}
+	
 	internal init(ingredients: [Recipe.Ingredient], withChecking: Bool) {
 		self.ingredients = ingredients
 		self.withChecking = withChecking
 		
-		_ingredientsStates = .init(initialValue: Array(repeating: false, count: withChecking ? ingredients.count : 0))
+		_ingredientsStates = .constant([])
 	}
 	
 	@EnvironmentObject private var userStore: UserStore
 	
 	var ingredients: [Recipe.Ingredient]
 	
-	@State var ingredientsStates: [Bool]
+	@Binding var ingredientsStates: [Bool]
 	
 	let withChecking : Bool
 	
@@ -55,7 +62,7 @@ struct IngredientsListView: View {
 
 struct IngredientsListView_Previews: PreviewProvider {
 	static var previews: some View {
-		IngredientsListView(ingredients: UserStore().recipes[0].ingredients, withChecking: true)
+		IngredientsListView(ingredients: UserStore().recipes[0].ingredients, withChecking: false)
 			.environmentObject(UserStore())
 	}
 }

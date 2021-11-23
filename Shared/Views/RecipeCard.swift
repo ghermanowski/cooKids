@@ -66,7 +66,7 @@ struct RecipeCard: View {
 			}
 			.fullScreenCover(isPresented: $showSteps) {
 				NavigationView {
-					RecipeIntroView(recipe: recipe)
+					RecipeIntroView(isPresented: $showSteps, recipe: recipe)
 				}
 			}
 	}
