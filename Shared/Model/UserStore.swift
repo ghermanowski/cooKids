@@ -127,7 +127,7 @@ class UserStore: ObservableObject {
 							 imageName: "step3bq")],
 			   imageName: "cereal milk choux puffs",
 			   category: .appetizers,
-			   trophies: [.cleaning, .sweets, .baking, .sweets],
+			   trophies: [.cleaning, .sweets, .baking],
 			   requiredTrophyProgress: 0),
 		
 		// MARK: Sweets
