@@ -35,7 +35,6 @@ struct TakeAPictureView: View {
 				}
 				Text("Good Job!")
 					.font(.system(.title, design: .rounded))
-					.bold()
 				Text(selectedImage == nil ? "Take a picture of your creation!" : "Nice creation!")
 					.font(.system(.title2, design: .rounded))
 				Spacer()
@@ -64,9 +63,8 @@ struct TakeAPictureView: View {
 			}
 			.navigationBarTitleDisplayMode(.inline)
 			.navigationTitle("Last Step")
-			.navigationBarItems(trailing: Button("Skip") {
-				//
-			})
+			.navigationBarItems(trailing: NavigationLink("Skip", destination: FinalProgressView(thisRecipe: thisRecipe)) )
+		
 	}
 	
 	func openCamera() {

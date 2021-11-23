@@ -10,6 +10,8 @@ import SwiftUI
 struct RecipeIntroView: View {
 	@EnvironmentObject private var userStore: UserStore
 	
+	@Environment(\.dismiss) private var dismiss
+	
 	let recipe: Recipe
 	
 	var body: some View {
@@ -33,7 +35,7 @@ struct RecipeIntroView: View {
 							TrophyCircleView(trophy: trophy, showProgressText: false)
 						}
 					}
-					.padding(.horizontal, 20)
+							  .padding(.horizontal, 20)
 					
 					Text("Ingredients")
 						.font(.system(size: 30, weight: .semibold, design: .rounded))
@@ -46,7 +48,7 @@ struct RecipeIntroView: View {
 			Spacer()
 			
 			NavigationLink {
-				IngredientStepView(thisRecipe: recipe)
+				IngredientStepView(recipe: recipe)
 			} label: {
 				RoundedRectangle(cornerRadius: 10)
 					.fill(.orange)

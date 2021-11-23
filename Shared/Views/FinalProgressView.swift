@@ -51,6 +51,7 @@ struct FinalProgressView: View {
 				.padding(.top, 30)
 			}.navigationTitle("Progress")
 			.navigationBarTitleDisplayMode(.large)
+			.navigationBarBackButtonHidden(true)
 	}
 }
 

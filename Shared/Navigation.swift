@@ -17,7 +17,8 @@ struct Navigation: View {
 			titleFont = UIFont(descriptor: descriptor, size: UIFont.buttonFontSize)
 		}
 		
-		navigationBarAppearance.titleTextAttributes = [.font: titleFont]
+		navigationBarAppearance.titleTextAttributes = [.font: titleFont,
+													   .foregroundColor: UIColor.white]
 		
 		var largeTitleFont = UIFont.boldSystemFont(ofSize: UIFont.preferredFont(forTextStyle: .largeTitle).pointSize)
 		
@@ -25,11 +26,8 @@ struct Navigation: View {
 			largeTitleFont = UIFont(descriptor: descriptor, size: UIFont.preferredFont(forTextStyle: .largeTitle).pointSize)
 		}
 		
-		navigationBarAppearance.largeTitleTextAttributes = [.font: largeTitleFont]
-		
-		navigationBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
-		
-		navigationBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.systemOrange]
+		navigationBarAppearance.largeTitleTextAttributes = [.font: largeTitleFont,
+															.foregroundColor: UIColor.systemOrange]
 		
 		navigationBarAppearance.backgroundColor = .systemOrange.withAlphaComponent(0.85)
 		
