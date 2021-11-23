@@ -92,7 +92,7 @@ struct TakeAPictureView: View {
 					NavigationLink("Skip") {
 						FinalProgressView(isPresented: $isPresented, recipe: recipe)
 					}
-					.foregroundColor(.orange)
+					.foregroundColor(.white)
 				}
 			}
 		}

@@ -49,7 +49,7 @@ struct RecipeIntroView: View {
 			Spacer()
 			
 			NavigationLink {
-				IngredientStepView(isPresented: $isPresented, recipe: recipe)
+				Ingredients(isPresented: $isPresented, recipe: recipe)
 			} label: {
 				RoundedRectangle(cornerRadius: 10)
 					.fill(.orange)
