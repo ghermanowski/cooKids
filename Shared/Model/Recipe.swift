@@ -46,7 +46,8 @@ struct Recipe: Identifiable {
 		
 		case sweets = "Sweets"
 		case appetizers = "Appetizers"
-		case firstCourse = "First Course"
 		case mainCourse = "Main Course"
+		case firstCourse = "First Course"
+		
 	}
 }
