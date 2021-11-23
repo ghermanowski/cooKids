@@ -89,5 +89,6 @@ struct StepsView: View {
 struct StepsView_Previews: PreviewProvider {
 	static var previews: some View {
 		StepsView(thisRecipe: (UserStore().recipes[0]))
+			.environmentObject(UserStore())
 	}
 }
