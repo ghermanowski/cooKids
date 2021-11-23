@@ -12,95 +12,82 @@ struct TakeAPictureView: View {
 	@EnvironmentObject private var userStore: UserStore
 	
 	@Binding var isPresented : Bool
-	@State var shouldGoNext = false
+	
 	@State private var selectedImage: UIImage?
-	@State private var isImagePickerDisplay = false
+	@State private var showImagePicker = false
 	@State private var showAlert = false
 	
 	let recipe: Recipe
 	
 	var body: some View {
-		VStack(spacing: 30) {
-			if let selectedImage = selectedImage {
-				Image(uiImage: selectedImage)
-					.resizable()
-					.scaledToFill()
-					.frame(width: ((UIScreen.screens.first?.bounds.width)! - 40), height: 230)
-					.mask({
-						RoundedRectangle(cornerRadius: 40)
-							.frame(width: ((UIScreen.screens.first?.bounds.width)! - 40), height: 230)
-					})
-					.overlay(RoundedRectangle(cornerRadius: 40).stroke(lineWidth: 3).foregroundColor(.gray))
-					.padding(.horizontal, 20)
-					.padding(.top, 30)
-			} else {
-				StepsImage(image: "takePicture", introOrNot: false)
-					.padding(.top, 30)
+		ScrollView {
+			VStack(spacing: 30) {
+				if let selectedImage = selectedImage {
+					Image(uiImage: selectedImage)
+						.resizable()
+						.scaledToFill()
+						.frame(width: ((UIScreen.screens.first?.bounds.width)! - 40), height: 230)
+						.mask({
+							RoundedRectangle(cornerRadius: 40)
+								.frame(width: ((UIScreen.screens.first?.bounds.width)! - 40), height: 230)
+						})
+						.overlay(RoundedRectangle(cornerRadius: 40).stroke(lineWidth: 3).foregroundColor(.gray))
+						.padding(.horizontal, 20)
+						.padding(.top, 30)
+						.frame(width: UIScreen.screens.first?.bounds.width)
+				} else {
+					StepsImage(image: "takePicture", introOrNot: false)
+						.padding(.top, 30)
+						.frame(width: UIScreen.screens.first?.bounds.width)
+				}
+				
+				Text("Good Job!")
+					.font(.system(.title, design: .rounded))
+				
+				Text(selectedImage == nil ? "Take a picture of your creation!" : "Nice creation!")
+					.font(.system(.title2, design: .rounded))
 			}
-			Text("Good Job!")
-				.font(.system(.title, design: .rounded))
-			Text(selectedImage == nil ? "Take a picture of your creation!" : "Nice creation!")
-				.font(.system(.title2, design: .rounded))
-			Spacer()
-			
-			NavigationLink (destination: FinalProgressView(isPresented: $isPresented, recipe: recipe), isActive: $shouldGoNext)
-			{
-				RoundedRectangle(cornerRadius: 10)
-					.fill(.orange)
-					.frame(maxWidth: .infinity, maxHeight: 60)
-					.overlay {
-						HStack {
-							Image(systemName: selectedImage == nil ? "camera.fill" : "")
-							Text(selectedImage == nil ? "Take a picture" : "Next")
-						}
-						.foregroundColor(.white)
-						.font(.system(size: 24, weight: .bold, design: .rounded))
-					}
-					.onTapGesture {
-						if let photo = selectedImage {
-							addCreationAndUpdateStore(photo: photo)
-							shouldGoNext.toggle()
-						} else {
-							openCamera()
-						}
-					}
-			}
-			.padding(20)
-			.background(.ultraThinMaterial)
-			.shadow(color: .clear, radius: .zero)
-			.shadow(radius: 4, y: -2)
 		}
-		.frame(width: UIScreen.screens.first?.bounds.width)
-		.background(content: {
-			Image("Background")
-				.resizable()
-				.scaledToFill()
-				.opacity(0.3)
-				.edgesIgnoringSafeArea([.vertical, .horizontal])
-		})
-		.alert("Camera not available", isPresented: $showAlert) {
-			//
-		}
-		.sheet(isPresented: self.$isImagePickerDisplay) {
-			ImagePickerView(selectedImage: $selectedImage)
-		}
-		.navigationBarTitleDisplayMode(.inline)
+		.interactiveDismissDisabled()
 		.navigationTitle("Last Step")
+		.navigationBarTitleDisplayMode(.inline)
 		.toolbar {
 			ToolbarItem(placement: .navigationBarTrailing) {
 				if selectedImage == nil {
 					NavigationLink("Skip") {
 						FinalProgressView(isPresented: $isPresented, recipe: recipe)
 					}
-					.foregroundColor(.white)
 				}
 			}
+		}
+		.safeAreaInset(edge: .bottom) {
+			BigButtonBottom(buttonText: selectedImage == nil ? "Take a picture" : "Next", systemIcon: selectedImage == nil ? "camera.fill" : "") {
+				if let photo = selectedImage {
+					addCreationAndUpdateStore(photo: photo)
+					//go to next screen
+				} else {
+					openCamera()
+				}
+			}
+			.alert("Camera not available", isPresented: $showAlert) {
+				//
+			}
+			.sheet(isPresented: $showImagePicker) {
+				ImagePickerView(selectedImage: $selectedImage)
+			}
+
+		}
+		.background {
+			Image("Background")
+				.resizable()
+				.scaledToFill()
+				.opacity(0.3)
 		}
 	}
 	
 	func openCamera() {
 		if UIImagePickerController.isSourceTypeAvailable(.camera) {
-			isImagePickerDisplay.toggle()
+			showImagePicker.toggle()
 		} else {
 			showAlert.toggle()
 		}
@@ -124,7 +111,7 @@ struct TakeAPictureView_Previews: PreviewProvider {
 													  .init(name: "Oregano", icon: "🌿"),
 													  .init(name: "Extra virgin olive oil", icon: "🫒"),
 													  .init(name: "Fine salt", icon: "🧂"),
-													  .init(name: "Black pepper", icon: "")],
+													  .init(name: "Black pepper")],
 										steps: [],
 										imageName: "bruschette",
 										category: .appetizers,
