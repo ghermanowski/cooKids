@@ -27,6 +27,12 @@ struct Navigation: View {
 		
 		navigationBarAppearance.largeTitleTextAttributes = [.font: largeTitleFont]
 		
+		navigationBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+		
+		navigationBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.systemOrange]
+		
+		navigationBarAppearance.backgroundColor = .systemOrange.withAlphaComponent(0.85)
+		
 		UINavigationBar.appearance().standardAppearance = navigationBarAppearance
 	}
 	
