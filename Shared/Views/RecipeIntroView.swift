@@ -34,7 +34,7 @@ struct RecipeIntroView: View {
 						TrophyCircleView(trophy: trophy, showProgressText: false, showProgressBar: false)
 					}
 				}
-				.padding(.horizontal, 20)
+				.padding(.horizontal)
 				
 				Text("Ingredients")
 					.font(.system(size: 30, weight: .semibold, design: .rounded))
