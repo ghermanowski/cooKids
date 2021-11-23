@@ -17,8 +17,7 @@ struct Recipes: View {
 					ForEach(Recipe.Category.allCases) { category in
 						VStack(alignment: .leading, spacing: 10) {
 							Text(category.title)
-								.font(.system(.title, design: .rounded).weight(.bold))
-								.fontWeight(.medium)
+								.font(.system(.title, design: .rounded).weight(.medium))
 								.padding(.leading, 20)
 							
 							ScrollView(.horizontal, showsIndicators: false) {
