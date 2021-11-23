@@ -1,5 +1,5 @@
 //
-//  IngredientsListView.swift
+//  IngredientsList.swift
 //  cooKids
 //
 //  Created by Anna Izzo on 18/11/21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct IngredientsListView: View {
+struct IngredientsList: View {
 	internal init(ingredients: [Recipe.Ingredient], ingredientsStates: Binding<[Bool]>) {
 		self.ingredients = ingredients
 		self.withChecking = true
@@ -33,12 +33,10 @@ struct IngredientsListView: View {
 	var body: some View {
 		VStack(alignment: .leading, spacing: 5) {
 			ForEach(0..<ingredients.count, id: \.self) { index in
-				HStack(spacing: 26) {
+				HStack(spacing: 20) {
 					Label {
 						Text(ingredients[index].name)
-							.fontWeight(.light)
-							.foregroundColor(Color(hue: 1.0, saturation: 0.0, brightness: 0.268))
-							.padding(.leading, 16)
+							.padding(.leading, 8)
 					} icon: {
 						Text(ingredients[index].icon)
 					}
@@ -55,7 +53,6 @@ struct IngredientsListView: View {
 						.tint(ingredientsStates[index] ? .accentColor : .accentColor.opacity(0.33))
 					}
 				}
-				.font(.system(.body, design: .rounded))
 				.padding(.vertical, 8)
 			}
 		}
@@ -64,7 +61,7 @@ struct IngredientsListView: View {
 
 struct IngredientsListView_Previews: PreviewProvider {
 	static var previews: some View {
-		IngredientsListView(ingredients: UserStore().recipes[0].ingredients, withChecking: false)
+		IngredientsList(ingredients: UserStore().recipes[0].ingredients, withChecking: false)
 			.environmentObject(UserStore())
 	}
 }
