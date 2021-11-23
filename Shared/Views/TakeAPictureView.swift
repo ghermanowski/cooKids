@@ -12,7 +12,7 @@ struct TakeAPictureView: View {
 	@EnvironmentObject private var userStore: UserStore
 	
 	@Binding var isPresented : Bool
-	
+	@State var shouldGoNext = false
 	@State private var selectedImage: UIImage?
 	@State private var isImagePickerDisplay = false
 	@State private var showAlert = false
@@ -42,14 +42,33 @@ struct TakeAPictureView: View {
 			Text(selectedImage == nil ? "Take a picture of your creation!" : "Nice creation!")
 				.font(.system(.title2, design: .rounded))
 			Spacer()
-			BigButtonBottom(buttonText: selectedImage == nil ? "Take a picture" : "Next", systemIcon: selectedImage == nil ? "camera.fill" : "") {
-				if let photo = selectedImage {
-					addCreationAndUpdateStore(photo: photo)
-					//go to next screen
-				} else {
-					openCamera()
-				}
+			
+			NavigationLink (destination: FinalProgressView(isPresented: $isPresented, recipe: recipe), isActive: $shouldGoNext)
+			{
+				RoundedRectangle(cornerRadius: 10)
+					.fill(.orange)
+					.frame(maxWidth: .infinity, maxHeight: 60)
+					.overlay {
+						HStack {
+							Image(systemName: selectedImage == nil ? "camera.fill" : "")
+							Text(selectedImage == nil ? "Take a picture" : "Next")
+						}
+						.foregroundColor(.white)
+						.font(.system(size: 24, weight: .bold, design: .rounded))
+					}
+					.onTapGesture {
+						if let photo = selectedImage {
+							addCreationAndUpdateStore(photo: photo)
+							shouldGoNext.toggle()
+						} else {
+							openCamera()
+						}
+					}
 			}
+			.padding(20)
+			.background(.ultraThinMaterial)
+			.shadow(color: .clear, radius: .zero)
+			.shadow(radius: 4, y: -2)
 		}
 		.frame(width: UIScreen.screens.first?.bounds.width)
 		.background(content: {
@@ -69,10 +88,12 @@ struct TakeAPictureView: View {
 		.navigationTitle("Last Step")
 		.toolbar {
 			ToolbarItem(placement: .navigationBarTrailing) {
-				NavigationLink("Skip") {
-					FinalProgressView(isPresented: $isPresented, recipe: recipe)
+				if selectedImage == nil {
+					NavigationLink("Skip") {
+						FinalProgressView(isPresented: $isPresented, recipe: recipe)
+					}
+					.foregroundColor(.orange)
 				}
-				.foregroundColor(.orange)
 			}
 		}
 	}
