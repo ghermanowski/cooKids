@@ -21,13 +21,14 @@ struct TakeAPictureView: View {
 					Image(uiImage: selectedImage)
 						.resizable()
 						.scaledToFill()
-						.frame(width: 374, height: 250)
+						.frame(width: ((UIScreen.screens.first?.bounds.width)! - 40), height: 230)
 						.mask({
 							RoundedRectangle(cornerRadius: 40)
-								.frame(width: 374, height: 250)
+								.frame(width: ((UIScreen.screens.first?.bounds.width)! - 40), height: 230)
 						})
 						.overlay(RoundedRectangle(cornerRadius: 40).stroke(lineWidth: 3).foregroundColor(.gray))
 						.padding(.horizontal, 20)
+						.padding(.top, 30)
 				} else {
 					StepsImage(image: "takePicture", introOrNot: false)
 						.padding(.top, 30)
@@ -48,6 +49,13 @@ struct TakeAPictureView: View {
 				}
 			}
 			.frame(width: UIScreen.screens.first?.bounds.width)
+			.background(content: {
+				Image("Background")
+					.resizable()
+					.scaledToFill()
+					.opacity(0.3)
+					.edgesIgnoringSafeArea([.vertical, .horizontal])
+			})
 			.alert("Camera not available", isPresented: $showAlert) {
 				//
 			}

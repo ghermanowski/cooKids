@@ -29,16 +29,15 @@ struct StepsView: View {
 				.padding(.horizontal, 20)
 			
 			Spacer()
-			
 			NavigationLink(destination: TakeAPictureView(thisRecipe: thisRecipe), isActive: $showTakePicture) {
 				RoundedRectangle(cornerRadius: 10)
 					.fill(.orange)
-					   .frame(maxWidth: .infinity, maxHeight: 60)
-					   .overlay {
-						   Text("Next")
-							   .foregroundColor(.white)
-							   .font(.system(size: 24, weight: .bold, design: .rounded))
-					   }
+					.frame(maxWidth: .infinity, maxHeight: 60)
+					.overlay {
+						Text("Next")
+							.foregroundColor(.white)
+							.font(.system(size: 24, weight: .bold, design: .rounded))
+					}
 			}
 			.onTapGesture {
 				if stepCount < (thisRecipe.steps.count - 1) {
@@ -51,16 +50,24 @@ struct StepsView: View {
 			.background(.ultraThinMaterial)
 			.shadow(color: .clear, radius: .zero)
 			.shadow(radius: 4, y: -2)
-			
 		}
 		.navigationBarTitleDisplayMode(.inline)
 		.navigationTitle("Step \(stepCount + 1)")
+		.background(content: {
+			Image("Background")
+				.resizable()
+				.scaledToFill()
+				.opacity(0.3)
+				.edgesIgnoringSafeArea([.vertical, .horizontal])
+		})
+		
 		.navigationBarItems(trailing: Button(action: {
 			showAlert.toggle()
 		}, label: {
 			Image(systemName: "xmark.circle.fill")
 				.foregroundColor(.gray)
 		}))
+		
 		.alert("Are you sure you want to stop?", isPresented: $showAlert) {
 			Button("Stop", role: .destructive) {
 				//back to recipes
