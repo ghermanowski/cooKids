@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct StepsView: View {
+	@EnvironmentObject private var userStore: UserStore
+
 	let thisRecipe: Recipe
 	@State var stepCount = 0
 	@State var showTakePicture = false

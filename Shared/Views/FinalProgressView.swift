@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct FinalProgressView: View {
+	@EnvironmentObject private var userStore: UserStore
+	let thisRecipe: Recipe
+	
 	var body: some View {
-		NavigationView {
 			ZStack{
 				
 				VStack (alignment: .leading, spacing: 30){
@@ -20,7 +22,10 @@ struct FinalProgressView: View {
 							ScrollView(.horizontal)
 							{
 								HStack (spacing: 30){
-									
+									ForEach(thisRecipe.trophies) { trophy in
+										TrophyCircleView(trophy: trophy, showProgressText: false)
+											.padding(5)
+									}
 								}
 							}
 						}
@@ -30,6 +35,7 @@ struct FinalProgressView: View {
 							ScrollView(.horizontal)
 							{
 								HStack (spacing: 30){
+									//
 									
 								}
 							}
@@ -44,12 +50,13 @@ struct FinalProgressView: View {
 //				.padding(.horizontal, 20)
 				.padding(.top, 30)
 			}.navigationTitle("Progress")
-		}
+			.navigationBarTitleDisplayMode(.large)
 	}
 }
 
 struct FinalProgressView_Previews: PreviewProvider {
 	static var previews: some View {
-		FinalProgressView()
+		FinalProgressView(thisRecipe: UserStore().recipes[0])
+			.environmentObject(UserStore())
 	}
 }
