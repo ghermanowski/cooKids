@@ -49,12 +49,11 @@ struct RecipeCard: View {
 							.foregroundColor(Color.white)
 							.font(.system(size: 72).weight(.bold))
 							.shadow(color: .orange.opacity(0.75), radius: 6)
-							.padding(.bottom, 12)
+							.padding(.vertical, 12)
 						
 						trophyCount(count: recipe.requiredTrophyProgress - userStore.totalTrophyProgress, showUnlockText: true)
 					}
-					.padding(.top, 12)
-					.frame(width: 312, height: 210)
+					.frame(width: 290, height: 195)
 					.background(.ultraThinMaterial)
 					.cornerRadius(32)
 				}
@@ -64,7 +63,7 @@ struct RecipeCard: View {
 					showSteps.toggle()
 				}
 			}
-			.fullScreenCover(isPresented: $showSteps) {
+			.sheet(isPresented: $showSteps) {
 				NavigationView {
 					RecipeIntroView(isPresented: $showSteps, recipe: recipe)
 				}
