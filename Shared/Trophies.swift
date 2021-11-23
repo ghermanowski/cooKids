@@ -23,7 +23,12 @@ struct Trophies: View {
 					}
 					
 					ForEach(trophies, id: \.key) { trophy, _ in
-						TrophyCircleView(trophy: trophy, showProgressText: true)
+						NavigationLink {
+							TrophyRecipes(trophy: trophy)
+						} label: {
+							TrophyCircleView(trophy: trophy, showProgressText: true)
+						}
+						.tint(.primary)
 					}
 				}
 				.padding(.horizontal)
