@@ -18,7 +18,7 @@ struct TrophyCircleView: View {
 	func progressCircle(showProgressBar: Bool, progress: Double) -> some View {
 		Circle()
 			.trim(from: 0, to: showProgressBar ? progress : 0)
-			.stroke(Color.orange, style: .init(lineWidth: showProgressBar ? 11 : 0, lineCap: .round))
+			.stroke(Color.orange, style: .init(lineWidth: showProgressBar ? 10 : 0, lineCap: .round))
 			.rotationEffect(.degrees(-90))
 	}
 	
@@ -38,7 +38,7 @@ struct TrophyCircleView: View {
 						.frame(width: 80, height: 80)
 					
 					Text(trophyDetails.icon)
-						.font(.system(size: 45))
+						.font(.system(size: 42))
 						.padding(.bottom, 2)
 				}
 				.padding(.bottom, 8)
