@@ -9,35 +9,41 @@ import SwiftUI
 
 struct StepsView: View {
 	@EnvironmentObject private var userStore: UserStore
-
-	let thisRecipe: Recipe
-	@State var stepCount = 0
-	@State var showTakePicture = false
+	
 	@State private var showAlert = false
+	
+	let recipe: Recipe
+	let stepNumber: Int
 	
 	var body: some View {
 		VStack(alignment: .leading, spacing: 30) {
-			
-			StepsImage(image: thisRecipe.steps[stepCount].imageName ?? "", introOrNot: false)
+			StepsImage(image: recipe.steps[stepNumber - 1].imageName ?? "", introOrNot: false)
 				.frame(width: UIScreen.screens.first?.bounds.width)
 				.padding(.top, 30)
 			
 			HStack {
 				Spacer()
 				
-				Text(thisRecipe.steps[stepCount].title)
+				Text(recipe.steps[stepNumber - 1].title)
 					.font(.system(.title, design: .rounded))
 					.padding(.horizontal, 20)
 				
 				Spacer()
 			}
 			
-			Text(thisRecipe.steps[stepCount].body)
+			Text(recipe.steps[stepNumber - 1].body)
 				.font(.system(.title2, design: .rounded))
 				.padding(.horizontal, 30)
 			
 			Spacer()
-			NavigationLink(destination: TakeAPictureView(thisRecipe: thisRecipe), isActive: $showTakePicture) {
+			
+			NavigationLink {
+				if stepNumber < recipe.steps.count {
+					StepsView(recipe: recipe, stepNumber: stepNumber + 1)
+				} else {
+					TakeAPictureView(thisRecipe: recipe)
+				}
+			} label: {
 				RoundedRectangle(cornerRadius: 10)
 					.fill(.orange)
 					.frame(maxWidth: .infinity, maxHeight: 60)
@@ -47,35 +53,26 @@ struct StepsView: View {
 							.font(.system(size: 24, weight: .bold, design: .rounded))
 					}
 			}
-			.onTapGesture {
-				if stepCount < (thisRecipe.steps.count - 1) {
-					stepCount += 1
-				} else {
-					showTakePicture.toggle()
-				}
-			}
 			.padding(20)
 			.background(.ultraThinMaterial)
 			.shadow(color: .clear, radius: .zero)
 			.shadow(radius: 4, y: -2)
 		}
 		.navigationBarTitleDisplayMode(.inline)
-		.navigationTitle("Step \(stepCount + 1)")
-		.background(content: {
+		.navigationTitle("Step \(stepNumber)")
+		.background {
 			Image("Background")
 				.resizable()
 				.scaledToFill()
 				.opacity(0.3)
 				.edgesIgnoringSafeArea([.vertical, .horizontal])
-		})
-		
+		}
 		.navigationBarItems(trailing: Button(action: {
 			showAlert.toggle()
 		}, label: {
 			Image(systemName: "xmark.circle.fill")
 				.foregroundColor(.gray)
 		}))
-		
 		.alert("Are you sure you want to stop?", isPresented: $showAlert) {
 			Button("Stop", role: .destructive) {
 				//back to recipes
@@ -88,6 +85,7 @@ struct StepsView: View {
 
 struct StepsView_Previews: PreviewProvider {
 	static var previews: some View {
-		StepsView(thisRecipe: (UserStore().recipes[0]))
+		StepsView(recipe: UserStore().recipes[0], stepNumber: 1)
+			.environmentObject(UserStore())
 	}
 }

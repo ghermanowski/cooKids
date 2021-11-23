@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct IngredientStepView: View {
-	let thisRecipe: Recipe
 	@State private var showAlert = false
+	
+	let recipe: Recipe
+	
 	var body: some View {
 		VStack {
 			ScrollView(.vertical) {
-				VStack(spacing: 30){
-					
+				VStack(spacing: 30) {
 					StepsImage(image: "step2bq", introOrNot: false)
 						.padding(.top, 30)
 					
@@ -22,29 +23,32 @@ struct IngredientStepView: View {
 						.font(.system(.title2, design: .rounded))
 						.padding(.horizontal, 20)
 					
-					IngredientsListView(ingredients: thisRecipe.ingredients, withChecking: true)
+					IngredientsListView(ingredients: recipe.ingredients, withChecking: true)
 						.padding(.horizontal, 20)
 				}
 			}
+			
 			Spacer()
 			
-			NavigationLink(destination: StepsView(thisRecipe: thisRecipe)) {
+			NavigationLink {
+				StepsView(recipe: recipe, stepNumber: 1)
+			} label: {
 				RoundedRectangle(cornerRadius: 10)
-						.fill(.orange)
-						.frame(maxWidth: .infinity, maxHeight: 60)
-						.padding(20)
-						.background(.ultraThinMaterial)
-						.shadow(color: .clear, radius: .zero)
-						.shadow(radius: 4, y: -2)
-						.overlay {
-							Text("Next")
-								.foregroundColor(.white)
-								.font(.system(size: 24, weight: .bold, design: .rounded))
-						}
+					.fill(.orange)
+					.frame(maxWidth: .infinity, maxHeight: 60)
+					.padding(20)
+					.background(.ultraThinMaterial)
+					.shadow(color: .clear, radius: .zero)
+					.shadow(radius: 4, y: -2)
+					.overlay {
+						Text("Next")
+							.foregroundColor(.white)
+							.font(.system(size: 24, weight: .bold, design: .rounded))
+					}
 			}
 		}
 		.navigationBarTitleDisplayMode(.inline)
-		.navigationTitle("Step 0")
+		.navigationTitle("Ingredients")
 		.background(content: {
 			Image("Background")
 				.resizable()
@@ -70,7 +74,7 @@ struct IngredientStepView: View {
 
 
 struct IngredientStepView_Previews: PreviewProvider {
-    static var previews: some View {
-		IngredientStepView(thisRecipe: (UserStore().recipes[0]))
-    }
+	static var previews: some View {
+		IngredientStepView(recipe: (UserStore().recipes[0]))
+	}
 }
