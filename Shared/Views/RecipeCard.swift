@@ -34,29 +34,34 @@ struct RecipeCard: View {
 	}
 	
 	var body: some View {
-		Card(imageName: recipe.imageName, title: recipe.title)
-			.overlay(alignment: .topTrailing) {
-				if !recipe.trophies.isEmpty {
-					trophyCount(count: recipe.trophies.count, showUnlockText: false)
-				}
-			}
-			.overlay {
-				if userStore.totalTrophyProgress < recipe.requiredTrophyProgress {
-					VStack(spacing: .zero) {
-						Image(systemName: "lock.fill")
-							.foregroundColor(Color.white)
-							.font(.system(size: 72).weight(.bold))
-							.shadow(color: .orange.opacity(0.75), radius: 6)
-							.padding(.bottom, 12)
-						
-						trophyCount(count: recipe.requiredTrophyProgress - userStore.totalTrophyProgress, showUnlockText: true)
+		NavigationLink {
+			RecipeIntroView(recipe: recipe)
+		} label: {
+			Card(imageName: recipe.imageName, title: recipe.title)
+				.overlay(alignment: .topTrailing) {
+					if !recipe.trophies.isEmpty {
+						trophyCount(count: recipe.trophies.count, showUnlockText: false)
 					}
-					.padding(.top, 12)
-					.frame(width: 312, height: 210)
-					.background(.ultraThinMaterial)
-					.cornerRadius(32)
 				}
-			}
+				.overlay {
+					if userStore.totalTrophyProgress < recipe.requiredTrophyProgress {
+						VStack(spacing: .zero) {
+							Image(systemName: "lock.fill")
+								.foregroundColor(Color.white)
+								.font(.system(size: 72).weight(.bold))
+								.shadow(color: .orange.opacity(0.75), radius: 6)
+								.padding(.bottom, 12)
+							
+							trophyCount(count: recipe.requiredTrophyProgress - userStore.totalTrophyProgress, showUnlockText: true)
+						}
+						.padding(.top, 12)
+						.frame(width: 312, height: 210)
+						.background(.ultraThinMaterial)
+						.cornerRadius(32)
+					}
+				}
+		}
+		.disabled(userStore.totalTrophyProgress < recipe.requiredTrophyProgress)
 	}
 }
 
