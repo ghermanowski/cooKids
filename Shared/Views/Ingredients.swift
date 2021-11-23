@@ -33,7 +33,7 @@ struct Ingredients: View {
 					.font(.system(.title2, design: .rounded))
 					.padding(.horizontal, 20)
 				
-				IngredientsListView(ingredients: recipe.ingredients, ingredientsStates: $ingredientsStates)
+				IngredientsList(ingredients: recipe.ingredients, ingredientsStates: $ingredientsStates)
 					.padding(.horizontal, 20)
 					.padding(.bottom, 30)
 			}
