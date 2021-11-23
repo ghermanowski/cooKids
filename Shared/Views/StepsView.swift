@@ -16,17 +16,25 @@ struct StepsView: View {
 	@State private var showAlert = false
 	
 	var body: some View {
-		VStack(spacing: 30){
+		VStack(alignment: .leading, spacing: 30) {
 			
 			StepsImage(image: thisRecipe.steps[stepCount].imageName ?? "", introOrNot: false)
+				.frame(width: UIScreen.screens.first?.bounds.width)
 				.padding(.top, 30)
 			
-			Text(thisRecipe.steps[stepCount].title)
-				.font(.system(.title, design: .rounded))
-				.padding(.horizontal, 20)
+			HStack {
+				Spacer()
+				
+				Text(thisRecipe.steps[stepCount].title)
+					.font(.system(.title, design: .rounded))
+					.padding(.horizontal, 20)
+				
+				Spacer()
+			}
+			
 			Text(thisRecipe.steps[stepCount].body)
 				.font(.system(.title2, design: .rounded))
-				.padding(.horizontal, 20)
+				.padding(.horizontal, 30)
 			
 			Spacer()
 			NavigationLink(destination: TakeAPictureView(thisRecipe: thisRecipe), isActive: $showTakePicture) {
