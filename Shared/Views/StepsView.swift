@@ -10,6 +10,8 @@ import SwiftUI
 struct StepsView: View {
 	@EnvironmentObject private var userStore: UserStore
 	
+	@Binding var isPresented: Bool
+	
 	@State private var showAlert = false
 	
 	let recipe: Recipe
@@ -17,9 +19,11 @@ struct StepsView: View {
 	
 	var body: some View {
 		VStack(alignment: .leading, spacing: 30) {
-			StepsImage(image: recipe.steps[stepNumber - 1].imageName ?? "", introOrNot: false)
-				.frame(width: UIScreen.screens.first?.bounds.width)
-				.padding(.top, 30)
+			if let imageName = recipe.steps[stepNumber - 1].imageName {
+				StepsImage(image: imageName, introOrNot: false)
+					.frame(width: UIScreen.screens.first?.bounds.width)
+					.padding(.top, 30)
+			}
 			
 			HStack {
 				Spacer()
@@ -39,9 +43,9 @@ struct StepsView: View {
 			
 			NavigationLink {
 				if stepNumber < recipe.steps.count {
-					StepsView(recipe: recipe, stepNumber: stepNumber + 1)
+					StepsView(isPresented: $isPresented, recipe: recipe, stepNumber: stepNumber + 1)
 				} else {
-					TakeAPictureView(thisRecipe: recipe)
+					TakeAPictureView(isPresented: $isPresented, recipe: recipe)
 				}
 			} label: {
 				RoundedRectangle(cornerRadius: 10)
@@ -58,8 +62,26 @@ struct StepsView: View {
 			.shadow(color: .clear, radius: .zero)
 			.shadow(radius: 4, y: -2)
 		}
-		.navigationBarTitleDisplayMode(.inline)
 		.navigationTitle("Step \(stepNumber)")
+		.navigationBarTitleDisplayMode(.inline)
+		.toolbar {
+			ToolbarItem(placement: .navigationBarTrailing) {
+				Button {
+					showAlert.toggle()
+				} label: {
+					Image(systemName: "xmark")
+						.font(.system(.headline, design: .rounded).weight(.heavy))
+						.foregroundColor(.red)
+				}
+				.confirmationDialog("Are you sure you want to stop? You will lose your progress.",
+									isPresented: $showAlert,
+									titleVisibility: .visible) {
+					Button("Stop", role: .destructive) {
+						isPresented = false
+					}
+				}
+			}
+		}
 		.background {
 			Image("Background")
 				.resizable()
@@ -67,25 +89,12 @@ struct StepsView: View {
 				.opacity(0.3)
 				.edgesIgnoringSafeArea([.vertical, .horizontal])
 		}
-		.navigationBarItems(trailing: Button(action: {
-			showAlert.toggle()
-		}, label: {
-			Image(systemName: "xmark.circle.fill")
-				.foregroundColor(.gray)
-		}))
-		.alert("Are you sure you want to stop?", isPresented: $showAlert) {
-			Button("Stop", role: .destructive) {
-				//back to recipes
-			}
-		} message: {
-			Text("You will lose your progress")
-		}
 	}
 }
 
 struct StepsView_Previews: PreviewProvider {
 	static var previews: some View {
-		StepsView(recipe: UserStore().recipes[0], stepNumber: 1)
+		StepsView(isPresented: .constant(true), recipe: UserStore().recipes[0], stepNumber: 1)
 			.environmentObject(UserStore())
 	}
 }
