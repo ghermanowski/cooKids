@@ -26,10 +26,7 @@ struct Creations: View {
 								} else {
 									Card(imageName: creations.first!.imageName, title: creations.first!.title)
 								}
-								
-//								LabelledImage(imageName: creations.first!.imageName, title: creations.first!.title)
 							}
-							
 						}
 					}
 				}
