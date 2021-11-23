@@ -12,6 +12,7 @@ struct cooKidsApp: App {
 	var body: some Scene {
 		WindowGroup {
 			Navigation()
+				.font(.system(.body, design: .rounded))
 				.environmentObject(UserStore())
 		}
 	}
