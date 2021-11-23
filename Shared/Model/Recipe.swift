@@ -7,7 +7,19 @@
 
 import Foundation
 
-struct Recipe: Identifiable {
+struct Recipe: Identifiable, Comparable {
+	static func < (first: Recipe, second: Recipe) -> Bool {
+		if first.requiredTrophyProgress != second.requiredTrophyProgress {
+			return first.requiredTrophyProgress < second.requiredTrophyProgress
+		} else {
+			return first.title < second.title
+		}
+	}
+	
+	static func == (first: Recipe, second: Recipe) -> Bool {
+		first.id == second.id
+	}
+	
 	var id: String { title }
 	let title: String
 	var ingredients: [Ingredient]

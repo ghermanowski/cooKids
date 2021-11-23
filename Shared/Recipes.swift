@@ -23,7 +23,11 @@ struct Recipes: View {
 							
 							ScrollView(.horizontal, showsIndicators: false) {
 								HStack(spacing: 30) {
-									ForEach(userStore.recipes.filter { $0.category == category }) { recipe in
+									let recipes = userStore.recipes
+										.filter { $0.category == category }
+										.sorted()
+									
+									ForEach(recipes) { recipe in
 										RecipeCard(recipe: recipe)
 									}
 								}
