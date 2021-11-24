@@ -73,12 +73,6 @@ struct RecipeIntroView: View {
 				}
 			}
 		}
-		.background {
-			Image("Background")
-				.resizable()
-				.scaledToFill()
-				.opacity(0.3)
-		}
 	}
 }
 
