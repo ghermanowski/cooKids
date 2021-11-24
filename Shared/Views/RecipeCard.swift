@@ -8,9 +8,15 @@
 import SwiftUI
 
 struct RecipeCard: View {
+	internal init(recipe: Recipe, hideStartButton: Bool = false) {
+		self.recipe = recipe
+		self.hideStartButton = hideStartButton
+	}
+	
 	@EnvironmentObject private var userStore: UserStore
 	
 	let recipe: Recipe
+	let hideStartButton: Bool
 	
 	@State private var showSteps = false
 	
@@ -65,7 +71,7 @@ struct RecipeCard: View {
 			}
 			.fullScreenCover(isPresented: $showSteps) {
 				NavigationView {
-					RecipeIntroView(isPresented: $showSteps, recipe: recipe)
+					RecipeIntroView(isPresented: $showSteps, recipe: recipe, hideStartButton: hideStartButton)
 				}
 			}
 	}

@@ -64,7 +64,7 @@ struct FinalProgressView: View {
 						ScrollView(.horizontal, showsIndicators: false) {
 							HStack(spacing: 30) {
 								ForEach(unlockedRecipes) { recipe in
-									RecipeCard(recipe: recipe)
+									RecipeCard(recipe: recipe, hideStartButton: true)
 								}
 							}
 							.padding(.horizontal, 30)

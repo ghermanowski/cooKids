@@ -13,6 +13,7 @@ struct RecipeIntroView: View {
 	@Binding var isPresented: Bool
 	
 	let recipe: Recipe
+	let hideStartButton: Bool
 	
 	var body: some View {
 		ScrollView {
@@ -57,21 +58,23 @@ struct RecipeIntroView: View {
 			}
 		}
 		.safeAreaInset(edge: .bottom) {
-			NavigationLink {
-				Ingredients(isPresented: $isPresented, recipe: recipe)
-			} label: {
-				RoundedRectangle(cornerRadius: 10)
-					.fill(.orange)
-					.frame(maxWidth: .infinity, maxHeight: 60)
-			}
-			.padding(20)
-			.background(.ultraThinMaterial)
-			.shadow(color: .clear, radius: .zero)
-			.shadow(radius: 4, y: -2)
-			.overlay {
-				Text("Start")
-					.foregroundColor(.white)
-					.font(.system(size: 24, weight: .bold, design: .rounded))
+			if !hideStartButton {
+				NavigationLink {
+					Ingredients(isPresented: $isPresented, recipe: recipe)
+				} label: {
+					RoundedRectangle(cornerRadius: 10)
+						.fill(.orange)
+						.frame(maxWidth: .infinity, maxHeight: 60)
+				}
+				.padding(20)
+				.background(.ultraThinMaterial)
+				.shadow(color: .clear, radius: .zero)
+				.shadow(radius: 4, y: -2)
+				.overlay {
+					Text("Start")
+						.foregroundColor(.white)
+						.font(.system(size: 24, weight: .bold, design: .rounded))
+				}
 			}
 		}
 		.background {
@@ -85,7 +88,7 @@ struct RecipeIntroView: View {
 
 struct RecipeIntroView_Previews: PreviewProvider {
 	static var previews: some View {
-		RecipeIntroView(isPresented: .constant(true), recipe: UserStore().recipes[0])
+		RecipeIntroView(isPresented: .constant(true), recipe: UserStore().recipes[0], hideStartButton: false)
 			.environmentObject(UserStore())
 	}
 }
