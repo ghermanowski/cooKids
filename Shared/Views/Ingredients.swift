@@ -44,12 +44,17 @@ struct Ingredients: View {
 		.toolbar {
 			ToolbarItem(placement: .navigationBarTrailing) {
 				Button {
-					showAlert.toggle()
+					if ingredientsStates.contains(true) {
+						showAlert.toggle()
+					} else {
+						isPresented.toggle()
+					}
 				} label: {
-					Image(systemName: "xmark")
+					Image(systemName: ingredientsStates.contains(true) ? "xmark.circle.fill" : "chevron.down")
 						.font(.system(.headline, design: .rounded).weight(.heavy))
-						.foregroundColor(.red)
+						.symbolRenderingMode(ingredientsStates.contains(true) ? .hierarchical : .monochrome)
 				}
+				.tint(.white)
 				.confirmationDialog("Are you sure you want to stop? You will lose your progress.",
 									isPresented: $showAlert,
 									titleVisibility: .visible) {

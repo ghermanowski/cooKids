@@ -31,7 +31,7 @@ struct IngredientsList: View {
 	let withChecking : Bool
 	
 	var body: some View {
-		VStack(alignment: .leading, spacing: 5) {
+		VStack(alignment: .leading, spacing: 10) {
 			ForEach(0..<ingredients.count, id: \.self) { index in
 				HStack(spacing: 20) {
 					Label {
@@ -40,6 +40,7 @@ struct IngredientsList: View {
 					} icon: {
 						Text(ingredients[index].icon)
 					}
+					.font(.system(.title3, design: .rounded))
 					
 					Spacer()
 					
@@ -49,6 +50,7 @@ struct IngredientsList: View {
 						} label: {
 							Image(systemName: ingredientsStates[index] ? "checkmark.circle.fill" : "checkmark.circle")
 								.font(.headline)
+								.imageScale(.large)
 						}
 						.tint(ingredientsStates[index] ? .accentColor : .accentColor.opacity(0.33))
 					}
