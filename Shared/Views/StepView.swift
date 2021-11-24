@@ -76,12 +76,7 @@ struct StepView: View {
 			.shadow(color: .clear, radius: .zero)
 			.shadow(radius: 4, y: -2)
 		}
-		.background {
-			Image("Background")
-				.resizable()
-				.scaledToFill()
-				.opacity(0.3)
-		}
+		.backgroundImage()
 	}
 }
 
