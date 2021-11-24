@@ -16,10 +16,10 @@ struct TrophyRecipes: View {
 		ScrollView(.vertical) {
 			VStack(spacing: 30) {
 				ForEach(userStore.recipes.filter { $0.trophies.contains(trophy) }) { recipe in
-					RecipeCard(recipe: recipe)
+					RecipeCard(recipe: recipe, isFullWidth: true)
 				}
 			}
-			.frame(width: UIScreen.screens.first?.bounds.width)
+			.frame(width: UIScreen.main.bounds.width)
 			.padding(.vertical, 20)
 			.padding(.bottom, 10)
 		}

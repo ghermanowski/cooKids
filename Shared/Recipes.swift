@@ -15,7 +15,7 @@ struct Recipes: View {
 			ScrollView(.vertical) {
 				LazyVStack(alignment: .leading, spacing: 30) {
 					ForEach(Recipe.Category.allCases) { category in
-						VStack(alignment: .leading, spacing: 10) {
+						VStack(alignment: .leading, spacing: .zero) {
 							Text(category.title)
 								.font(.system(.title, design: .rounded).weight(.medium))
 								.padding(.leading, 20)
@@ -31,7 +31,7 @@ struct Recipes: View {
 									}
 								}
 								.padding(.horizontal, 30)
-								.padding(.vertical, 10)
+								.padding(.vertical, 15)
 							}
 						}
 					}

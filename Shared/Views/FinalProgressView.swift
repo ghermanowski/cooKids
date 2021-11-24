@@ -56,7 +56,7 @@ struct FinalProgressView: View {
 				}
 				
 				if !unlockedRecipes.isEmpty {
-					VStack(alignment: .leading, spacing: 10) {
+					VStack(alignment: .leading, spacing: .zero) {
 						Text("New recipes unlocked:")
 							.font(.system(.title, design: .rounded).weight(.medium))
 							.padding(.leading, 20)
@@ -68,7 +68,7 @@ struct FinalProgressView: View {
 								}
 							}
 							.padding(.horizontal, 30)
-							.padding(.vertical, 10)
+							.padding(.vertical, 15)
 						}
 					}
 				}

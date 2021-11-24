@@ -8,31 +8,33 @@
 import SwiftUI
 
 struct RecipeCard: View {
-	internal init(recipe: Recipe, hideStartButton: Bool = false) {
+	internal init(recipe: Recipe, hideStartButton: Bool = false, isFullWidth: Bool = false) {
 		self.recipe = recipe
 		self.hideStartButton = hideStartButton
+		self.isFullWidth = isFullWidth
 	}
 	
 	@EnvironmentObject private var userStore: UserStore
 	
 	let recipe: Recipe
 	let hideStartButton: Bool
+	let isFullWidth: Bool
 	
 	@State private var showSteps = false
 	
 	func trophyCount(count: Int, showUnlockText: Bool) -> some View {
 		HStack(alignment: .firstTextBaseline) {
 			Text(count.formatted())
-				.shadow(color: .orange, radius: 2)
+				.shadow(color: .orange, radius: 2, y: 1)
 			
 			Image(systemName: "crown.fill")
 				.imageScale(.small)
 				.padding(8)
-				.background(Circle().fill(.orange).shadow(radius: 4))
+				.background(Circle().fill(.orange).shadow(radius: 4, y: 2))
 			
 			if showUnlockText {
 				Text("to unlock")
-					.shadow(color: .orange, radius: 2)
+					.shadow(color: .orange, radius: 2, y: 1)
 			}
 		}
 		.font(.system(.title, design: .rounded).weight(.heavy))
@@ -42,7 +44,7 @@ struct RecipeCard: View {
 	}
 	
 	var body: some View {
-		Card(imageName: recipe.imageName, title: recipe.title)
+		Card(imageName: recipe.imageName, title: recipe.title, isFullWidth: isFullWidth)
 			.overlay(alignment: .topTrailing) {
 				if !recipe.trophies.isEmpty {
 					trophyCount(count: recipe.trophies.count, showUnlockText: false)
@@ -54,7 +56,7 @@ struct RecipeCard: View {
 						Image(systemName: "lock.fill")
 							.foregroundColor(Color.white)
 							.font(.system(size: 72).weight(.bold))
-							.shadow(color: .orange.opacity(0.75), radius: 6)
+							.shadow(color: .orange.opacity(0.75), radius: 6, y: 3)
 							.padding(.vertical, 12)
 						
 						trophyCount(count: recipe.requiredTrophyProgress - userStore.totalTrophyProgress, showUnlockText: true)

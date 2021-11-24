@@ -22,18 +22,16 @@ struct Creations: View {
 								CreationsHistory(recipeTitle: recipeTitle)
 							} label: {
 								if let photo = creations.first!.photo {
-									Card(uiImage: photo, title: creations.first!.title)
+									Card(uiImage: photo, title: creations.first!.title, isFullWidth: true)
 								} else {
-									Card(imageName: creations.first!.imageName, title: creations.first!.title)
+									Card(imageName: creations.first!.imageName, title: creations.first!.title, isFullWidth: true)
 								}
 							}
 						}
 					}
 				}
-				.frame(width: UIScreen.screens.first?.bounds.width)
-				.padding(.vertical, 20)
-				.padding(.bottom, 10)
-				
+				.frame(width: UIScreen.main.bounds.width)
+				.padding(.vertical, 30)
 			}
 			.navigationTitle("Creations")
 		}

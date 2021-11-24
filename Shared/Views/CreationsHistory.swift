@@ -17,15 +17,14 @@ struct CreationsHistory: View {
 			VStack(spacing: 30) {
 				ForEach(userStore.creationsPhotos.filter { $0.recipeTitle == recipeTitle }) { creationPhoto in
 					if let photo = creationPhoto.photo {
-						Card(uiImage: photo, title: creationPhoto.title)
+						Card(uiImage: photo, title: creationPhoto.title, isFullWidth: true)
 					} else {
-					Card(imageName: creationPhoto.imageName, title: creationPhoto.title)
+						Card(imageName: creationPhoto.imageName, title: creationPhoto.title, isFullWidth: true)
 					}
 				}
 			}
-			.frame(width: UIScreen.screens.first?.bounds.width)
-			.padding(.vertical, 20)
-			.padding(.bottom, 10)
+			.frame(width: UIScreen.main.bounds.width)
+			.padding(.vertical, 30)
 		}
 		.navigationTitle(recipeTitle.rawValue)
 	}

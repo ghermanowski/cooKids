@@ -24,9 +24,9 @@ struct StepImage: View {
 			.scaledToFill()
 			.mask {
 				Rectangle()
-					.frame(width: UIScreen.screens.first?.bounds.width, height: 230)
+					.frame(width: UIScreen.main.bounds.width, height: 230)
 			}
-			.frame(width: UIScreen.screens.first?.bounds.width, height: 230)
+			.frame(width: UIScreen.main.bounds.width, height: 230)
 		}
 }
 
