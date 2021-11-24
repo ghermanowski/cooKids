@@ -36,6 +36,7 @@
 		95E8A2DE274ACEAA000B71B8 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E8A2DC274ACEAA000B71B8 /* ImagePickerView.swift */; };
 		F51B47C3274CECD1003973CB /* TrophyRecipes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51B47C2274CECD1003973CB /* TrophyRecipes.swift */; };
 		F51B47C4274CECD1003973CB /* TrophyRecipes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51B47C2274CECD1003973CB /* TrophyRecipes.swift */; };
+		F56B9891274D99C60012892A /* Ingredients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951A98AB274B99DA0081925F /* Ingredients.swift */; };
 		F5B615222743BEE100AD47C6 /* cooKidsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B615122743BEDF00AD47C6 /* cooKidsApp.swift */; };
 		F5B615232743BEE100AD47C6 /* cooKidsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B615122743BEDF00AD47C6 /* cooKidsApp.swift */; };
 		F5B615262743BEE100AD47C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5B615142743BEE100AD47C6 /* Assets.xcassets */; };
@@ -321,6 +322,7 @@
 				F5B615232743BEE100AD47C6 /* cooKidsApp.swift in Sources */,
 				950C21D22746572300021FCD /* StepsImage.swift in Sources */,
 				F5CDD65C2747A7350082A764 /* Navigation.swift in Sources */,
+				F56B9891274D99C60012892A /* Ingredients.swift in Sources */,
 				95604C9827481F1400B7F235 /* CreationsHistory.swift in Sources */,
 				950C21CF274656EF00021FCD /* BigButtonBottom.swift in Sources */,
 				951A98AF274BA4C50081925F /* StepsView.swift in Sources */,

@@ -49,10 +49,11 @@ struct StepsView: View {
 				Button {
 					showAlert.toggle()
 				} label: {
-					Image(systemName: "xmark")
+					Image(systemName: "xmark.circle.fill")
 						.font(.system(.headline, design: .rounded).weight(.heavy))
-						.foregroundColor(.red)
+						.symbolRenderingMode(.hierarchical)
 				}
+				.tint(.white)
 				.confirmationDialog("Are you sure you want to stop? You will lose your progress.",
 									isPresented: $showAlert,
 									titleVisibility: .visible) {
