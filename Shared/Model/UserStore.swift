@@ -39,11 +39,11 @@ class UserStore: ObservableObject {
 	@Published var creationsRecipe = [Creation]()
 	@Published var creationsPhotos = [Creation]()
 	
-	var creations = [Creation(recipeTitle: .nutellaCrepes, date: Date.now.advanced(by: -86400), imageName: "crepes1"),
-					 Creation(recipeTitle: .nutellaCrepes, date: Date.now.advanced(by: -604800), imageName: "crepes2"),
-					 Creation(recipeTitle: .nutellaCrepes, date: Date.now.advanced(by: -1987200), imageName: "crepes3")]
-//					 Creation(recipeTitle: .berryQuark, date: Date.now.advanced(by: -691200), imageName: "berryQuarkImage"),
-//					 Creation(recipeTitle: .muffins, date: Date.now.advanced(by: -259200), imageName: "muffins")]
+	var creations = [Creation(recipeTitle: .nutellaCrepes, date: .now.advanced(by: -86400), imageName: "crepes1"),
+					 Creation(recipeTitle: .nutellaCrepes, date: .now.advanced(by: -604800), imageName: "crepes2"),
+					 Creation(recipeTitle: .nutellaCrepes, date: .now.advanced(by: -1987200), imageName: "crepes3"),
+					 Creation(recipeTitle: .berryQuark, date: .now.advanced(by: -691200), imageName: "BerryQuarkCreation"),
+					 Creation(recipeTitle: .muffins, date: .now.advanced(by: -259200), imageName: "CranberryMuffinsCreation")]
 	
 	let recipes = [
 		
