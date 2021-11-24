@@ -15,7 +15,12 @@ struct TrophyRecipes: View {
 	var body: some View {
 		ScrollView(.vertical) {
 			VStack(spacing: 30) {
-				ForEach(userStore.recipes.filter { $0.trophies.contains(trophy) }) { recipe in
+				let recipes = userStore.recipes.filter {
+					$0.trophies.contains(trophy) &&
+						$0.requiredTrophyProgress < userStore.totalTrophyProgress
+				}
+				
+				ForEach(recipes) { recipe in
 					RecipeCard(recipe: recipe, isFullWidth: true)
 				}
 			}
