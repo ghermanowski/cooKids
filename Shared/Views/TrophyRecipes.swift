@@ -17,7 +17,7 @@ struct TrophyRecipes: View {
 			VStack(spacing: 30) {
 				let recipes = userStore.recipes.filter {
 					$0.trophies.contains(trophy) &&
-						$0.requiredTrophyProgress < userStore.totalTrophyProgress
+						$0.requiredTrophyProgress <= userStore.totalTrophyProgress
 				}
 				
 				ForEach(recipes) { recipe in

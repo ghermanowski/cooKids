@@ -52,7 +52,7 @@ struct FinalProgressView: View {
 				
 				let unlockedRecipes = userStore.recipes.filter {
 					$0.requiredTrophyProgress > previousTotalTrophyProgress &&
-						$0.requiredTrophyProgress < userStore.totalTrophyProgress
+						$0.requiredTrophyProgress <= userStore.totalTrophyProgress
 				}
 				
 				if !unlockedRecipes.isEmpty {
