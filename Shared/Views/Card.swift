@@ -29,7 +29,7 @@ struct Card: View {
 			.cornerRadius(32)
 			.shadow(color: Color.black.opacity(0.3), radius: 20, x: 0, y: 10)
 			.shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 2)
-			.overlay(LinearGradient(gradient: Gradient(colors: [.white.opacity(0),.gray.opacity(0.1), .black.opacity(0), .black.opacity(0), .black.opacity(0.2), .black.opacity(0.55)]), startPoint: .top, endPoint: .bottom))
+			.overlay(LinearGradient(gradient: Gradient(colors: [.white.opacity(0),.gray.opacity(0.1), .black.opacity(0), .black.opacity(0), .black.opacity(0.2), .black.opacity(0.55)]), startPoint: .top, endPoint: .bottom).cornerRadius(32))
 			.overlay(alignment: .bottomLeading) {
 				Text(title)
 					.multilineTextAlignment(.leading)
