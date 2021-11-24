@@ -16,7 +16,7 @@ struct Creations: View {
 			ScrollView(.vertical) {
 				VStack(spacing: 30) {
 					ForEach(Creation.RecipeTitle.allCases) { recipeTitle in
-						if let creations = userStore.creationsRecipe.filter { $0.recipeTitle == recipeTitle },
+						if let creations = userStore.creationsRecipe.filter { $0.recipeTitle == recipeTitle }.sorted { $0.date > $1.date },
 						!creations.isEmpty {
 							NavigationLink {
 								CreationsHistory(recipeTitle: recipeTitle)

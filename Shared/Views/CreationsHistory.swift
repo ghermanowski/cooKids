@@ -15,7 +15,7 @@ struct CreationsHistory: View {
 	var body: some View {
 		ScrollView(.vertical) {
 			VStack(spacing: 30) {
-				ForEach(userStore.creationsPhotos.filter { $0.recipeTitle == recipeTitle }) { creationPhoto in
+				ForEach(userStore.creationsPhotos.filter { $0.recipeTitle == recipeTitle }.sorted { $0.date > $1.date }) { creationPhoto in
 					if let photo = creationPhoto.photo {
 						Card(uiImage: photo, title: creationPhoto.title, isFullWidth: true)
 					} else {
