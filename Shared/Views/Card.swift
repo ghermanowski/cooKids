@@ -27,7 +27,8 @@ struct Card: View {
 			.scaledToFill()
 			.frame(width: 290, height: 195)
 			.cornerRadius(32)
-			.shadow(radius: 5)
+			.shadow(color: Color.black.opacity(0.3), radius: 20, x: 0, y: 10)
+			.shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 2)
 			.overlay(alignment: .bottomLeading) {
 				Text(title)
 					.multilineTextAlignment(.leading)
