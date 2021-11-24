@@ -63,7 +63,7 @@ struct RecipeCard: View {
 					showSteps.toggle()
 				}
 			}
-			.sheet(isPresented: $showSteps) {
+			.fullScreenCover(isPresented: $showSteps) {
 				NavigationView {
 					RecipeIntroView(isPresented: $showSteps, recipe: recipe)
 				}
