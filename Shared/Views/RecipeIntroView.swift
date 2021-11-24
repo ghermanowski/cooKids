@@ -17,10 +17,8 @@ struct RecipeIntroView: View {
 	
 	var body: some View {
 		ScrollView {
-			VStack(spacing: 30) {
-				StepsImage(image: recipe.imageName, introOrNot: true)
-					.padding(.top, 30)
-					.padding(.bottom, 10)
+			VStack(alignment: .leading, spacing: 30) {
+				StepImage(imageName: recipe.imageName)
 				
 				LazyVGrid(columns: Array(repeating: .init(.flexible(minimum: .zero, maximum: .infinity),
 														  spacing: 20,
@@ -36,13 +34,11 @@ struct RecipeIntroView: View {
 					}
 				}
 				.padding(.horizontal)
+				.padding(.bottom, 20)
 				
-				Text("Ingredients")
-					.font(.system(size: 30, weight: .semibold, design: .rounded))
+				StepTitle("Ingredients")
 				
 				IngredientsList(ingredients: recipe.ingredients, withChecking: false)
-					.padding(.horizontal, 20)
-					.padding(.bottom, 20)
 			}
 		}
 		.navigationTitle(recipe.title)
