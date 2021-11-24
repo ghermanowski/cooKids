@@ -15,7 +15,7 @@ struct TakeAPictureView: View {
 	@Binding var isPresented : Bool
 	@State private var shouldGoNext = false
 	@State private var selectedImage: UIImage?
-	@State private var showImagePicker = false
+//	@State private var showImagePicker = false
 	@State private var showAlert = false
 	
 	let recipe: Recipe
@@ -106,7 +106,7 @@ struct TakeAPictureView: View {
 	
 	func openCamera() {
 		if UIImagePickerController.isSourceTypeAvailable(.camera) {
-			showImagePicker.toggle()
+			isImagePickerDisplay.toggle()
 		} else {
 			showAlert.toggle()
 		}
