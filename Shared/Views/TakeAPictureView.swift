@@ -12,6 +12,7 @@ struct TakeAPictureView: View {
 	@EnvironmentObject private var userStore: UserStore
 	
 	@Binding var isPresented : Bool
+	
 	@State private var shouldGoNext = false
 	@State private var selectedImage: UIImage?
 	@State private var showImagePicker = false
