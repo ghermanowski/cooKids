@@ -25,18 +25,18 @@ struct Ingredients: View {
 	
 	var body: some View {
 		ScrollView(.vertical) {
-			VStack(spacing: 30) {
+			VStack(alignment: .leading, spacing: 30) {
 				StepsImage(image: "step2bq", introOrNot: false)
-					.padding(.top, 30)
 				
-				Text("Take and measure ingredients")
-					.font(.system(.title2, design: .rounded))
-					.padding(.horizontal, 20)
+				Text("Get the Ingredients")
+					.font(.system(.title, design: .rounded).weight(.semibold))
+					.padding(.horizontal, 10)
 				
 				IngredientsList(ingredients: recipe.ingredients, ingredientsStates: $ingredientsStates)
-					.padding(.horizontal, 20)
-					.padding(.bottom, 30)
+					.padding(.horizontal, 5)
 			}
+			.padding(.horizontal, 20)
+			.padding(.vertical, 30)
 		}
 		.interactiveDismissDisabled(ingredientsStates.contains(true))
 		.navigationTitle("Ingredients")
