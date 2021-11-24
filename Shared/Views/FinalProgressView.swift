@@ -25,7 +25,7 @@ struct FinalProgressView: View {
 					.onAppear {
 						previousTotalTrophyProgress = userStore.totalTrophyProgress
 						
-						Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { _ in
+						Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { _ in
 							for trophy in recipe.trophies {
 								withAnimation {
 									userStore.trophies[trophy]!.count += 1
