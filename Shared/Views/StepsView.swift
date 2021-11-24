@@ -23,23 +23,18 @@ struct StepsView: View {
 				if let imageName = recipe.steps[stepNumber - 1].imageName {
 					StepsImage(image: imageName, introOrNot: false)
 						.frame(width: UIScreen.screens.first?.bounds.width)
-						.padding(.top, 30)
 				}
 				
-				HStack {
-					Spacer()
-					
-					Text(recipe.steps[stepNumber - 1].title)
-						.font(.system(.title, design: .rounded))
-						.padding(.horizontal, 20)
-					
-					Spacer()
-				}
+				Text(recipe.steps[stepNumber - 1].title)
+					.font(.system(.title, design: .rounded).weight(.semibold))
+					.padding(.horizontal, 30)
 				
 				Text(recipe.steps[stepNumber - 1].body)
-					.font(.system(.title2, design: .rounded))
+					.font(.system(.title3, design: .rounded))
 					.padding(.horizontal, 30)
 			}
+			.padding(.horizontal, 20)
+			.padding(.vertical, 30)
 		}
 		.interactiveDismissDisabled()
 		.navigationTitle("Step \(stepNumber)")
