@@ -11,42 +11,24 @@ import UIKit
 struct TakeAPictureView: View {
 	@EnvironmentObject private var userStore: UserStore
 	
-	@State private var isImagePickerDisplay = false
 	@Binding var isPresented : Bool
 	@State private var shouldGoNext = false
 	@State private var selectedImage: UIImage?
-//	@State private var showImagePicker = false
+	@State private var showImagePicker = false
 	@State private var showAlert = false
 	
 	let recipe: Recipe
 	
 	var body: some View {
 		ScrollView {
-			VStack(spacing: 30) {
+			VStack(alignment: .leading, spacing: 30) {
 				if let selectedImage = selectedImage {
-					Image(uiImage: selectedImage)
-						.resizable()
-						.scaledToFill()
-						.frame(width: ((UIScreen.screens.first?.bounds.width)! - 40), height: 230)
-						.mask({
-							RoundedRectangle(cornerRadius: 40)
-								.frame(width: ((UIScreen.screens.first?.bounds.width)! - 40), height: 230)
-						})
-						.overlay(RoundedRectangle(cornerRadius: 40).stroke(lineWidth: 3).foregroundColor(.gray))
-						.padding(.horizontal, 20)
-						.padding(.top, 30)
-						.frame(width: UIScreen.screens.first?.bounds.width)
+					StepImage(uiImage: selectedImage)
 				} else {
-					StepsImage(image: "takePicture", introOrNot: false)
-						.padding(.top, 30)
-						.frame(width: UIScreen.screens.first?.bounds.width)
+					StepImage(imageName: "takePicture")
 				}
 				
-				Text("Good Job!")
-					.font(.system(.title, design: .rounded))
-				
-				Text(selectedImage == nil ? "Take a picture of your creation!" : "Nice creation!")
-					.font(.system(.title2, design: .rounded))
+				StepTitle(selectedImage == nil ? "Take a Picture of Your Creation!" : "Nice Creation!")
 			}
 		}
 		.interactiveDismissDisabled()
@@ -96,7 +78,7 @@ struct TakeAPictureView: View {
 				.scaledToFill()
 				.opacity(0.3)
 		}
-		.sheet(isPresented: self.$isImagePickerDisplay) {
+		.sheet(isPresented: self.$showImagePicker) {
 			ImagePickerView(selectedImage: $selectedImage)
 		}
 		.alert("Camera not available", isPresented: $showAlert) {
@@ -106,7 +88,7 @@ struct TakeAPictureView: View {
 	
 	func openCamera() {
 		if UIImagePickerController.isSourceTypeAvailable(.camera) {
-			isImagePickerDisplay.toggle()
+			showImagePicker.toggle()
 		} else {
 			showAlert.toggle()
 		}

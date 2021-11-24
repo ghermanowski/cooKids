@@ -25,17 +25,12 @@ struct Ingredients: View {
 	
 	var body: some View {
 		ScrollView(.vertical) {
-			VStack(spacing: 30) {
-				StepsImage(image: "step2bq", introOrNot: false)
-					.padding(.top, 30)
+			VStack(alignment: .leading, spacing: 30) {
+				StepImage(imageName: "step2bq")
 				
-				Text("Take and measure ingredients")
-					.font(.system(.title2, design: .rounded))
-					.padding(.horizontal, 20)
+				StepTitle("Get the Ingredients")
 				
 				IngredientsList(ingredients: recipe.ingredients, ingredientsStates: $ingredientsStates)
-					.padding(.horizontal, 20)
-					.padding(.bottom, 30)
 			}
 		}
 		.interactiveDismissDisabled(ingredientsStates.contains(true))
@@ -66,7 +61,7 @@ struct Ingredients: View {
 		}
 		.safeAreaInset(edge: .bottom) {
 			NavigationLink {
-				StepsView(isPresented: $isPresented, recipe: recipe, stepNumber: 1)
+				StepView(isPresented: $isPresented, recipe: recipe, stepNumber: 1)
 			} label: {
 				RoundedRectangle(cornerRadius: 10)
 					.frame(maxWidth: .infinity, maxHeight: 60)

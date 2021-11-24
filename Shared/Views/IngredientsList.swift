@@ -31,7 +31,7 @@ struct IngredientsList: View {
 	let withChecking : Bool
 	
 	var body: some View {
-		VStack(alignment: .leading, spacing: 10) {
+		VStack(alignment: .leading) {
 			ForEach(0..<ingredients.count, id: \.self) { index in
 				HStack(spacing: 20) {
 					Label {
@@ -41,6 +41,7 @@ struct IngredientsList: View {
 						Text(ingredients[index].icon)
 					}
 					.font(.system(.title3, design: .rounded))
+					.padding(.leading, 5)
 					
 					Spacer()
 					
@@ -58,6 +59,8 @@ struct IngredientsList: View {
 				.padding(.vertical, 8)
 			}
 		}
+		.padding(.horizontal, 20)
+		.padding(.bottom, 30)
 	}
 }
 

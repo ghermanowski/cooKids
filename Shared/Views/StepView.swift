@@ -1,5 +1,5 @@
 //
-//  StepsView.swift
+//  StepView.swift
 //  cooKids
 //
 //  Created on 22/11/21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct StepsView: View {
+struct StepView: View {
 	@EnvironmentObject private var userStore: UserStore
 	
 	@Binding var isPresented: Bool
@@ -21,24 +21,15 @@ struct StepsView: View {
 		ScrollView {
 			VStack(alignment: .leading, spacing: 30) {
 				if let imageName = recipe.steps[stepNumber - 1].imageName {
-					StepsImage(image: imageName, introOrNot: false)
-						.frame(width: UIScreen.screens.first?.bounds.width)
-						.padding(.top, 30)
+					StepImage(imageName: imageName)
 				}
 				
-				HStack {
-					Spacer()
-					
-					Text(recipe.steps[stepNumber - 1].title)
-						.font(.system(.title, design: .rounded))
-						.padding(.horizontal, 20)
-					
-					Spacer()
-				}
+				StepTitle(recipe.steps[stepNumber - 1].title)
 				
 				Text(recipe.steps[stepNumber - 1].body)
-					.font(.system(.title2, design: .rounded))
+					.font(.system(.title3, design: .rounded))
 					.padding(.horizontal, 30)
+					.padding(.bottom, 30)
 			}
 		}
 		.interactiveDismissDisabled()
@@ -66,7 +57,7 @@ struct StepsView: View {
 		.safeAreaInset(edge: .bottom) {
 			NavigationLink {
 				if stepNumber < recipe.steps.count {
-					StepsView(isPresented: $isPresented, recipe: recipe, stepNumber: stepNumber + 1)
+					StepView(isPresented: $isPresented, recipe: recipe, stepNumber: stepNumber + 1)
 				} else {
 					TakeAPictureView(isPresented: $isPresented, recipe: recipe)
 				}
@@ -94,9 +85,9 @@ struct StepsView: View {
 	}
 }
 
-struct StepsView_Previews: PreviewProvider {
+struct StepView_Previews: PreviewProvider {
 	static var previews: some View {
-		StepsView(isPresented: .constant(true), recipe: UserStore().recipes[0], stepNumber: 1)
+		StepView(isPresented: .constant(true), recipe: UserStore().recipes[0], stepNumber: 1)
 			.environmentObject(UserStore())
 	}
 }
