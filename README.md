@@ -15,7 +15,3 @@ cooKids introduces children aged 8 to 10 to cooking with fun and easy recipes fe
 </div>
 
 Created at Apple Developer Academy Napoli
-
-### Technologies
-
-SwiftUI
